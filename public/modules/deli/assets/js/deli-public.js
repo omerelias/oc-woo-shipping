@@ -125,7 +125,7 @@
             update_selected_method_wrapper($(this));
             if($(this).val().substr(0, ('oc_woo_advanced_shipping_method').length) == 'oc_woo_advanced_shipping_method') {
                 show_shipping();
-                hide_pickup();
+                hide_pickup(); 
                 show_change_method();
                 hide_methods();
                 hide_submit_button();
