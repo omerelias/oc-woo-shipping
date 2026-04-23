@@ -2991,7 +2991,7 @@ class Oc_Woo_Shipping_Public {
 		if ( $dt->isSameDay( $tomorrow ) ) {
 			return $prefix . ' למחר';
 		}
-		return $prefix . ' ל־' . $dt->format( 'd.m.Y' );
+		return $prefix . ' ל־' . $dt->format( 'd/m' );
 	}
 
 	/**
