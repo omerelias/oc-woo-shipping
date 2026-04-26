@@ -1,6 +1,24 @@
 (function( $, ocws ) {
 	'use strict';
 
+	// checkout-blocks can fire `updated_checkout` in a jQuery ready that runs *before* this file’s
+	// `$(function(){...})` finishes, so the real `ocwsSyncCheckoutBlockShippingPopupConfirm` is not
+	// on `window` yet. Keep an eager function + run queued reasons once the impl exists.
+	/** @type {Function|null} */
+	window.__ocwsSyncShippingPopupImpl = null;
+	/** @type {string[]} */
+	window.__ocwsPendingMinBtnReasons = window.__ocwsPendingMinBtnReasons || [];
+	window.ocwsSyncCheckoutBlockShippingPopupConfirm = function( reason ) {
+		if ( typeof window.__ocwsSyncShippingPopupImpl === 'function' ) {
+			return window.__ocwsSyncShippingPopupImpl( reason );
+		}
+		if ( reason ) {
+			try {
+				window.__ocwsPendingMinBtnReasons.push( String( reason ) );
+			} catch (e) { /* ignore */ }
+		}
+	};
+
 	/**
 	 * All of the code for your public-facing JavaScript source
 	 * should reside in this file.
@@ -29,6 +47,26 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 	$(function() {
+
+		/**
+		 * Debug: checkout-block shipping min / confirm label (#checkout-block-popup--shipping).
+		 * Enable with one of: URL ?ocws_debug_min=1  |  localStorage ocws_debug_min=1  |  window.ocwsDebugCheckoutMinBtn = true
+		 * Disable: window.ocwsDebugCheckoutMinBtn = false
+		 */
+		function ocwsIsMinBtnDebug() {
+			if ( window.ocwsDebugCheckoutMinBtn === true ) {
+				return true;
+			}
+			if ( window.ocwsDebugCheckoutMinBtn === false ) {
+				return false;
+			}
+			try {
+				if ( window.localStorage && window.localStorage.getItem( 'ocws_debug_min' ) === '1' ) {
+					return true;
+				}
+			} catch (e) { /* ignore */ }
+			return /[?&]ocws_debug_min=1(?:&|$)/.test( String( window.location.search || '' ) );
+		}
 
 		/**
 		 * Auto-pick nearest/first available day+slot in shipping / pickup popup (Deliz + OCWS UX).
@@ -393,6 +431,116 @@
 
 		window.ocwsSyncMinTotalContinueUi = ocwsSyncMinTotalContinueUi;
 
+		/**
+		 * Deliz "checkout block" UI: shipping is edited inside #checkout-block-popup--shipping with a
+		 * <button class="checkout-block-popup__confirm"> (text node), not #checkout-popup-submit-btn / #choose-shipping.
+		 * Below min is rendered as #oc-woo-shipping-additional--message in checkout (see oc-woo-shipping-core-functions.php).
+		 */
+		function ocwsSyncCheckoutBlockShippingPopupConfirm( reason ) {
+			var dbg = ocwsIsMinBtnDebug() && window.console && console.log;
+			// Do not use only #checkout-block-popup--shipping: duplicate IDs in DOM = jQuery returns the first node only; user may see another instance.
+			var $blocks = $( '.checkout-block--shipping' );
+			if ( !$blocks.length ) {
+				if ( dbg ) {
+					console.log( '[OCWS min-btn] ocwsSyncCheckoutBlockShippingPopupConfirm', String( reason || '' ), { skip: 'no .checkout-block--shipping' } );
+				}
+				return;
+			}
+			var $btns = $blocks.find( '.checkout-block-popup .checkout-block-popup__confirm' );
+			if ( !$btns.length ) {
+				if ( dbg ) {
+					console.log( '[OCWS min-btn] ocwsSyncCheckoutBlockShippingPopupConfirm', String( reason || '' ), { skip: 'no .checkout-block-popup__confirm under shipping block', blockCount: $blocks.length } );
+				}
+				return;
+			}
+			var rawAdd = (ocws.localize && ocws.localize.messages && ocws.localize.messages.addMoreProductsContinue) ? String(ocws.localize.messages.addMoreProductsContinue).trim() : '';
+			var addMoreLabel = rawAdd || 'הוסף עוד מוצרים';
+			// Bad translation / filter can make this identical to the default "אישור" confirm string — avoid no-op.
+			if (addMoreLabel === 'אישור') {
+				addMoreLabel = 'הוסף עוד מוצרים';
+			}
+			var $form = $( 'form.checkout' );
+			if ( !$form.length ) {
+				$btns.each( function() {
+					var $btn = $( this );
+					if ( $btn.data( 'ocwsDefaultConfirmLabel' ) === undefined ) {
+						$btn.data( 'ocwsDefaultConfirmLabel', $.trim( $btn.text() ) );
+					}
+					$btn.text( $btn.data( 'ocwsDefaultConfirmLabel' ) );
+					$btn.removeClass( 'ocws-checkout-confirm--below-min' );
+				} );
+				$blocks.find( '.checkout-block-popup__actions' ).removeClass( 'ocws-popup-continue-row--below-min' );
+				$blocks.find( '#ocws-checkout-block-min-notice' ).empty().prop( 'hidden', true );
+				if ( dbg ) {
+					console.log( '[OCWS min-btn] ocwsSyncCheckoutBlockShippingPopupConfirm', String( reason || '' ), { skip: 'no form.checkout' } );
+				}
+				return;
+			}
+			var chosen = String( $form.find( 'input[name^="shipping_method"]:checked' ).val() || '' );
+			var chosenGlobal = String( $( '#shipping_method input[name^="shipping_method"]:checked' ).val() || '' );
+			var isAdvanced = chosen.indexOf( 'oc_woo_advanced_shipping_method' ) !== -1;
+			var $minMsg = $form.find( '#oc-woo-shipping-additional--message' );
+			var belowMin = isAdvanced && $minMsg.length > 0;
+			$btns.each( function() {
+				var $btn = $( this );
+				var el = this;
+				if ( $btn.data( 'ocwsDefaultConfirmLabel' ) === undefined ) {
+					$btn.data( 'ocwsDefaultConfirmLabel', $.trim( $btn.text() ) );
+				}
+				var defaultLabel = $btn.data( 'ocwsDefaultConfirmLabel' );
+				var nextText = belowMin ? addMoreLabel : defaultLabel;
+				if (el) {
+					el.textContent = nextText;
+				}
+				$btn.text( nextText );
+				$btn.attr( 'aria-label', nextText );
+				$btn.toggleClass( 'ocws-checkout-confirm--below-min', belowMin );
+			} );
+			var $notice = $blocks.find( '#ocws-checkout-block-min-notice' );
+			if ( belowMin && $minMsg.length && $notice.length ) {
+				$minMsg.hide();
+				$notice.empty()
+					.append( $minMsg.find( '.first' ).clone() )
+					.append( $minMsg.find( '.second' ).clone() );
+				$notice.prop( 'hidden', false );
+			} else {
+				$minMsg.hide();
+				$notice.empty().prop( 'hidden', true );
+			}
+			$blocks.find( '.checkout-block-popup__actions' ).toggleClass( 'ocws-popup-continue-row--below-min', belowMin );
+			if ( dbg ) {
+				var firstBtn = $btns.first();
+				var el0 = firstBtn[0];
+				console.log( '[OCWS min-btn] ocwsSyncCheckoutBlockShippingPopupConfirm', String( reason || '' ), {
+					confirmButtonCount: $btns.length,
+					shippingBlockCount: $blocks.length,
+					byIdCount: $( '#checkout-block-popup--shipping' ).length,
+					chosenInForm: chosen,
+					chosenInGlobal: chosenGlobal,
+					mismatch: chosen !== chosenGlobal,
+					isAdvanced: isAdvanced,
+					minMsgInForm: $minMsg.length,
+					minMsgGlobal: $( '#oc-woo-shipping-additional--message' ).length,
+					belowMin: belowMin,
+					addMoreLabelResolved: addMoreLabel,
+					addMoreFromPhp: (ocws.localize && ocws.localize.messages) ? ocws.localize.messages.addMoreProductsContinue : undefined,
+					firstButtonTextAfter: $.trim( firstBtn.text() ),
+					firstButtonTextContent: el0 ? String(el0.textContent || '') : ''
+				} );
+			}
+		}
+
+		window.__ocwsSyncShippingPopupImpl = ocwsSyncCheckoutBlockShippingPopupConfirm;
+		(function() {
+			var _pending = window.__ocwsPendingMinBtnReasons;
+			if ( _pending && _pending.length ) {
+				_pending.forEach( function( r ) {
+					ocwsSyncCheckoutBlockShippingPopupConfirm( r );
+				} );
+			}
+			window.__ocwsPendingMinBtnReasons = [];
+		})();
+
 		function ocwsPopupContinueIsReady(form) {
 			if (!form || !form.length) {
 				return false;
@@ -678,15 +826,15 @@
 					},
 					searching: function () {
 						return ocws.localize.select2.searching;
-					}
+					}  
 				};
 
 				var select2_args = {
 					//minimumResultsForSearch: 5,
 					//multiple: true,
 					//maximumSelectionSize: 1,
-					language: language,
-					ajax: {
+					language: language, 
+					ajax: { 
 						url: ocws.ajaxurl,
 						dataType: 'json',
 						delay: 150,
@@ -708,7 +856,7 @@
 						},
 						processResults: function (response) {
 							return {
-								results:response.data.results
+								results:response.data.results 
 							};
 						},
 						cache: false
@@ -813,33 +961,86 @@
 		// In case cart total under shipping required sum - it shows message, in this case if selected advanced shipping method > show checkout popup with additional buttons
 		$( document.body ).on( 'updated_checkout', function(response) {
 			let chosenShipping 	= $('#shipping_method input:checked').val();
-			if (!chosenShipping) return;
-			let notice 			= $('.show-shipping-block .important-notice');
-			let noticeHtml 		= notice.html();
-			let noticeMessage  = 'המינימום למשלוח עד הבית';
+			if (ocwsIsMinBtnDebug() && window.console && console.log) {
+				console.log( '[OCWS min-btn] updated_checkout:head', {
+					chosenFromShippingMethod: chosenShipping,
+					alt: $('form.checkout #shipping_method input:checked').val()
+				} );
+			}
+			if (!chosenShipping) {
+				ocwsSyncCheckoutBlockShippingPopupConfirm( 'updated_checkout:no_shipping' );
+				// After all updated_checkout handlers (e.g. deliz checkout-blocks re-init) — re-sync confirm label.
+				setTimeout( function() {
+					ocwsSyncCheckoutBlockShippingPopupConfirm( 'updated_checkout:no_shipping:deferred' );
+				}, 0 );
+				setTimeout( function() {
+					ocwsSyncCheckoutBlockShippingPopupConfirm( 'updated_checkout:no_shipping:deferred+50ms' );
+				}, 50 );
+				return;
+			}
+			// Min message exists in DOM only when cart < group min_total (see oc-woo-shipping-core-functions.php);
+			// do not depend on .show-shipping-block .important-notice (missing on checkout "block" layout).
 
 			// console.group( 'UPDATED CHECKOUT| without check notice' );
-			// console.groupEnd();
+			// console.groupEnd(); 
 			$('.ocws-checkout-choose-city-popup .inner-wrapper').unblock();
 
-			if ( chosenShipping.indexOf( 'oc_woo_advanced_shipping_method' ) != -1 ){
-				if (  notice.length && noticeHtml.indexOf( noticeMessage ) != -1  ){
-					let message  		=  $('#oc-woo-shipping-additional--message');
-					let messagePopup 	= message.html();
-					if ( message.length ){
-						$('.ocws-checkout-choose-city-popup .ajax-message').html( messagePopup );
-						$('.ocws-checkout-choose-city-popup').addClass('shown');
-						$('#checkout-popup-submit-btn').prop( 'disabled', false )
-						$('.ocws-checkout-choose-city-popup').removeClass('active-city-form');
-						$('.ocws-checkout-choose-city-popup').addClass('hide-cross');
-					}
-				}
-				if ( !notice.length ) {
-					$('.ocws-checkout-choose-city-popup').removeClass('shown');
-					$('.ocws-checkout-choose-city-popup').removeClass('hide-cross');
-
-				}
+			const $checkoutPopup = $('.ocws-checkout-choose-city-popup');
+			const $checkoutBtn = $('#checkout-popup-submit-btn');
+			if ($checkoutBtn.length && $checkoutBtn.data('ocwsDefaultContinueLabel') === undefined) {
+				$checkoutBtn.data('ocwsDefaultContinueLabel', $checkoutBtn.attr('value'));
 			}
+			const defaultLabel = $checkoutBtn.length ? ($checkoutBtn.data('ocwsDefaultContinueLabel') || $checkoutBtn.attr('value')) : '';
+			const addMoreLabel = (ocws.localize && ocws.localize.messages && ocws.localize.messages.addMoreProductsContinue) ? ocws.localize.messages.addMoreProductsContinue : 'הוסף עוד מוצרים';
+
+			const isAdvanced = chosenShipping.indexOf('oc_woo_advanced_shipping_method') !== -1;
+			const $message = $('form.checkout #oc-woo-shipping-additional--message');
+			const belowMin = !!(isAdvanced && $message.length);
+
+			if (ocwsIsMinBtnDebug() && window.console && console.log) {
+				console.log( '[OCWS min-btn] updated_checkout:min-state', { isAdvanced: isAdvanced, minMsgInCheckoutForm: $message.length, belowMin: belowMin } );
+			}
+
+			// Sync button label on legacy ocws "choose city" checkout popup (like #choose-shipping continue).
+			if ($checkoutBtn.length) {
+				$checkoutBtn.attr('value', belowMin ? addMoreLabel : defaultLabel);
+			}
+
+			// Theme checkout blocks: #checkout-block-popup--shipping confirm button.
+			ocwsSyncCheckoutBlockShippingPopupConfirm( 'updated_checkout' );
+			// deliz theme checkout-blocks.js runs setInitialBlockStates + initCheckoutBlocks on the same event after many plugins;
+			// that can replace/clone nodes or re-bind before our label sticks — run again after the task queue drains.
+			setTimeout( function() {
+				ocwsSyncCheckoutBlockShippingPopupConfirm( 'updated_checkout:deferred' );
+			}, 0 );
+			setTimeout( function() {
+				ocwsSyncCheckoutBlockShippingPopupConfirm( 'updated_checkout:deferred+50ms' );
+			}, 50 );
+
+			if (isAdvanced && belowMin) {
+				let messagePopup = $message.html();
+				$checkoutPopup.find('.ajax-message').html(messagePopup);
+				$checkoutPopup.addClass('shown');
+				$checkoutBtn.prop('disabled', false);
+				$checkoutPopup.removeClass('active-city-form');
+				$checkoutPopup.addClass('hide-cross');
+			}
+
+			// Close min-order city popup: pickup or no min message in DOM (cart reached min).
+			if (!isAdvanced || !$message.length) {
+				$checkoutPopup.removeClass('shown');
+				$checkoutPopup.removeClass('hide-cross');
+			}
+		});
+
+		$( document ).on( 'change', 'form.checkout input.shipping_method', function() {
+			var v = $(this).val();
+			if (ocwsIsMinBtnDebug() && window.console && console.log) {
+				console.log( '[OCWS min-btn] change shipping_method', { value: v } );
+			}
+			setTimeout(function () {
+				ocwsSyncCheckoutBlockShippingPopupConfirm( 'change:shipping_method' );
+			}, 0);
 		});
 
 		$( document.body ).on( 'updated_checkout', function(response) {

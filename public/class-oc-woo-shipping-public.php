@@ -150,6 +150,7 @@ class Oc_Woo_Shipping_Public {
 		wp_localize_script( $this->plugin_name, 'ocws',
 			array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'home_url' => esc_url( home_url( '/' ) ),
 				'woo_ajax_url'    => $woo_ajax_url,
 				'woo_wc_ajax_url' => $woo_wc_ajax_url,
 				'cart_is_empty' => (WC()->cart->is_empty()? 'yes' : 'no'),
