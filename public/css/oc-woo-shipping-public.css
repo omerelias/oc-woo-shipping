@@ -133,7 +133,7 @@ ul#shipping_method li label.disabled {
 }
 .slot-list-container .owl-prev.disabled,
 .slot-list-container .owl-next.disabled {
-   visibility: hidden;
+    visibility: hidden;
 }
 
 .slot-list-container .owl-carousel .owl-controls .owl-nav .owl-next {
@@ -212,7 +212,7 @@ input.date_picker_image {
 }
 
 .choose-shipping-popup .oc-woo-pickup-additional-title {
-/*    display: none;*/
+    /*    display: none;*/
 }
 
 .choose-shipping-popup .oc-woo-pickup-additional-title {
@@ -313,7 +313,7 @@ form.checkout span.error {
     text-align: right;
 }
 
- .ocws-checkout-choose-city-popup.choose-shipping-popup  #checkout-popup-submit-btn,
+.ocws-checkout-choose-city-popup.choose-shipping-popup  #checkout-popup-submit-btn,
 .ocws-checkout-choose-city-popup.choose-shipping-popup button.button.btn-primary,
 .ocws-checkout-choose-city-popup.choose-shipping-popup a.button {
     color: #000!important;
@@ -335,7 +335,7 @@ form.checkout span.error {
     display: block;
 }
 
-.active-city-form .pop-close, 
+.active-city-form .pop-close,
 .active-city-form  button.choose-city ,
 .active-city-form .additional-controlls {
     display: none;
@@ -354,7 +354,7 @@ form.checkout span.error {
 .choose-shipping-popup button.choose-city {
     border: none;
     color: #000;
-    background-color: transparent;   
+    background-color: transparent;
     text-decoration: underline;
 }
 
@@ -408,7 +408,7 @@ form.checkout span.error {
     .ocws-checkout-choose-city-popup.choose-shipping-popup  #checkout-popup-submit-btn,
     .ocws-checkout-choose-city-popup.choose-shipping-popup button.button.btn-primary,
     .ocws-checkout-choose-city-popup.choose-shipping-popup a.button {
-        padding: 5px 15px;   
+        padding: 5px 15px;
     }
 
 }
@@ -443,6 +443,8 @@ span.slot-weekday {
     box-sizing: border-box;
     border: 1.2px solid #D9D9D9;
     background: #fff;
+}
+.ocws-day-cards-slider .day-card.day-data.active {
 }
 .ocws-day-cards-slider .day-card__header a.day-first-column {
     border: none;
@@ -916,7 +918,7 @@ form#choose-shipping #popup-form-messages .error, form#choose-shipping #popup-sh
     height: auto;
     padding-bottom: 25px;
     border-radius: 4px;
-    min-height: 290px; 
+    min-height: 290px;
 }
 .choose-shipping-popup.ocws-popup .inner-wrapper .pop-close {
     display: none !important;

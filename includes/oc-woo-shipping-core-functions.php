@@ -53,7 +53,7 @@ function ocws_disabled($value, $options)
         return disabled(in_array((string)$value, $options, true), true, false);
     }
 
-	return disabled($value, $options, false);
+    return disabled($value, $options, false);
 }
 
 /**
@@ -63,29 +63,29 @@ function ocws_disabled($value, $options)
  * @return string
  */
 function ocws_popup_get_billing_field_value( $field_name ) {
-	if ( ! function_exists( 'WC' ) || ! WC()->checkout() ) {
-		return '';
-	}
-	$v = WC()->checkout()->get_value( $field_name );
-	if ( $v !== '' && $v !== null ) {
-		return is_string( $v ) ? $v : (string) $v;
-	}
-	if ( ! isset( WC()->session ) ) {
-		return '';
-	}
-	$session_map = array(
-		'billing_address_coords' => 'chosen_address_coords',
-		'billing_city_code'      => 'chosen_city_code',
-		'billing_city_name'      => 'chosen_city_name',
-		'billing_street'         => 'chosen_street',
-		'billing_house_num'      => 'chosen_house_num',
-		'billing_city'           => 'chosen_shipping_city',
-	);
-	if ( isset( $session_map[ $field_name ] ) ) {
-		$s = WC()->session->get( $session_map[ $field_name ], '' );
-		return ( $s !== null && $s !== '' ) ? (string) $s : '';
-	}
-	return '';
+    if ( ! function_exists( 'WC' ) || ! WC()->checkout() ) {
+        return '';
+    }
+    $v = WC()->checkout()->get_value( $field_name );
+    if ( $v !== '' && $v !== null ) {
+        return is_string( $v ) ? $v : (string) $v;
+    }
+    if ( ! isset( WC()->session ) ) {
+        return '';
+    }
+    $session_map = array(
+        'billing_address_coords' => 'chosen_address_coords',
+        'billing_city_code'      => 'chosen_city_code',
+        'billing_city_name'      => 'chosen_city_name',
+        'billing_street'         => 'chosen_street',
+        'billing_house_num'      => 'chosen_house_num',
+        'billing_city'           => 'chosen_shipping_city',
+    );
+    if ( isset( $session_map[ $field_name ] ) ) {
+        $s = WC()->session->get( $session_map[ $field_name ], '' );
+        return ( $s !== null && $s !== '' ) ? (string) $s : '';
+    }
+    return '';
 }
 
 /**
@@ -169,7 +169,7 @@ function ocws_kses_notice($message)
 
     return wp_kses($message, $allowed_tags);
 }
- 
+
 /**
  * Render all registered `ocws` checkout fields (slot hiddens + merged floor / apartment / entry code).
  * Shared by the full slots block and early `no-location` exits so address rows still appear in the popup.
@@ -177,38 +177,38 @@ function ocws_kses_notice($message)
  * @param array $post_data Parsed checkout POST (or `post_data` from AJAX `update_order_review`).
  */
 function ocws_render_ocws_checkout_fields_inner( $post_data ) {
-	if ( ! function_exists( 'WC' ) || ! WC()->checkout() ) {
-		return;
-	}
-	$checkout = WC()->checkout();
-	$fields   = $checkout->get_checkout_fields( 'ocws' );
-	if ( empty( $fields ) || ! is_array( $fields ) ) {
-		if ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
-			error_log( '[OCWS] ocws_render_ocws_checkout_fields_inner: no ocws checkout fields.' );
-		}
-		return;
-	}
-	$skip_address_extras = ! empty( $GLOBALS['ocws_ocws_inner_skip_address_extras'] );
-	$skip_keys           = (array) apply_filters(
-		'ocws_checkout_inner_skip_address_fields',
-		array( 'billing_floor', 'billing_apartment', 'billing_enter_code' )
-	);
-	foreach ( $fields as $key => $field ) {
-		if ( ! is_array( $field ) ) {
-			continue;
-		}
-		if ( $skip_address_extras && in_array( $key, $skip_keys, true ) ) {
-			continue;
-		}
-		$value = ocws_get_value( $key, $post_data );
-		if ( '' === $value ) {
-			$value = $checkout->get_value( $key );
-		}
-		if ( '' === $value && isset( $field['default'] ) ) {
-			$value = $field['default'];
-		}
-		woocommerce_form_field( $key, $field, $value );
-	}
+    if ( ! function_exists( 'WC' ) || ! WC()->checkout() ) {
+        return;
+    }
+    $checkout = WC()->checkout();
+    $fields   = $checkout->get_checkout_fields( 'ocws' );
+    if ( empty( $fields ) || ! is_array( $fields ) ) {
+        if ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+            error_log( '[OCWS] ocws_render_ocws_checkout_fields_inner: no ocws checkout fields.' );
+        }
+        return;
+    }
+    $skip_address_extras = ! empty( $GLOBALS['ocws_ocws_inner_skip_address_extras'] );
+    $skip_keys           = (array) apply_filters(
+        'ocws_checkout_inner_skip_address_fields',
+        array( 'billing_floor', 'billing_apartment', 'billing_enter_code' )
+    );
+    foreach ( $fields as $key => $field ) {
+        if ( ! is_array( $field ) ) {
+            continue;
+        }
+        if ( $skip_address_extras && in_array( $key, $skip_keys, true ) ) {
+            continue;
+        }
+        $value = ocws_get_value( $key, $post_data );
+        if ( '' === $value ) {
+            $value = $checkout->get_value( $key );
+        }
+        if ( '' === $value && isset( $field['default'] ) ) {
+            $value = $field['default'];
+        }
+        woocommerce_form_field( $key, $field, $value );
+    }
 }
 
 /**
@@ -217,44 +217,44 @@ function ocws_render_ocws_checkout_fields_inner( $post_data ) {
  * @param array $post_data Parsed POST or empty on first paint.
  */
 function ocws_render_address_extra_fields_for_popup( $post_data = array() ) {
-	if ( ! function_exists( 'WC' ) || ! WC()->checkout() ) {
-		return;
-	}
-	$checkout       = WC()->checkout();
-	$keys           = apply_filters(
-		'ocws_address_extra_popup_fields',
-		array( 'billing_floor', 'billing_apartment', 'billing_enter_code' )
-	);
-	$billing_fields = $checkout->get_checkout_fields( 'billing' );
-	ob_start();
-	foreach ( (array) $keys as $key ) {
-		if ( empty( $billing_fields[ $key ] ) || ! is_array( $billing_fields[ $key ] ) ) {
-			continue;
-		}
-		$field = $billing_fields[ $key ];
-		if ( isset( $field['class'] ) && is_array( $field['class'] ) ) {
-			$field['class'] = array_values( array_diff( $field['class'], array( 'ocws-hidden-form-field' ) ) );
-		}
-		if ( isset( $field['input_class'] ) && is_array( $field['input_class'] ) ) {
-			$field['input_class'] = array_values( array_diff( $field['input_class'], array( 'ocws-hidden-form-field-input' ) ) );
-		}
-		if ( isset( $field['type'] ) && 'hidden' === $field['type'] ) {
-			$field['type'] = 'text';
-		}
-		if ( isset( $field['custom_attributes']['readonly'] ) ) {
-			unset( $field['custom_attributes']['readonly'] );
-		}
-		$value = ocws_get_value( $key, $post_data );
-		if ( '' === $value ) {
-			$value = $checkout->get_value( $key );
-		}
-		woocommerce_form_field( $key, $field, $value );
-	}
-	$inner = trim( (string) ob_get_clean() );
-	if ( '' === $inner ) {
-		return;
-	}
-	echo '<div class="ocws-checkout-address-extras-pp">' . $inner . '</div>';
+    if ( ! function_exists( 'WC' ) || ! WC()->checkout() ) {
+        return;
+    }
+    $checkout       = WC()->checkout();
+    $keys           = apply_filters(
+        'ocws_address_extra_popup_fields',
+        array( 'billing_floor', 'billing_apartment', 'billing_enter_code' )
+    );
+    $billing_fields = $checkout->get_checkout_fields( 'billing' );
+    ob_start();
+    foreach ( (array) $keys as $key ) {
+        if ( empty( $billing_fields[ $key ] ) || ! is_array( $billing_fields[ $key ] ) ) {
+            continue;
+        }
+        $field = $billing_fields[ $key ];
+        if ( isset( $field['class'] ) && is_array( $field['class'] ) ) {
+            $field['class'] = array_values( array_diff( $field['class'], array( 'ocws-hidden-form-field' ) ) );
+        }
+        if ( isset( $field['input_class'] ) && is_array( $field['input_class'] ) ) {
+            $field['input_class'] = array_values( array_diff( $field['input_class'], array( 'ocws-hidden-form-field-input' ) ) );
+        }
+        if ( isset( $field['type'] ) && 'hidden' === $field['type'] ) {
+            $field['type'] = 'text';
+        }
+        if ( isset( $field['custom_attributes']['readonly'] ) ) {
+            unset( $field['custom_attributes']['readonly'] );
+        }
+        $value = ocws_get_value( $key, $post_data );
+        if ( '' === $value ) {
+            $value = $checkout->get_value( $key );
+        }
+        woocommerce_form_field( $key, $field, $value );
+    }
+    $inner = trim( (string) ob_get_clean() );
+    if ( '' === $inner ) {
+        return;
+    }
+    echo '<div class="ocws-checkout-address-extras-pp">' . $inner . '</div>';
 }
 
 function ocws_render_shipping_additional_fields()
@@ -428,17 +428,17 @@ function ocws_render_shipping_additional_fields()
         <div id="oc-woo-shipping-additional" class="no-location">
             <?php ocws_render_ocws_checkout_fields_inner( $post_data ); ?>
             <?php
-                if (ocws_use_google_cities_and_polygons() && isset($post_data['billing_address_coords']) && !empty($post_data['billing_address_coords'])) {
-                    $oos_message = ocws_get_multilingual_option('ocws_common_out_of_service_area_message');
-                    if (empty($oos_message)) {
-                        $general_options_defaults = OC_Woo_Shipping_Group_Option::get_general_options_defaults();
-                        if (isset($general_options_defaults['out_of_service_area_message'])) {
-                            $oos_message = $general_options_defaults['out_of_service_area_message'];
+            if (ocws_use_google_cities_and_polygons() && isset($post_data['billing_address_coords']) && !empty($post_data['billing_address_coords'])) {
+                $oos_message = ocws_get_multilingual_option('ocws_common_out_of_service_area_message');
+                if (empty($oos_message)) {
+                    $general_options_defaults = OC_Woo_Shipping_Group_Option::get_general_options_defaults();
+                    if (isset($general_options_defaults['out_of_service_area_message'])) {
+                        $oos_message = $general_options_defaults['out_of_service_area_message'];
 
-                            ?> <div class="slot-message oos-message" style="display:none;"><?php echo esc_html($oos_message); ?></div> <?php
-                        }
+                        ?> <div class="slot-message oos-message" style="display:none;"><?php echo esc_html($oos_message); ?></div> <?php
                     }
                 }
+            }
             ?>
         </div>
         <?php
@@ -489,13 +489,13 @@ function ocws_render_shipping_additional_fields()
     if ( strstr( $hebrew_title, '[X]') ) {
         $hebrew_title = str_replace('[X]', $price_for_shipping, $hebrew_title);
     }
-   
+
     if ( $location_code && $cart_total < $min_total_to_enable ){
         ?>
         <div id="oc-woo-shipping-additional--message" style="display:none;">
             <div class="first">*<?php echo $message ?></div><div class="second"><?php echo $hebrew_title; ?></div>
         </div>
-     <?php   
+        <?php
         // return;
     }
 
@@ -589,17 +589,17 @@ function ocws_render_shipping_additional_fields()
                 }
             }
             ?>
-<!--            <div class="shipping-settings-title">--><?php //echo esc_html($slots_block_title); ?><!--</div>-->
-<!--            <div class="slot-message">--><?php //echo esc_html($slots_block_descr); ?><!--</div>-->
-<!--            --><?php //if ($selected_slot_arr['date']) { ?>
-<!--                <div class="slot-message chosen-slot">-->
-<!--                    --><?php //echo __('בחרת תאריך למשלוח ', 'ocws') ?>
-<!--                    <span class="selected-date">--><?php //echo esc_html($selected_slot_arr['date']) ?><!--</span>-->
-<!--                    --><?php //if (!$show_dates_only && $selected_slot_arr['slot_start'] && $selected_slot_arr['slot_end']) { ?>
-<!--                        <span class="selected-time">--><?php //echo esc_html($selected_slot_arr['slot_start']) . ' - ' . esc_html($selected_slot_arr['slot_end']) ?><!--</span>-->
-<!--                    --><?php //} ?>
-<!--                </div>-->
-<!--            --><?php //} ?>
+            <!--            <div class="shipping-settings-title">--><?php //echo esc_html($slots_block_title); ?><!--</div>-->
+            <!--            <div class="slot-message">--><?php //echo esc_html($slots_block_descr); ?><!--</div>-->
+            <!--            --><?php //if ($selected_slot_arr['date']) { ?>
+            <!--                <div class="slot-message chosen-slot">-->
+            <!--                    --><?php //echo __('בחרת תאריך למשלוח ', 'ocws') ?>
+            <!--                    <span class="selected-date">--><?php //echo esc_html($selected_slot_arr['date']) ?><!--</span>-->
+            <!--                    --><?php //if (!$show_dates_only && $selected_slot_arr['slot_start'] && $selected_slot_arr['slot_end']) { ?>
+            <!--                        <span class="selected-time">--><?php //echo esc_html($selected_slot_arr['slot_start']) . ' - ' . esc_html($selected_slot_arr['slot_end']) ?><!--</span>-->
+            <!--                    --><?php //} ?>
+            <!--                </div>-->
+            <!--            --><?php //} ?>
             <div class="slot-list-container">
                 <?php $slot_index = 0; ?>
 
@@ -607,65 +607,65 @@ function ocws_render_shipping_additional_fields()
                 // show_dates_only no longer switches to ocws-dates-onl y-list-slider — same day-card + Owl structure as pickup (one owl-item per day).
                 if ($show_as_slider) { ?>
 
-                        <div class="ocws-days-with-slots-list-label"><?php echo esc_html(__('Choose an arrival time', 'ocws')) ?></div>
+                    <div class="ocws-days-with-slots-list-label"><?php echo esc_html(__('Choose an arrival time', 'ocws')) ?></div>
 
-                        <div class="ocws-days-with-slots-list">
-                            <div class="ocws-day-cards-slider owl-carousel">
-                                <?php foreach ($output as $day) { ?>
-                                    <div class="day-card day-data <?php echo $selected_slot_arr['date'] == $day['formatted_date'] ? 'active' : '' ?>"
-                                         data-id="<?php echo esc_attr($day['formatted_date']) ?>"
-                                         data-rel-id="<?php echo esc_attr($day['formatted_date']) ?>">
-                                        <div class="day-card__header">
-                                            <a href="javascript:void(0)" class="day-first-column">
-                                                <span class="slot-weekday"><?php echo esc_html( ocws_slot_weekday_display( $day['formatted_date'], $day['weekday'] ) ); ?></span>
-                                                <span class="slot-date"><?php echo esc_html($day['formatted_date']) ?></span>
-                                            </a>
-                                        </div>
-                                        <div class="day-card__slots">
-                                            <?php foreach ($day['slots'] as $slot) { ?>
-                                                <a class="slot slot-interval <?php echo $slot['class'] ?>"
-                                                   href="javascript:void(0)"
-                                                   data-date="<?php echo esc_attr($day['formatted_date']) ?>"
-                                                   data-weekday="<?php echo esc_attr($day['day_of_week']) ?>"
-                                                   data-slot-start="<?php echo esc_attr($slot['start']) ?>"
-                                                   data-slot-end="<?php echo esc_attr($slot['end']) ?>"
-                                                >
-                                                    <span class="slot-range"><?php echo esc_html($slot['start'] . ' - ' . $slot['end']) ?></span>
-                                                </a>
-                                            <?php } ?>
-                                        </div>
+                    <div class="ocws-days-with-slots-list">
+                        <div class="ocws-day-cards-slider owl-carousel">
+                            <?php foreach ($output as $day) { ?>
+                                <div class="day-card day-data <?php echo $selected_slot_arr['date'] == $day['formatted_date'] ? 'active' : '' ?>"
+                                     data-id="<?php echo esc_attr($day['formatted_date']) ?>"
+                                     data-rel-id="<?php echo esc_attr($day['formatted_date']) ?>">
+                                    <div class="day-card__header">
+                                        <a href="javascript:void(0)" class="day-first-column">
+                                            <span class="slot-weekday"><?php echo esc_html( ocws_slot_weekday_display( $day['formatted_date'], $day['weekday'] ) ); ?></span>
+                                            <span class="slot-date"><?php echo esc_html($day['formatted_date']) ?></span>
+                                        </a>
                                     </div>
-                                <?php } ?>
-                            </div>
+                                    <div class="day-card__slots" <?php echo $show_dates_only ? 'style="display:none;"' : ''; ?>>
+                                        <?php foreach ($day['slots'] as $slot) { ?>
+                                            <a class="slot slot-interval <?php echo $slot['class'] ?>"
+                                               href="javascript:void(0)"
+                                               data-date="<?php echo esc_attr($day['formatted_date']) ?>"
+                                               data-weekday="<?php echo esc_attr($day['day_of_week']) ?>"
+                                               data-slot-start="<?php echo esc_attr($slot['start']) ?>"
+                                               data-slot-end="<?php echo esc_attr($slot['end']) ?>"
+                                            >
+                                                <span class="slot-range"><?php echo esc_html($slot['start'] . ' - ' . $slot['end']) ?></span>
+                                            </a>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
                         </div>
+                    </div>
 
-                    <?php } else { ?>
+                <?php } else { ?>
 
-                        <?php foreach ($output as $day) { ?>
+                    <?php foreach ($output as $day) { ?>
 
-                            <div style="<?php echo ($slot_index > 2 && $state == 'less') ? 'display:none;' : '' ?>"
-                                 class="day-data <?php echo ($slot_index > 2) ? 'day-data-hidden' : '' ?>">
-                                <a href="javascript:void(0)" class="day-first-column">
-                                    <span class="slot-weekday"><?php echo esc_html( ocws_slot_weekday_display( $day['formatted_date'], $day['weekday'] ) ); ?></span>
-                                    <span class="slot-date"><?php echo esc_html($day['formatted_date']) ?></span>
+                        <div style="<?php echo ($slot_index > 2 && $state == 'less') ? 'display:none;' : '' ?>"
+                             class="day-data <?php echo ($slot_index > 2) ? 'day-data-hidden' : '' ?>">
+                            <a href="javascript:void(0)" class="day-first-column">
+                                <span class="slot-weekday"><?php echo esc_html( ocws_slot_weekday_display( $day['formatted_date'], $day['weekday'] ) ); ?></span>
+                                <span class="slot-date"><?php echo esc_html($day['formatted_date']) ?></span>
+                            </a>
+                            <?php foreach ($day['slots'] as $slot) { ?>
+                                <a class="slot slot-interval <?php echo $slot['class'] ?>"
+                                   href="javascript:void(0)"
+                                   data-date="<?php echo esc_attr($day['formatted_date']) ?>"
+                                   data-weekday="<?php echo esc_attr($day['day_of_week']) ?>"
+                                   data-slot-start="<?php echo esc_attr($slot['start']) ?>"
+                                   data-slot-end="<?php echo esc_attr($slot['end']) ?>"
+                                >
+                                    <?php echo esc_html($slot['start'] . ' - ' . $slot['end']) ?>
                                 </a>
-                                <?php foreach ($day['slots'] as $slot) { ?>
-                                    <a class="slot slot-interval <?php echo $slot['class'] ?>"
-                                       href="javascript:void(0)"
-                                       data-date="<?php echo esc_attr($day['formatted_date']) ?>"
-                                       data-weekday="<?php echo esc_attr($day['day_of_week']) ?>"
-                                       data-slot-start="<?php echo esc_attr($slot['start']) ?>"
-                                       data-slot-end="<?php echo esc_attr($slot['end']) ?>"
-                                    >
-                                        <?php echo esc_html($slot['start'] . ' - ' . $slot['end']) ?>
-                                    </a>
-                                <?php } ?>
+                            <?php } ?>
 
-                            </div>
-                            <?php $slot_index++; ?>
-                        <?php } ?>
-
+                        </div>
+                        <?php $slot_index++; ?>
                     <?php } ?>
+
+                <?php } ?>
 
             </div>
             <?php if ($slot_index > 3 && !$show_as_slider) { ?>
@@ -1263,24 +1263,24 @@ function ocws_get_day_of_week($date_str, $date_format = 'd/m/Y') {
  * @return string
  */
 function ocws_slot_weekday_display( $formatted_date, $weekday_fallback, $date_format = 'd/m/Y' ) {
-	if ( '' === $formatted_date || null === $formatted_date ) {
-		return $weekday_fallback;
-	}
-	try {
-		$tz     = ocws_get_timezone();
-		$day_dt = Carbon::createFromFormat( $date_format, $formatted_date, $tz )->startOfDay();
-		$today  = Carbon::now( $tz )->startOfDay();
-		$tomorrow = $today->copy()->addDay();
-		if ( $day_dt->equalTo( $today ) ) {
-			return __( 'היום', 'ocws' );
-		}
-		if ( $day_dt->equalTo( $tomorrow ) ) {
-			return __( 'מחר', 'ocws' );
-		}
-	} catch ( InvalidArgumentException $e ) {
-		return $weekday_fallback;
-	}
-	return $weekday_fallback;
+    if ( '' === $formatted_date || null === $formatted_date ) {
+        return $weekday_fallback;
+    }
+    try {
+        $tz     = ocws_get_timezone();
+        $day_dt = Carbon::createFromFormat( $date_format, $formatted_date, $tz )->startOfDay();
+        $today  = Carbon::now( $tz )->startOfDay();
+        $tomorrow = $today->copy()->addDay();
+        if ( $day_dt->equalTo( $today ) ) {
+            return __( 'היום', 'ocws' );
+        }
+        if ( $day_dt->equalTo( $tomorrow ) ) {
+            return __( 'מחר', 'ocws' );
+        }
+    } catch ( InvalidArgumentException $e ) {
+        return $weekday_fallback;
+    }
+    return $weekday_fallback;
 }
 
 function ocws_get_orders_count_report() {

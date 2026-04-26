@@ -481,6 +481,30 @@
 			setTimeout(function () { ocwsRefreshPopupContinueState(); }, 200);
 		});
 
+		// Checkout: clicking a day-card should pick the first slot (even when slots are hidden in "dates only" mode).
+		$( document.body ).on('click', 'form.checkout .slot-list-container .ocws-day-cards-slider .day-card.day-data', function(event) {
+			if ($(event.target).closest('a.slot').length) {
+				return;
+			}
+			event.preventDefault();
+			var $card = $(this);
+			var $firstSlot = $card.find('.day-card__slots a.slot').first();
+			if ($firstSlot.length) {
+				$firstSlot.trigger('click');
+				if (window.console && console.log) {
+					console.log('[OCWS checkout] day-card select first slot', {
+						date: $firstSlot.data('date'),
+						start: $firstSlot.data('slot-start'),
+						end: $firstSlot.data('slot-end')
+					});
+				}
+			} else if (window.console && console.log) {
+				console.log('[OCWS checkout] day-card has no slots', {
+					date: $card.data('id') || $card.data('rel-id') || ''
+				});
+			}
+		});
+
 		$( document ).on('input', '#choose-shipping input[name="billing_google_autocomplete"]', function () {
 			setTimeout(function () { ocwsRefreshPopupContinueState(); }, 0);
 		});
@@ -777,7 +801,7 @@
 
 		});
 
-		
+
 		// setTimeout(function(){
 		// }, 1000);
 		// console.clear();
@@ -786,26 +810,23 @@
 			/*$('#oc-woo-shipping-additional').hide();*/
 		});
 
-		// In case cart total under shipping required sum - it shows message, in this case if selected advanced shipping method > show checkout popup with additional buttons 
+		// In case cart total under shipping required sum - it shows message, in this case if selected advanced shipping method > show checkout popup with additional buttons
 		$( document.body ).on( 'updated_checkout', function(response) {
 			let chosenShipping 	= $('#shipping_method input:checked').val();
 			if (!chosenShipping) return;
 			let notice 			= $('.show-shipping-block .important-notice');
 			let noticeHtml 		= notice.html();
 			let noticeMessage  = 'המינימום למשלוח עד הבית';
-	
+
 			// console.group( 'UPDATED CHECKOUT| without check notice' );
-			// console.log( notice, 'notice' );
-			// console.log( noticeHtml, 'noticeHtml' );
-			// console.log( chosenShipping, 'checked radiobutton value' );
 			// console.groupEnd();
 			$('.ocws-checkout-choose-city-popup .inner-wrapper').unblock();
-			
+
 			if ( chosenShipping.indexOf( 'oc_woo_advanced_shipping_method' ) != -1 ){
 				if (  notice.length && noticeHtml.indexOf( noticeMessage ) != -1  ){
 					let message  		=  $('#oc-woo-shipping-additional--message');
 					let messagePopup 	= message.html();
-					if ( message.length ){  
+					if ( message.length ){
 						$('.ocws-checkout-choose-city-popup .ajax-message').html( messagePopup );
 						$('.ocws-checkout-choose-city-popup').addClass('shown');
 						$('#checkout-popup-submit-btn').prop( 'disabled', false )
@@ -863,8 +884,6 @@
 		$( document.body ).on( 'submit', '#ocws-checkout-choose-city-form', function(e) {
 			e.preventDefault();
 			var selectedCity = $(this).find('select[name="selected-city"]').val();
-			// console.log( $('.ocws-checkout-choose-city-popup .inner-wrapper'), "CHECKOUT popup !!!" );
-			// console.log( selectedCity, "selectedCity" );
 
 			if ( typeof selectedCity === null || selectedCity === null  ){
 				alert('בחירת עיר/ישוב');
@@ -957,21 +976,17 @@
 			var hasCookie = !!readCookie('popupdisplayed');
 			var miniCartItems = $('li.woocommerce-mini-cart-item').length;
 			var hasDeliStyle = $( document.body ).hasClass('ocws-deli-style');
-			console.log('[משלוחים] adding_to_cart received', { hasCookie: hasCookie, miniCartItems: miniCartItems, hasDeliStyle: hasDeliStyle });
 			if (
 				!hasCookie && !miniCartItems
 			) {
 				if (!hasDeliStyle) {
-					console.log('[משלוחים] פותח פופאפ בחירת משלוח (adding_to_cart)');
 					loadShippingPopupHtml();
 					showShippingDialog();
 					$('body').css({ overflow: 'hidden' });
 					addCookie();
 				} else {
-					console.log('[משלוחים] לא פותח – body עם ocws-deli-style');
 				}
 			} else {
-				console.log('[משלוחים] לא פותח פופאפ – תנאי לא מתקיים: hasCookie=' + hasCookie + ', miniCartItems=' + miniCartItems);
 			}
 		});
 
@@ -979,21 +994,17 @@
 			var hasCookie = !!readCookie('popupdisplayed');
 			var miniCartItems = $('li.woocommerce-mini-cart-item').length;
 			var hasDeliStyle = $( document.body ).hasClass('ocws-deli-style');
-			console.log('[משלוחים] orak_adding_to_cart received', { hasCookie: hasCookie, miniCartItems: miniCartItems, hasDeliStyle: hasDeliStyle });
 			if (
 				!hasCookie && !miniCartItems
 			) {
 				if (!hasDeliStyle) {
-					console.log('[משלוחים] פותח פופאפ בחירת משלוח (orak_adding_to_cart)');
 					loadShippingPopupHtml();
 					showShippingDialog();
 					$('body').css({ overflow: 'hidden' });
 					addCookie();
 				} else {
-					console.log('[משלוחים] לא פותח – body עם ocws-deli-style');
 				}
 			} else {
-				console.log('[משלוחים] לא פותח פופאפ – תנאי לא מתקיים: hasCookie=' + hasCookie + ', miniCartItems=' + miniCartItems);
 			}
 		});
 
@@ -1390,7 +1401,6 @@
 						$('#popup-form-messages').html('<span class="loading">'+ocws.localize.loading+'...</span>');
 					},
 					success: function(response) {
-						console.log(response);
 						$('#popup-shipping-form-messages').html('');
 						/*$('.choose-shipping-popup').removeClass('shown');*/
 						hideShippingDialog();
@@ -1432,7 +1442,6 @@
 						$('#popup-form-messages').html('<span class="loading">'+ocws.localize.loading+'...</span>');
 					},
 					success: function(response) {
-						console.log(response);
 						$('#popup-pickup-form-messages').html('');
 						/*$('.choose-shipping-popup').removeClass('shown');*/
 						hideShippingDialog();
@@ -1497,7 +1506,7 @@
 
 		//$('#choose-shipping').find('select[name="selected-city"]').on('change', function(){
 		$(document).on('change', '#choose-shipping select[name="selected-city"]', function(){
-			if($(this).val()) { //console.log('billing city: ' + $(this).val());
+			if($(this).val()) {
 				$(this).removeClass('invalid');
 
 				var form = $(this).closest('form');
@@ -1521,7 +1530,6 @@
 						if ('undefined' !== typeof response.data.cart_is_empty) {
 							ocws.cart_is_empty = response.data.cart_is_empty;
 						}
-						console.log(response);
 						$('#popup-shipping-form-messages').html('');
 						var resp = $(response.data.resp);
 						var sitelinkelem = resp.find('.ocws-site-link');
@@ -1667,7 +1675,6 @@
 						if ('undefined' !== typeof response.data.cart_is_empty) {
 							ocws.cart_is_empty = response.data.cart_is_empty;
 						}
-						console.log(response);
 						$('#popup-shipping-form-messages').html('');
 						var resp = $(response.data.resp);
 						var oos_message = resp.find('.oos-message');
@@ -1756,7 +1763,6 @@
 		});
 
 		$('#ocws-checkout-choose-city-form').find('input[name="billing_address_coords"]').on('change', function(){
-			// console.log( 'BILLING COORDINATE CHANGE' );
 			if($(this).val()) {
 
 				var form = $(this).closest('form');
@@ -1777,7 +1783,6 @@
 						$('#form-messages').html('<span class="loading">'+ocws.localize.loading+'...</span>');
 					},
 					success: function(response) {
-						console.log(response);
 						$('#form-messages').html(response.data.resp);
 
 						fetchingState = false;
@@ -1820,7 +1825,6 @@
 					if ('undefined' !== typeof response.data.cart_is_empty) {
 						ocws.cart_is_empty = response.data.cart_is_empty;
 					}
-					console.log(response);
 					$('#popup-pickup-form-messages').html('');
 					var resp = $(response.data.resp);
 					var sitelinkelem = resp.find('.ocws-site-link');
@@ -1901,7 +1905,7 @@
 
 		$( document.body ).on('change', '#choose-shipping select[name="ocws_lp_pickup_aff_id"]', function() {
 
-			if($(this).val()) { //console.log('pickup branch: ' + $(this).val());
+			if($(this).val()) {
 				$(this).removeClass('invalid');
 
 				var form = $(this).closest('form');
@@ -1915,7 +1919,7 @@
 
 		$( document.body ).on('change', '#choose-shipping input[name="ocws_lp_pickup_date"]', function() {
 
-			if($(this).val()) { //console.log('pickup branch: ' + $(this).val());
+			if($(this).val()) {
 				$(this).removeClass('invalid');
 
 				var form = $(this).closest('form');
@@ -1939,45 +1943,68 @@
 
 		$( document.body ).on('click', '#choose-shipping input[name="popup-shipping-method"]', function(){
 
-			if (fetchingSlots) return;  
+			if (fetchingSlots) return;
 			var form = $(this).closest('#choose-shipping');
+
+			function ocwsSyncPopupAddressFromCheckoutIfMissing($popupForm) {
+				// When switching between pickup/shipping inside the popup, the address might already exist
+				// on the checkout form (session), but the popup won't refetch slots unless coords change.
+				var $checkout = $('form.checkout');
+				if (!$checkout.length) return;
+
+				var fields = [
+					'billing_google_autocomplete',
+					'billing_city',
+					'billing_city_code',
+					'billing_city_name',
+					'billing_street',
+					'billing_house_num',
+					'billing_address_coords'
+				];
+
+				fields.forEach(function(name) {
+					var $popupField = $popupForm.find('[name="' + name + '"]');
+					if (!$popupField.length) return;
+
+					// Prefer popup value if it's already set.
+					var popupVal = ($popupField.val() || '').toString().trim();
+					if (popupVal !== '') return;
+
+					var $checkoutField = $checkout.find('[name="' + name + '"]').first();
+					if (!$checkoutField.length) return;
+
+					var checkoutVal = ($checkoutField.val() || '').toString().trim();
+					if (checkoutVal === '') return;
+
+					$popupField.val(checkoutVal);
+				});
+			}
+
 			if($(this).val().substr(0, ('oc_woo_advanced_shipping_method').length) == 'oc_woo_advanced_shipping_method') {
 				show_shipping();
 				hide_pickup();
-				var $shipSlots = form.find('#popup-shipping-city-slots');
-				var hasShippingSlots = $shipSlots.find('#oc-woo-shipping-additional').length > 0;
-				var city = form.find('select[name="selected-city"] option:selected');
-				var usingPolygon = form.find('input[name="billing_address_coords"]').length > 0;
-				var coordsVal = (form.find('input[name="billing_address_coords"]').val() || '').trim();
-				if (!hasShippingSlots) {
-					if (city.val()) {
-						city.trigger('change');
-					} else if (usingPolygon && coordsVal) {
-						form.find('input[name="billing_address_coords"]').trigger('change');
+
+				// If using polygons/Google address flow, trigger slots fetch when coords already exist.
+				var coordsInput = form.find('input[name="billing_address_coords"]');
+				if (coordsInput.length) {
+					// First try to sync from checkout/session-backed fields, then trigger change.
+					ocwsSyncPopupAddressFromCheckoutIfMissing(form);
+					if (coordsInput.val()) {
+						coordsInput.trigger('change');
 					}
 				} else {
-					var mem = form.data('ocws_popup_shipping_schedule');
-					var cd = (form.find('input[name="order_expedition_date"]').val() || '').trim();
-					var cs = (form.find('input[name="order_expedition_slot_start"]').val() || '').trim();
-					var ce = (form.find('input[name="order_expedition_slot_end"]').val() || '').trim();
-					var rd = (mem && mem.date) ? mem.date : cd;
-					var rs = (mem && mem.start !== undefined && String(mem.start).length) ? String(mem.start).trim() : cs;
-					var re = (mem && mem.end !== undefined && String(mem.end).length) ? String(mem.end).trim() : ce;
-					var datesOnlyShip = $shipSlots.find('.ocws-dates-only-list-slider').length > 0;
-					var canRestoreShip = (datesOnlyShip && rd) || (!datesOnlyShip && rd && rs && re);
-					if (canRestoreShip) {
-						setTimeout(function () {
-							ocwsRestorePopupShippingSchedule(form, form.find('#popup-shipping-city-slots'), rd, rs, re);
-							ocwsCachePopupShippingSchedule(form);
-						}, 0);
+					// Simple city dropdown flow.
+					var city = form.find('select[name="selected-city"] option:selected');
+					if (city.val()) {
+						city.trigger('change');
 					}
 				}
+
 				$(this).closest('#choose-shipping').find('label.shipping-method-label').removeClass('active');
 				$(this).closest('label.shipping-method-label').addClass('active');
 			} else if ($(this).val().substr(0, ('oc_woo_local_pickup_method').length) == 'oc_woo_local_pickup_method') {
 				show_pickup();
 				hide_shipping();
-				ocwsCachePopupShippingSchedule(form);
 				loadPickupData($(this).val());
 				$(this).closest('#choose-shipping').find('label.shipping-method-label').removeClass('active');
 				$(this).closest('label.shipping-method-label').addClass('active');
@@ -1985,8 +2012,7 @@
 				hide_shipping();
 				hide_pickup();
 			}
-			ocwsRefreshPopupContinueState();
-		});
+		})
 
 		function show_shipping() {
 			$('#popup-shipping-options').css('display', 'block');
@@ -2043,10 +2069,66 @@
 				return;
 			}
 			event.preventDefault();
-			var $firstSlot = $(this).find('.day-card__slots .slot').first();
+			var $card = $(this);
+			var popup = $card.closest('#choose-shipping');
+			var beforeDate = popup.find('input[name="order_expedition_date"]').val() || '';
+
+			var $firstSlot = $card.find('.day-card__slots .slot').first();
 			if ($firstSlot.length) {
 				$firstSlot.trigger('click');
 			}
+
+			// Fallback: in "dates only" mode slots may be hidden; ensure the hidden inputs update even if click handlers don't fire.
+			setTimeout(function () {
+				var afterDate = popup.find('input[name="order_expedition_date"]').val() || '';
+				if (afterDate && String(afterDate) !== String(beforeDate)) {
+					return;
+				}
+				if (!$firstSlot || !$firstSlot.length) {
+					return;
+				}
+				if (!popup.length) {
+					return;
+				}
+
+				var shippingParent = $firstSlot.closest('#oc-woo-shipping-additional');
+				var pickupParent = $firstSlot.closest('#oc-woo-pickup-additional');
+				var parentDayData = $firstSlot.closest('.day-card, .day-data');
+
+				if (shippingParent.length) {
+					$('#choose-shipping .ocws-day-cards-slider .slot, #choose-shipping .ocws-days-with-slots-list .day-data .slot').removeClass('selected');
+					$firstSlot.addClass('selected');
+					$(parentDayData).addClass('active');
+					popup.find('input[name="order_expedition_slot_start"]').val($firstSlot.data('slot-start'));
+					popup.find('input[name="order_expedition_slot_end"]').val($firstSlot.data('slot-end'));
+					popup.find('input[name="order_expedition_date"]').val($firstSlot.data('date'));
+					ocwsCachePopupShippingSchedule(popup);
+					if (window.console && console.log) {
+						console.log('[OCWS popup] fallback day-card select', {
+							date: $firstSlot.data('date'),
+							start: $firstSlot.data('slot-start'),
+							end: $firstSlot.data('slot-end')
+						});
+					}
+				}
+				else if (pickupParent.length) {
+					$('#choose-shipping .ocws-day-cards-slider .slot, #choose-shipping .ocws-days-with-slots-list .day-data .slot').removeClass('selected');
+					$firstSlot.addClass('selected');
+					$(parentDayData).addClass('active');
+					popup.find('input[name="ocws_lp_pickup_slot_start"]').val($firstSlot.data('slot-start'));
+					popup.find('input[name="ocws_lp_pickup_slot_end"]').val($firstSlot.data('slot-end'));
+					popup.find('input[name="ocws_lp_pickup_date"]').val($firstSlot.data('date'));
+					if (window.console && console.log) {
+						console.log('[OCWS popup] fallback pickup day-card select', {
+							date: $firstSlot.data('date'),
+							start: $firstSlot.data('slot-start'),
+							end: $firstSlot.data('slot-end')
+						});
+					}
+				}
+
+				ocwsRefreshPopupContinueState();
+			}, 0);
 		});
 
 		$( document.body ).on('click', '#choose-shipping .ocws-day-cards-slider .slot, #choose-shipping .ocws-days-with-slots-list .day-data .slot', function(event) {
@@ -2170,7 +2252,7 @@
 					1000:{
 						items:3
 					}
-				} 
+				}
 			});
 			$('form.checkout .slot-list-container .ocws-dates-only-list-slider').css('visibility', 'visible');
 			ocwsInitLegacySlotSliders($slotContainer);
@@ -2311,7 +2393,6 @@
 					$('#choose-shipping').html('<span class="loading">'+ocws.localize.loading+'...</span>');
 				},
 				success: function(response) {
-					console.log(response);
 					var resp = $(response.data.resp);
 					$('#choose-shipping').html(resp.find('#choose-shipping').html());
 					//$('#choose-shipping input[name="popup-shipping-method"]').trigger('click');
@@ -2326,7 +2407,7 @@
 						margin: 10,
 						loop: false,
 						autoHeight: true,
-						stagePadding: 10, 
+						stagePadding: 10,
 						items: 4,
 						rtl: ($(document.body).hasClass('rtl')),
 						nav: true,
@@ -2453,7 +2534,6 @@
 		$( document.body ).on( 'change', 'form.checkout input[name="billing_address_coords"]', function(e) {
 
 			e.preventDefault();
-			console.log($(this).val());
 
 			$('.woocommerce-billing-fields').block({
 				message: null,
@@ -2492,7 +2572,6 @@
 							new google.maps.LatLng(coords.lat, coords.lng),
 							gmpolygon
 						);
-						console.log(result);
 						if (true === result) {
 							$('form.checkout input[name="billing_polygon_code"]').val(polygon.location_code);
 							foundPolygon = polygon.location_code;
@@ -2513,7 +2592,6 @@
 					geocoder
 						.geocode({ address: cityName, componentRestrictions: { country: 'IL' } })
 						.then(({results}) => {
-							console.log(results);
 							if (results.length && results[0] && results[0].place_id) {
 								$('form.checkout input[name="billing_city"]').val(results[0].place_id);
 								$('.woocommerce-billing-fields').unblock();
@@ -2521,7 +2599,7 @@
 							}
 						})
 						.catch((e) =>
-							console.log("Geocode was not successful for the following reason: " + e)
+							null
 					);
 				}
 
@@ -2556,7 +2634,7 @@
 				localStorage.setItem( localStorageName, JSON.stringify( checkoutFields ) );
 			}
 
-			// get object from local_storage or create new 
+			// get object from local_storage or create new
 			function get_checkout_storage_object(e){
 				checkoutFields = get_local_storage_checkout_obj();
 				if ( !checkoutFields ){
@@ -2567,10 +2645,9 @@
 
 			function get_local_storage_checkout_obj(){
 				let checkoutFields = localStorage.getItem( localStorageName );
-				// console.log( checkoutFields, 'object exsist !' );
 				// object exist
 				if ( checkoutFields !== null && checkoutFields !== undefined ) {
-					return JSON.parse( checkoutFields );			
+					return JSON.parse( checkoutFields );
 				} else {
 					//  doesn`t exist
 					return false;
