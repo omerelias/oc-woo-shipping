@@ -254,7 +254,29 @@ function ocws_render_address_extra_fields_for_popup( $post_data = array() ) {
     if ( '' === $inner ) {
         return;
     }
-    echo '<div class="ocws-checkout-address-extras-pp">' . $inner . '</div>';
+	echo '<div class="ocws-checkout-address-extras-pp">' . $inner . '</div>';
+}
+
+/**
+ * לוג ממוקד ל- WooCommerce: Status → Logs → קבצי ocws-render-shipping-*
+ * הפעלה: define( 'OCWS_LOG_RENDER_SHIPPING', true ); ב-wp-config.php
+ * או: WP_DEBUG + WP_DEBUG_LOG, או: add_filter( 'ocws_enabled_log_render_shipping', '__return_true' );
+ *
+ * @param string               $message הודעה.
+ * @param array<string, mixed> $context הקשר (יוצב ל-JSON בגוף הלוג).
+ */
+function ocws_log_render_shipping( $message, $context = array() ) {
+	$on = ( defined( 'OCWS_LOG_RENDER_SHIPPING' ) && OCWS_LOG_RENDER_SHIPPING );
+	$on = $on || (bool) apply_filters( 'ocws_enabled_log_render_shipping', false );
+	$on = $on || ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG );
+	if ( ! $on || ! function_exists( 'wc_get_logger' ) ) {
+		return;
+	}
+	$line = (string) $message;
+	if ( ! empty( $context ) && is_array( $context ) ) {
+		$line .= ' | ' . wp_json_encode( $context, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
+	}
+	wc_get_logger()->info( $line, array( 'source' => 'ocws-render-shipping' ) );
 }
 
 function ocws_render_shipping_additional_fields()
@@ -282,6 +304,21 @@ function ocws_render_shipping_additional_fields()
         $post_data['billing_city'] = WC()->checkout->get_value('billing_city');
     }
 
+    ocws_log_render_shipping(
+        'ocws_render_shipping: start',
+        array(
+			'ajax'              => ( defined( 'DOING_AJAX' ) && DOING_AJAX ),
+			'wc_ajax'           => isset( $_REQUEST['wc-ajax'] ) ? (string) $_REQUEST['wc-ajax'] : '',
+			'action'            => isset( $_REQUEST['action'] ) ? (string) $_REQUEST['action'] : '',
+			'chosen_methods'     => $chosen_methods,
+			'google_polygons'  => (bool) ocws_use_google_cities_and_polygons(),
+			'has_post_data_key' => isset( $_POST['post_data'] ),
+			'billing_city'      => isset( $post_data['billing_city'] ) ? (string) $post_data['billing_city'] : '',
+			'billing_city_code' => isset( $post_data['billing_city_code'] ) ? (string) $post_data['billing_city_code'] : '',
+			'billing_coords'    => isset( $post_data['billing_address_coords'] ) ? (string) $post_data['billing_address_coords'] : '',
+        )
+    );
+
     $location_code = 0;
     if (ocws_use_google_cities_and_polygons()) {
 
@@ -292,14 +329,26 @@ function ocws_render_shipping_additional_fields()
             $post_data['billing_address_coords'] = WC()->session->get('chosen_address_coords', '' );
         }
         $location_code = OC_Woo_Shipping_Polygon::get_location_code_by_post_data_network($post_data);
-        error_log('Location code: '.$location_code);
+        ocws_log_render_shipping(
+			'after get_location_code_by_post_data_network (session may have filled code/coords)',
+			array(
+				'location_code'     => (string) ( $location_code ? $location_code : '' ),
+				'billing_city_code' => (string) ( $post_data['billing_city_code'] ?? '' ),
+				'billing_coords'    => (string) ( $post_data['billing_address_coords'] ?? '' ),
+			)
+		);
     }
     else {
         $location_code = $post_data['billing_city'];
+		ocws_log_render_shipping(
+			'non-Google mode: location from billing_city',
+			array( 'location_code' => (string) ( $location_code ? $location_code : '' ) )
+		);
     }
     // show( $location_code, 'location_code BEGINNIG' );
 
     if (empty($chosen_methods)) {
+		ocws_log_render_shipping( 'exit: empty chosen_shipping_methods', array( 'location_code' => (string) ( $location_code ? $location_code : '' ) ) );
         ?>
         <div id="oc-woo-shipping-additional" class="no-methods"></div>
         <?php
@@ -315,6 +364,7 @@ function ocws_render_shipping_additional_fields()
         }
     }
     if (!$is_ocws) {
+		ocws_log_render_shipping( 'exit: not oc_woo_advanced_shipping_method', array( 'chosen_methods' => $chosen_methods, 'location_code' => (string) ( $location_code ? $location_code : '' ) ) );
         ?>
         <div id="oc-woo-shipping-additional" class="no-ocws"></div>
         <?php
@@ -323,11 +373,11 @@ function ocws_render_shipping_additional_fields()
 
     global $wpdb;
     if (is_multisite()) {
-        error_log('Location code ________1: '.$location_code);
+		ocws_log_render_shipping( 'multisite branch: location before network logic', array( 'location_code' => (string) ( $location_code ? $location_code : '' ) ) );
         $enabled_blog_locations_count = ocws_enabled_shipping_locations_count_blog();
         $enabled_network_locations_count = ocws_enabled_shipping_locations_count_networkwide();
         if ($enabled_blog_locations_count == 0 && $enabled_network_locations_count == 1) {
-            error_log('Location code ________1_1: '.$location_code);
+			ocws_log_render_shipping( 'multisite: single network site with locations', array( 'location_code' => (string) ( $location_code ? $location_code : '' ) ) );
             $go_to_blog_id = 0;
             $blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
             foreach ( $blog_ids as $blog_id ) {
@@ -371,14 +421,15 @@ function ocws_render_shipping_additional_fields()
             }
         }
         else if ($enabled_blog_locations_count == 1 && $enabled_network_locations_count == 1 && is_checkout()) {
-            error_log('Location code ________1_2: '.$location_code);
+			ocws_log_render_shipping( 'multisite: forcing single blog location', array( 'location_code_before' => (string) ( $location_code ? $location_code : '' ) ) );
             $locs = OCWS_Advanced_Shipping::get_all_locations_blog(true);
             $location_name = reset($locs);
             $location_code = key($locs);
+			ocws_log_render_shipping( 'multisite: location_code after key(locs)', array( 'location_code' => (string) $location_code, 'location_name' => (string) $location_name ) );
         }
 
         if ($location_code && str_contains($location_code.'', ':::')) {
-            error_log('Location code ________2: '.$location_code);
+			ocws_log_render_shipping( 'multisite: cross-blog location_code', array( 'location_code' => (string) $location_code ) );
             $bid = explode(':::', $location_code, 2);
             $go_to_blog_id = intval($bid[0]);
             if ($go_to_blog_id != get_current_blog_id() ) {
@@ -409,7 +460,7 @@ function ocws_render_shipping_additional_fields()
                         <div class="slot-message" style="display: none;"><?php echo $oos_message; ?></div>
                     </div>
                     <?php
-                    error_log('Location code ________3: '.$location_code);
+					ocws_log_render_shipping( 'multisite: exit need-redirect other blog', array( 'location_code' => (string) $location_code ) );
                     return;
 
                 }
@@ -417,6 +468,7 @@ function ocws_render_shipping_additional_fields()
             }
             else if (isset($bid[1])) {
                 $location_code = $bid[1];
+				ocws_log_render_shipping( 'multisite: stripped blog prefix from location_code', array( 'location_code' => (string) $location_code ) );
             }
         }
     }
@@ -424,6 +476,15 @@ function ocws_render_shipping_additional_fields()
 
 
     if (empty($location_code)) {
+		ocws_log_render_shipping(
+			'exit: empty location_code (OOS: no gm city match, no polygon, or no billing_city in simple mode)',
+			array(
+				'google_mode'   => (bool) ocws_use_google_cities_and_polygons(),
+				'city_code'     => (string) ( $post_data['billing_city_code'] ?? '' ),
+				'coords'        => (string) ( $post_data['billing_address_coords'] ?? '' ),
+				'billing_city'  => (string) ( $post_data['billing_city'] ?? '' ),
+			)
+		);
         ?>
         <div id="oc-woo-shipping-additional" class="no-location">
             <?php ocws_render_ocws_checkout_fields_inner( $post_data ); ?>
@@ -446,6 +507,19 @@ function ocws_render_shipping_additional_fields()
     }
 
     if (!ocws_is_location_enabled($location_code)) {
+		$ds_debug = new OC_Woo_Shipping_Group_Data_Store();
+		$gid_debug = $ds_debug->get_group_by_location( $location_code );
+		$loc_en    = $ds_debug->is_location_enabled( $location_code );
+		$grp_en    = $gid_debug ? $ds_debug->is_group_enabled( (int) $gid_debug ) : null;
+		ocws_log_render_shipping(
+			'exit: location not enabled (OOS: disabled location or group)',
+			array(
+				'location_code'      => (string) $location_code,
+				'group_id'          => (string) ( $gid_debug ? $gid_debug : '' ),
+				'location_is_en'   => (string) ( null !== $loc_en ? (int) (bool) $loc_en : -1 ),
+				'group_is_en'      => (string) ( null !== $grp_en ? (int) (bool) $grp_en : -1 ),
+			)
+		);
 
         $oos_message = ocws_get_multilingual_option('ocws_common_out_of_service_area_message');
         if (empty($oos_message)) {
@@ -505,6 +579,16 @@ function ocws_render_shipping_additional_fields()
 
     $oc_slots = new OC_Woo_Shipping_Slots($location_code);
     $days = $oc_slots->calculate_slots_for_checkout();
+	ocws_log_render_shipping(
+		'slots: calculate_slots_for_checkout',
+		array(
+			'location_code'  => (string) $location_code,
+			'group_id'      => (string) ( $group_id ? $group_id : '' ),
+			'cart_total'    => (string) $cart_total,
+			'min_total'     => (string) $min_total_to_enable,
+			'days_count'   => is_array( $days ) ? count( $days ) : 0,
+		)
+	);
     //print_r($days);
     $weekdays = array(
         __('Sunday', 'ocws'),
@@ -566,6 +650,15 @@ function ocws_render_shipping_additional_fields()
         $output[] = $item;
     }
 
+	ocws_log_render_shipping(
+		'output: days with at least one slot',
+		array(
+			'location_code'    => (string) $location_code,
+			'output_days'   => count( $output ),
+			'has_slot_blocks' => count( $output ) > 0,
+			'loc_title'     => (string) ocws_get_city_title( $location_code ),
+		)
+	);
 
     ?>
 
@@ -677,7 +770,14 @@ function ocws_render_shipping_additional_fields()
                 </div>
             <?php } ?>
         <?php } else {
-
+			ocws_log_render_shipping(
+				'ui: no slot HTML (empty $output) — location ok but no available delivery windows in range',
+				array(
+					'location_code' => (string) $location_code,
+					'loc_title'  => (string) ocws_get_city_title( $location_code ),
+					'raw_days'  => is_array( $days ) ? count( $days ) : 0,
+				)
+			);
         } ?>
 
     </div>

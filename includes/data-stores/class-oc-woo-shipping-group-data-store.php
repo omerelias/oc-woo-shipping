@@ -199,6 +199,32 @@ class OC_Woo_Shipping_Group_Data_Store implements OC_Woo_Shipping_Group_Data_Sto
 	}
 
 	/**
+	 * התאמת עיר לפי location_code או gm_place_id (גם כש-read_all_gm_cities מפספס).
+	 *
+	 * @param string $client_id Place ID או קוד.
+	 * @return string|false
+	 */
+	public function find_enabled_city_by_place_id_or_code( $client_id ) {
+		global $wpdb;
+		$client_id = (string) $client_id;
+		if ( $client_id === '' ) {
+			return false;
+		}
+		$row = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT location_code, is_enabled FROM {$wpdb->prefix}oc_woo_shipping_locations WHERE location_type = %s AND ( location_code = %s OR gm_place_id = %s ) LIMIT 1",
+				'city',
+				$client_id,
+				$client_id
+			)
+		);
+		if ( ! $row || (int) $row->is_enabled !== 1 ) {
+			return false;
+		}
+		return (string) $row->location_code;
+	}
+
+	/**
 	 * Save locations to the DB.
 	 * This function clears old locations, then re-inserts new if any changes are found.
 	 *

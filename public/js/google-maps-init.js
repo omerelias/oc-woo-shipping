@@ -59,6 +59,81 @@
             return lat + ',' + lng;
         }
 
+        function ocwsParsePlaceAddressComponents( place, options ) {
+            options = options || {};
+            var street = '';
+            var city = '';
+            var house = '';
+            if ( ! place || ! place.address_components || ! place.address_components.length ) {
+                return { street: street, city: city, house: house };
+            }
+            var components = place.address_components;
+            var i, c, types, j, comp, tt, typeName, t, k;
+            for ( i = 0; i < components.length; i++ ) {
+                c = components[ i ];
+                types = c.types || [];
+                if ( types.indexOf( 'street_number' ) !== -1 ) {
+                    house = c.long_name;
+                } else if ( types.indexOf( 'route' ) !== -1 ) {
+                    street = c.long_name;
+                }
+            }
+            function valueForTypes( typeNames ) {
+                for ( t = 0; t < typeNames.length; t++ ) {
+                    typeName = typeNames[ t ];
+                    for ( j = 0; j < components.length; j++ ) {
+                        comp = components[ j ];
+                        tt = comp.types || [];
+                        if ( tt.indexOf( typeName ) !== -1 ) {
+                            return comp.long_name;
+                        }
+                    }
+                }
+                return '';
+            }
+            city = valueForTypes( [ 'locality', 'postal_town', 'administrative_area_level_2' ] );
+            if ( ! city ) {
+                city = valueForTypes( [ 'sublocality_level_1', 'sublocality' ] );
+            }
+            if ( city && house && ! street ) {
+                street = city;
+            }
+            if ( ! house || house === '' ) {
+                var placeName = ( place.name || '' );
+                k = placeName.match( /\d+/ );
+                if ( k ) {
+                    house = k[ 0 ];
+                }
+            }
+            if ( ( ! house || house === '' ) && options.fallbackInputString ) {
+                var fn = ( place.name || '' );
+                if ( fn ) {
+                    try {
+                        var re = new RegExp( fn.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' ) + '\\s([0-9]+)', 'i' );
+                        var matches = re.exec( options.fallbackInputString );
+                        if ( matches && matches.length > 1 ) {
+                            house = matches[ 1 ];
+                        }
+                    } catch ( e1 ) { /* empty */ }
+                }
+            }
+            return { street: street, city: city, house: house };
+        }
+
+        function ocwsSetCityPlaceIdForGmCities( city, $cityIdInput ) {
+            if ( ! city || ! $cityIdInput || ! $cityIdInput.length ) {
+                return Promise.resolve();
+            }
+            return geocoder
+                .geocode( { address: city, componentRestrictions: { country: 'IL' } } )
+                .then( function( res ) {
+                    var results = ( res && res.results ) ? res.results : [];
+                    if ( results.length && results[ 0 ] && results[ 0 ].place_id ) {
+                        $cityIdInput.val( results[ 0 ].place_id );
+                    }
+                } );
+        }
+
         $(document.body).on('shipping_popup_loaded', function() {
             var usingChooseShippingPopup = !!($('#choose-shipping').length);
             if (usingChooseShippingPopup) {
@@ -307,41 +382,15 @@
 
         function ocwsFillInAddressChooseShippingPopup() {
             const billingAddressPlaceChooseShippingPopup = autocompleteChooseShippingPopup.getPlace();
-            var street = "";
-            var city = "";
-            var house = "";
 
             console.log("Place Selected:", billingAddressPlaceChooseShippingPopup);
 
             if (!billingAddressPlaceChooseShippingPopup.hasOwnProperty('address_components')) return;
 
-            // לוגיקת חילוץ רכיבים משופרת
-            for (const component of billingAddressPlaceChooseShippingPopup.address_components) {
-                const types = component.types;
-                const name = component.long_name;
-
-                if (types.includes("street_number")) {
-                    house = name;
-                } else if (types.includes("route")) {
-                    street = name;
-                } else if (types.includes("locality") || types.includes("postal_town") || types.includes("administrative_area_level_2")) {
-                    if (city === '') city = name;
-                }
-            }
-
-            // --- טיפול במקרה של מושבים/קיבוצים (למשל: 50 מיטב) ---
-            // אם יש לנו עיר ומספר בית אבל אין רחוב - העיר היא הרחוב
-            if (city !== '' && house !== '' && street === '') {
-                street = city;
-            }
-
-            // ניסיון חילוץ מספר בית מהשם אם הוא עדיין חסר
-            if (!house || house == '') {
-                const placeName = billingAddressPlaceChooseShippingPopup.name || "";
-                // מחפש מספר בתוך שם המקום (למשל "מיטב 50")
-                const match = placeName.match(/\d+/);
-                if (match) house = match[0];
-            }
+            var parts = ocwsParsePlaceAddressComponents( billingAddressPlaceChooseShippingPopup, { fallbackInputString: ( cityNameAutocompleteInputChooseShippingPopup.val() || '' ) } );
+            var street = parts.street;
+            var city = parts.city;
+            var house = parts.house;
 
             var noHouseMsg = (typeof ocws !== 'undefined' && ocws.localize && ocws.localize.messages && ocws.localize.messages.noHouseNumberInAddress)
                 ? ocws.localize.messages.noHouseNumberInAddress
@@ -396,18 +445,23 @@
 
                 geocoder
                     .geocode({ address: fullAddress })
-                    .then(({results}) => {
+                    .then(function (geoRes) {
+                        var results = ( geoRes && geoRes.results ) ? geoRes.results : [];
                         if (results.length && results[0]) {
                             addressInputChooseShippingPopup.val(street);
                             cityNameInputChooseShippingPopup.val(city);
                             cityInputChooseShippingPopup.val(city);
-                            cityIdInputChooseShippingPopup.val(results[0].place_id);
                             houseNumInputChooseShippingPopup.val(house);
 
                             if (billingAddressPlaceChooseShippingPopup.geometry && billingAddressPlaceChooseShippingPopup.geometry.location) {
                                 addressCoordsInputChooseShippingPopup.val(ocwsFormatLatLngForInput(billingAddressPlaceChooseShippingPopup.geometry.location));
-                                addressCoordsInputChooseShippingPopup.trigger('change');
                             }
+                        }
+                        return ocwsSetCityPlaceIdForGmCities( city, cityIdInputChooseShippingPopup );
+                    })
+                    .then(function () {
+                        if (addressCoordsInputChooseShippingPopup && addressCoordsInputChooseShippingPopup.length && String( addressCoordsInputChooseShippingPopup.val() || '' ).trim() !== '') {
+                            addressCoordsInputChooseShippingPopup.trigger('change');
                         }
                         if (typeof window.ocwsRefreshPopupContinueState === 'function') {
                             window.ocwsRefreshPopupContinueState();
@@ -477,44 +531,14 @@
         function ocwsFillInAddressPopup() {
 
             const billingAddressPlacePopup = autocompletePopup.getPlace();
-            var street = "";
-            var city = "";
-            var house = "";
             console.log(billingAddressPlacePopup);
 
             if (!billingAddressPlacePopup.hasOwnProperty('address_components')) return;
 
-            for (const component of billingAddressPlacePopup.address_components) {
-                const componentType = component.types[0];
-
-                switch (componentType) {
-                    case "street_number":
-                    {
-                        house = component.long_name;
-                        break;
-                    }
-                    case "locality":
-                    {
-                        city = component.long_name;
-                        break;
-                    }
-                    case "route":
-                    {
-                        street = component.long_name;
-                        break;
-                    }
-                }
-            }
-
-            if (!house || house == '') {
-                if (billingAddressPlacePopup.hasOwnProperty('name')) {
-                    var regexp = new RegExp(billingAddressPlacePopup.name+"\\s([0-9]+)", "i");
-                    var matches = regexp.exec(cityNameAutocompleteInputPopup.val());
-                    if (matches && matches.length > 1) {
-                        house = matches[1];
-                    }
-                }
-            }
+            var partsP = ocwsParsePlaceAddressComponents( billingAddressPlacePopup, { fallbackInputString: ( cityNameAutocompleteInputPopup.val() || '' ) } );
+            var street = partsP.street;
+            var city = partsP.city;
+            var house = partsP.house;
 
             if (city == '' || street == '' || house == '') {
                 cityNameAutocompleteInputPopup.parent().find('span.error').text('');
@@ -602,39 +626,12 @@
 
         function ocwsFillInAddress() {
             const billingAddressPlace = autocomplete.getPlace();
-            var street = "";
-            var city = "";
-            var house = "";
-
             if (!billingAddressPlace.hasOwnProperty('address_components')) return;
 
-            // מעבר על הרכיבים
-            for (const component of billingAddressPlace.address_components) {
-                const types = component.types;
-                const name = component.long_name;
-
-                if (types.includes("street_number")) {
-                    house = name;
-                } else if (types.includes("route")) {
-                    street = name;
-                } else if (types.includes("locality") || types.includes("postal_town")) {
-                    city = name;
-                } else if (types.includes("administrative_area_level_2") && city === '') {
-                    city = name;
-                }
-            }
-
-            // לוגיקת "מושבים": אם יש מספר בית (50) ומושב (מיטב) אבל אין רחוב
-            if (house && city && !street) {
-                street = city; // במושבים, שם המושב הוא גם שם הרחוב לצורך הרישום
-            }
-
-            // גיבוי למספר בית מהשדה הכללי (אם גוגל לא סיווגה אותו)
-            if (!house || house === '') {
-                const placeName = billingAddressPlace.name || "";
-                const match = placeName.match(/\d+/);
-                if (match) house = match[0];
-            }
+            var partsChk = ocwsParsePlaceAddressComponents( billingAddressPlace, { fallbackInputString: ( cityNameAutocompleteInput.val() || '' ) } );
+            var street = partsChk.street;
+            var city = partsChk.city;
+            var house = partsChk.house;
 
             // כמו בפופאב המשלוח: חובה עיר + רחוב + מספר בית (רחוב בלי מספר — לא מספיק)
             var noHouseMsgCheckout = (typeof ocws !== 'undefined' && ocws.localize && ocws.localize.messages && ocws.localize.messages.noHouseNumberInAddress)
@@ -656,19 +653,24 @@
 
                 geocoder
                     .geocode({ address: fullAddress })
-                    .then(({results}) => {
+                    .then(function (geoRes) {
+                        var results = ( geoRes && geoRes.results ) ? geoRes.results : [];
                         if (results.length && results[0]) {
                             // עדכון השדות בטופס
                             addressInput.val(street);
                             cityNameInput.val(city);
                             cityInput.val(city);
-                            cityIdInput.val(results[0].place_id);
                             houseNumInput.val(house);
 
                             if (billingAddressPlace.geometry && billingAddressPlace.geometry.location) {
                                 addressCoordsInput.val(ocwsFormatLatLngForInput(billingAddressPlace.geometry.location));
-                                addressCoordsInput.trigger('change');
                             }
+                        }
+                        return ocwsSetCityPlaceIdForGmCities( city, cityIdInput );
+                    })
+                    .then(function () {
+                        if (addressCoordsInput && addressCoordsInput.length && String( addressCoordsInput.val() || '' ).trim() !== '') {
+                            addressCoordsInput.trigger('change');
                         }
                     })
                     .catch((e) => console.error("Geocode error:", e));
@@ -719,43 +721,13 @@
 
             const addressPlace = autocomplete.getPlace();
             console.log(addressPlace);
-            var street = "";
-            var city = "";
-            var house = "";
 
             if (!addressPlace.hasOwnProperty('address_components')) return;
 
-            for (const component of addressPlace.address_components) {
-                const componentType = component.types[0];
-
-                switch (componentType) {
-                    case "street_number":
-                    {
-                        house = component.long_name;
-                        break;
-                    }
-                    case "locality":
-                    {
-                        city = component.long_name;
-                        break;
-                    }
-                    case "route":
-                    {
-                        street = component.long_name;
-                        break;
-                    }
-                }
-            }
-
-            if (!house || house == '') {
-                if (addressPlace.hasOwnProperty('name')) {
-                    var regexp = new RegExp(addressPlace.name+"\\s([0-9]+)", "i");
-                    var matches = regexp.exec(accountCityNameAutocompleteInput.val());
-                    if (matches && matches.length > 1) {
-                        house = matches[1];
-                    }
-                }
-            }
+            var partsAcc = ocwsParsePlaceAddressComponents( addressPlace, { fallbackInputString: ( accountCityNameAutocompleteInput.val() || '' ) } );
+            var street = partsAcc.street;
+            var city = partsAcc.city;
+            var house = partsAcc.house;
 
             if (city == '' || street == '' || house == '') {
                 accountCityNameAutocompleteInput.parent('.woocommerce-input-wrapper').parent().find('span.error').text('');

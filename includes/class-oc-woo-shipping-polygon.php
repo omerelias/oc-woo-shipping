@@ -1,6 +1,7 @@
 <?php
 
 use yidas\googleMaps\Client;
+use yidas\googleMaps\Geocoding;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -92,16 +93,65 @@ class OC_Woo_Shipping_Polygon {
     }
 
     public static function find_matching_gm_city($city_id) {
-        //error_log('find_matching_gm_city. City id: '.$city_id.'----------------------------------------------------');
+        if ($city_id === null || $city_id === '') {
+            return false;
+        }
+        $data_store = new OC_Woo_Shipping_Group_Data_Store();
+        $direct = $data_store->find_enabled_city_by_place_id_or_code((string) $city_id);
+        if ($direct) {
+            return $direct;
+        } 
         $cities = self::get_shipping_gm_cities();
-        //error_log('Cities: ');
-        //error_log(print_r($cities, 1));
-
         foreach ($cities as $city) {
-            if (!$city['is_enabled']) continue;
-            if ($city_id == $city['location_code']) {
+            if (!$city['is_enabled']) {
+                continue;
+            }
+            if ((string) $city_id === (string) $city['location_code']) {
                 return $city['location_code'];
             }
+        }
+        return false;
+    }
+
+    /**
+     * מזהה place_id של locality מקואורדינטות (Geocoding reverse) — גיבוי כש-billing_city_code חסר ב-AJAX.
+     *
+     * @param string|float $lat
+     * @param string|float $lng
+     * @return string|false
+     */
+    public static function get_locality_place_id_from_coordinates( $lat, $lng ) {
+        $key = ocws_get_google_maps_api_key();
+        if ( ! $key ) {
+            return false;
+        }
+        try {
+            $client  = new Client( array( 'key' => $key, 'language' => get_locale() ) );
+            $results = Geocoding::reverseGeocode(
+                $client,
+                array( $lat, $lng ),
+                array( 'result_type' => 'locality' )
+            );
+            if ( isset( $results['error_message'] ) ) {
+                return false;
+            }
+            if ( is_array( $results ) && ! empty( $results[0]['place_id'] ) ) {
+                return $results[0]['place_id'];
+            }
+            $results2 = Geocoding::reverseGeocode( $client, array( $lat, $lng ), array() );
+            if ( isset( $results2['error_message'] ) ) {
+                return false;
+            }
+            if ( ! is_array( $results2 ) ) {
+                return false;
+            }
+            foreach ( $results2 as $row ) {
+                if ( ! empty( $row['place_id'] ) && ! empty( $row['types'] ) && in_array( 'locality', (array) $row['types'], true ) ) {
+                    return $row['place_id'];
+                }
+            }
+        } catch ( \Exception $e ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
+            return false;
         }
         return false;
     }
@@ -142,9 +192,14 @@ class OC_Woo_Shipping_Polygon {
             }
 
         }
-        if (count($address_coords) > 0) {
-
-            $location_code = OC_Woo_Shipping_Polygon::find_matching_polygon($address_coords['lat'], $address_coords['lng']);
+        if ( count( $address_coords ) > 0 ) {
+            $location_code = OC_Woo_Shipping_Polygon::find_matching_polygon( $address_coords['lat'], $address_coords['lng'] );
+        }
+        if ( ! $location_code && count( $address_coords ) > 0 && apply_filters( 'ocws_reverse_geocode_coords_for_city_match', true ) ) {
+            $place_id = self::get_locality_place_id_from_coordinates( $address_coords['lat'], $address_coords['lng'] );
+            if ( $place_id ) {
+                $location_code = OC_Woo_Shipping_Polygon::find_matching_gm_city( $place_id );
+            }
         }
         return $location_code;
     }
