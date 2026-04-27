@@ -16,8 +16,8 @@
  * Plugin Name:       Original Concepts WooCommerce Advanced Shipping
  * Plugin URI:        https://originalconcepts.co.il/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           2.1.6
- * Author:            Mili Shub
+ * Version:           2.1.8
+ * Author:            Original Concepts
  * Author URI:        https://originalconcepts.co.il/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

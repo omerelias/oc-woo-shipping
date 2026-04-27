@@ -100,7 +100,7 @@ class OC_Woo_Shipping_Polygon {
         $direct = $data_store->find_enabled_city_by_place_id_or_code((string) $city_id);
         if ($direct) {
             return $direct;
-        } 
+        }
         $cities = self::get_shipping_gm_cities();
         foreach ($cities as $city) {
             if (!$city['is_enabled']) {

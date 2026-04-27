@@ -705,8 +705,7 @@ function ocws_render_shipping_additional_fields()
                     <div class="ocws-days-with-slots-list">
                         <div class="ocws-day-cards-slider owl-carousel">
                             <?php foreach ($output as $day) { ?>
-                                <div class="day-card day-data <?php echo $selected_slot_arr['date'] == $day['formatted_date'] ? 'active' : '' ?>"
-                                     data-id="<?php echo esc_attr($day['formatted_date']) ?>"
+                                <div class="day-card day-data<?php echo $selected_slot_arr['date'] == $day['formatted_date'] ? ' active' : ''; ?><?php echo $show_dates_only ? ' without-days' : ''; ?>"                                     data-id="<?php echo esc_attr($day['formatted_date']) ?>"
                                      data-rel-id="<?php echo esc_attr($day['formatted_date']) ?>">
                                     <div class="day-card__header">
                                         <a href="javascript:void(0)" class="day-first-column">
