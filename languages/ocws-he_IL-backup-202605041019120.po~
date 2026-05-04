@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: WooCommerce Advanced Shipping\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oc-woo-shipping\n"
 "POT-Creation-Date: 2026-05-04T11:51:07+02:00\n"
-"PO-Revision-Date: 2026-05-04 10:24+0000\n"
-"Last-Translator: ערן גרינוולד\n"
-"Language-Team: English (United States)\n"
-"Language: en_US\n"
+"PO-Revision-Date: 2026-05-04 10:18+0000\n"
+"Last-Translator: George\n"
+"Language-Team: Hebrew\n"
+"Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.4; wp-6.9.4; php-8.5.3"
+"X-Loco-Version: 2.6.11; wp-6.6.2\n"
 
 #. translators: %d: cities count
 #: includes/importers/views/html-csv-import-done.php:18
@@ -31,33 +31,33 @@ msgstr[1] ""
 #: admin/class-oc-woo-shipping-admin.php:834
 msgid "%s selected order assigned to \"%s\" shipping company."
 msgid_plural "%s selected orders assigned to \"%s\" shipping company."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ההזמנה שנבחרה %s הוקצה לחברת השילוח \"%s\"."
+msgstr[1] "ההזמנות שנבחרו %s הוקצה לחברת השילוח \"%s\"."
 
 #: modules/deli/class-ocws-admin-deli.php:123
 #: modules/deli/class-ocws-admin-deli.php:250
 msgid "1 day"
-msgstr ""
+msgstr "יום אחד"
 
 #: modules/deli/class-ocws-admin-deli.php:124
 #: modules/deli/class-ocws-admin-deli.php:251
 msgid "2 days"
-msgstr ""
+msgstr "יומיים"
 
 #: modules/deli/class-ocws-admin-deli.php:125
 #: modules/deli/class-ocws-admin-deli.php:252
 msgid "3 days"
-msgstr ""
+msgstr "3 ימים"
 
 #: modules/deli/class-ocws-admin-deli.php:126
 #: modules/deli/class-ocws-admin-deli.php:253
 msgid "4 days"
-msgstr ""
+msgstr "4 ימים"
 
 #: modules/deli/class-ocws-admin-deli.php:127
 #: modules/deli/class-ocws-admin-deli.php:254
 msgid "5 days"
-msgstr ""
+msgstr "5 ימים"
 
 #: modules/deli/class-ocws-deli.php:2366
 msgid "A link to a product menu."
@@ -67,90 +67,91 @@ msgstr ""
 msgid ""
 "A shipping group is a set of locations where a certain set of shipping "
 "options are offered."
-msgstr ""
+msgstr "קבוצת משלוח היא קבוצת יישובים עם הגדרות משלוח זהים"
 
 #: admin/partials/html-admin-page-shipping-companies.php:16
 msgid "Actions"
-msgstr ""
+msgstr "פעולות"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1447
 #: admin/partials/html-admin-page-shipping-group-edit.php:176
 msgid "Add"
-msgstr ""
+msgstr "הוספה"
 
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:9
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:67
 msgid "Add branch"
-msgstr ""
+msgstr "הוספת סניף"
 
 #: modules/deli/class-ocws-admin-deli.php:316
 msgid "Add category"
-msgstr ""
+msgstr "הוספת קטגוריה"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:88
 #: admin/partials/html-admin-page-shipping-group-edit.php:101
 msgid "Add city"
-msgstr ""
+msgstr "הוספת עיר"
 
 #: admin/partials/html-admin-page-shipping-companies.php:65
 msgid "Add company"
-msgstr ""
+msgstr "הוסף חברה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:325
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:942
 msgid "Add export page"
-msgstr ""
+msgstr "הוסף עמוד ייצוא"
 
 #: admin/partials/html-admin-page-shipping-groups.php:67
 msgid "Add group"
-msgstr ""
+msgstr "הוסף קבוצה"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:79
 #: admin/partials/html-admin-page-shipping-group-edit.php:338
 msgid "Add location"
-msgstr ""
+msgstr "הוסף יישוב"
 
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:52
 msgid "Add new branch"
-msgstr ""
+msgstr "הוסף סניף חדש"
 
 #: admin/partials/html-admin-page-shipping-companies.php:50
 msgid "Add new company"
-msgstr ""
+msgstr "הוסף חברה חדשה"
 
 #: admin/partials/html-admin-page-shipping-groups.php:52
 msgid "Add new group"
-msgstr ""
+msgstr "הוסף קבוצה חדשה"
 
 #: modules/deli/class-ocws-deli.php:2362
+#, fuzzy
 msgid "Add new menu"
-msgstr ""
+msgstr "הוסף חברה חדשה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:285
 msgid "Add pages for export"
-msgstr ""
+msgstr "הוסף עמודים לייצוא"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:100
 #: admin/partials/html-admin-page-shipping-group-edit.php:352
 #: admin/partials/html-admin-page-shipping-group-edit.php:368
 msgid "Add polygon"
-msgstr ""
+msgstr "הוסף פוליגון"
 
 #: admin/partials/html-admin-page-shipping-companies.php:9
 msgid "Add shipping company"
-msgstr ""
+msgstr "הוסף חברת שילוח"
 
 #: admin/partials/html-admin-page-shipping-groups.php:9
 msgid "Add shipping group"
-msgstr ""
+msgstr "הוסף קבוצת משלוח"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:315
 msgid "Add shipping location"
-msgstr ""
+msgstr "הוסף יישוב"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:260
 msgid "Add street"
-msgstr ""
+msgstr "הוספת רחוב"
 
 #: public/class-oc-woo-shipping-public.php:1806
 #: public/class-oc-woo-shipping-public.php:1808
@@ -168,7 +169,7 @@ msgstr ""
 
 #: includes/class-oc-woo-advanced-shipping-method.php:43
 msgid "Advanced Delivery Shipping"
-msgstr ""
+msgstr "מסירת משלוחים מתקדמת"
 
 #: modules/deli/class-ocws-deli.php:2357
 msgid "All menus"
@@ -180,88 +181,87 @@ msgstr ""
 #: includes/class-ocws-admin-columns.php:1684
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1165
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1239
-#, fuzzy
 msgid "All shipping methods"
-msgstr "All orders"
+msgstr "כל ההזמנות"
 
 #: includes/local-pickup/class-ocws-lp-admin.php:114
 msgid ""
 "Are you sure you want to delete this branch? This action cannot be undone."
-msgstr ""
+msgstr "האם אתה בטוח שברצונך למחוק את הסניף הזה? לא ניתן לבטל פעולה זו."
 
 #: admin/class-oc-woo-shipping-admin-companies.php:43
 msgid ""
 "Are you sure you want to delete this company? This action cannot be undone."
-msgstr ""
+msgstr "האם אתה בטוח שברצונך למחוק את החברה הזו? לא ניתן לבטל פעולה זו."
 
 #: admin/class-oc-woo-shipping-admin-groups.php:64
 msgid ""
 "Are you sure you want to delete this group? This action cannot be undone."
-msgstr ""
+msgstr "האם אתה בטוח שברצונך למחוק קבוצה זו? לא ניתן לבטל פעולה זו."
 
 #: modules/deli/class-ocws-admin-deli.php:308
 msgid "Assign categories to the menu"
-msgstr ""
+msgstr "הקצה קטגוריות לתפריט"
 
 #: admin/class-oc-woo-shipping-admin.php:783
 #: admin/class-oc-woo-shipping-admin.php:793
 msgid "Assign to shipping company %s"
-msgstr ""
+msgstr "הוסף לקבוצת שילוח %s"
 
 #: modules/deli/class-ocws-admin-deli.php:113
 #: modules/deli/class-ocws-admin-deli.php:237
 msgid "Availability type"
-msgstr ""
+msgstr "סוג זמינות"
 
 #: includes/class-oc-woo-export-orders-report.php:101
 #: includes/class-oc-woo-export.php:282
 msgid "B2B column"
-msgstr ""
+msgstr "B2B"
 
 #: template-parts/public/checkout-popup.php:84
 msgid "Back"
-msgstr ""
+msgstr "חזרה"
 
 #: template-parts/public/checkout-popup.php:15
 msgid "Back to shop"
-msgstr ""
+msgstr "המשך בקניה"
 
 #: includes/importers/views/html-cities-csv-import-form.php:30
 msgid ""
 "Before you can upload your import file, you will need to fix the following "
 "error:"
-msgstr ""
+msgstr "לפני העלאת קובץ הייבוא, יש צורך לתקן את השגיאה הבאה:"
 
 #: admin/partials/local-pickup/html-admin-page-lp-affiliate-edit.php:14
 #: includes/class-oc-woo-shipping-admin-columns.php:69
 #: includes/class-ocws-admin-columns.php:80
 #: includes/local-pickup/class-ocws-lp-admin.php:153
 msgid "Branch"
-msgstr ""
+msgstr "סניף"
 
 #: admin/partials/local-pickup/html-admin-page-lp-affiliate-edit.php:34
 #: admin/partials/local-pickup/html-admin-page-lp-affiliate-edit.php:38
 msgid "Branch address"
-msgstr ""
+msgstr "כתובת סניף"
 
 #: admin/partials/local-pickup/html-admin-page-lp-affiliate-edit.php:45
 #: admin/partials/local-pickup/html-admin-page-lp-affiliate-edit.php:49
 msgid "Branch description"
-msgstr ""
+msgstr "תיאור סניף"
 
 #: includes/local-pickup/class-ocws-lp-admin.php:132
 msgid "Branch does not exist!"
-msgstr ""
+msgstr "סניף לא קיים"
 
 #: admin/partials/local-pickup/html-admin-page-lp-affiliate-edit.php:23
 #: admin/partials/local-pickup/html-admin-page-lp-affiliate-edit.php:27
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:16
 msgid "Branch name"
-msgstr ""
+msgstr "שם הסניף"
 
 #: includes/local-pickup/class-ocws-lp-admin.php:291
 msgid "Branch settings"
-msgstr ""
+msgstr "הגדרות הסניף"
 
 #: modules/deli/class-ocws-deli.php:792
 msgctxt "Button in mini-cart"
@@ -272,106 +272,110 @@ msgstr ""
 #: admin/class-oc-woo-shipping-admin-groups.php:1809
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:67
 msgid "By specific days"
-msgstr ""
+msgstr "לפי תאריכים ספציפיים"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:158
 msgid "Calendar style"
-msgstr ""
+msgstr "לוח שנה"
 
 #: modules/deli/class-ocws-deli.php:2482
+#, fuzzy
 msgid "Can be ordered at "
-msgstr ""
+msgstr "עד תאריך הזמנה"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:251
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: includes/class-oc-woo-export-for-packaging.php:80
 msgid "Category column"
-msgstr ""
+msgstr "קטגוריה"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:178
+#, fuzzy
 msgid "Checkout local pickup text"
-msgstr ""
+msgstr "אבוא לאסוף "
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:170
+#, fuzzy
 msgid "Checkout local pickup title"
-msgstr ""
+msgstr "אבוא לאסוף "
 
 #: includes/admin/class-ocws-admin-profile.php:49
 #: includes/admin/class-ocws-admin-profile.php:68
 msgid "Choose a city from the list"
-msgstr ""
+msgstr "בחר עיר מהרשימה"
 
 #: includes/importers/views/html-cities-csv-import-form.php:22
 msgid "Choose a CSV file from your computer:"
-msgstr ""
+msgstr "בחר קובץ CSV מהמחשב שלך"
 
 #: includes/oc-woo-shipping-core-functions.php:703
 msgid "Choose an arrival time"
-msgstr ""
+msgstr "בחר זמן הגעה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:246
 #: admin/class-oc-woo-shipping-admin-groups.php:268
 msgid "Choose attributes to show"
-msgstr ""
+msgstr "בחר תכונות לייצוא"
 
 #: template-parts/public/checkout-popup.php:18
 msgid "Choose city"
-msgstr ""
+msgstr "בחר עיר\\ישוב אחר"
 
 #: includes/class-oc-woo-advanced-shipping-method.php:90
 #: includes/class-oc-woo-advanced-shipping-method.php:480
 msgid "choose city"
-msgstr ""
+msgstr "בחר עיר"
 
 #: modules/deli/class-ocws-deli.php:1113
+#, fuzzy
 msgid "Choose delivery date"
-msgstr ""
+msgstr "בחר תאריך משלוח"
 
 #: template-parts/public/checkout-popup.php:16
 msgid "Choose local pickup"
-msgstr ""
+msgstr "אבוא לאסוף "
 
 #: admin/class-oc-woo-shipping-admin-groups.php:352
 #: admin/class-oc-woo-shipping-admin-groups.php:516
 msgid "Choose order statuses for export"
-msgstr ""
+msgstr "בחר סטטוסים של הזמנות המתאימים לייצוא"
 
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:531
 msgid "Choose pickup date"
-msgstr ""
+msgstr "בחר תאריך איסוף"
 
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:110
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:127
 msgid "Choose pickup location"
-msgstr ""
+msgstr "בחר סניף איסוף"
 
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:488
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:635
 msgid "Choose pickup time"
-msgstr " Choose pickup time"
+msgstr "בחר שעת איסוף "
 
 #: template-parts/public/popup-dialog.php:71 template-parts/public/popup.php:85
 #: template-parts/theme/popup.php:85
 msgid "Choose shipping location"
-msgstr ""
+msgstr "בחר יישוב למשלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1013
 #: admin/class-oc-woo-shipping-admin-groups.php:1929
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:1505
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:1716
 msgid "Choose specific dates"
-msgstr ""
+msgstr "בחר תאריכים ספציפיים"
 
 #: admin/class-oc-woo-shipping-admin.php:1075
 #: admin/class-oc-woo-shipping-admin.php:1105
 msgid "Choose the export page for this category"
-msgstr ""
+msgstr "בחר עמוד ייצוא בשביל הקטגורייה"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:323
 msgid "Choose the shipping location you wish to add."
-msgstr ""
+msgstr "בחר יישוב שברצונך להוסיף"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:70
 #: includes/class-ocws-admin-columns.php:81
@@ -379,12 +383,12 @@ msgstr ""
 #: public/class-oc-woo-shipping-public.php:393
 #: public/class-oc-woo-shipping-public.php:745
 msgid "City"
-msgstr ""
+msgstr "יישוב"
 
 #: includes/class-oc-woo-export-orders-report.php:90
 #: includes/class-oc-woo-export.php:271
 msgid "City column"
-msgstr ""
+msgstr "יישוב"
 
 #: admin/partials/html-admin-page-shipping-companies.php:52
 #: admin/partials/html-admin-page-shipping-group-edit.php:290
@@ -394,96 +398,96 @@ msgstr ""
 #: admin/partials/html-admin-page-shipping-groups.php:54
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:54
 msgid "Close modal panel"
-msgstr ""
+msgstr "סגור"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:265
 msgid "Common Settings"
-msgstr ""
+msgstr "הגדרות כלליות"
 
 #: admin/partials/html-admin-page-shipping-companies.php:15
 msgid "Company name"
-msgstr ""
+msgstr "שם החברה"
 
 #: includes/importers/views/html-cities-csv-import-form.php:59
 #: template-parts/public/checkout-popup.php:81
 msgid "Continue"
-msgstr ""
+msgstr "המשך"
 
 #: includes/class-oc-woo-export-orders-report.php:98
 #: includes/class-oc-woo-export.php:279
 msgid "Courier name column"
-msgstr ""
+msgstr "שם השליח"
 
 #: includes/class-oc-woo-ajax.php:317 includes/class-oc-woo-ajax.php:374
 msgid "Custom polygon"
-msgstr ""
+msgstr "פוליגון מותאם אישית"
 
 #: includes/class-oc-woo-export-orders-report.php:89
 msgid "Customer email column"
-msgstr ""
+msgstr "אימייל"
 
 #: includes/class-oc-woo-export-orders-report.php:86
 #: includes/class-oc-woo-export.php:268
 msgid "Customer firstname column"
-msgstr ""
+msgstr "שם פרטי"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:68
 #: includes/class-ocws-admin-columns.php:78
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:67
 msgid "Customer Full Name"
-msgstr ""
+msgstr "שם מלא של הלקוח"
 
 #: includes/class-oc-woo-export-orders-report.php:87
 #: includes/class-oc-woo-export.php:269
 msgid "Customer lastname column"
-msgstr ""
+msgstr "שם משפחה"
 
 #: includes/class-oc-woo-export-for-packaging.php:79
 msgid "Customer name column"
-msgstr ""
+msgstr "שם הלקוח"
 
 #: includes/class-oc-woo-export-orders-report.php:88
 #: includes/class-oc-woo-export.php:270
 msgid "Customer phone column"
-msgstr ""
+msgstr "טלפון"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:147
 msgid "Dates style"
-msgstr ""
+msgstr "עיצוב תאריך"
 
 #: includes/local-pickup/class-ocws-lp-admin.php:47
 msgid "Default Branch Settings"
-msgstr ""
+msgstr "הגדרות סניף כלליות"
 
 #: includes/local-pickup/class-ocws-lp-admin.php:234
 msgid "Default branch settings"
-msgstr ""
+msgstr "הגדרות סניף כלליות"
 
 #: admin/class-oc-woo-shipping-admin.php:371
 msgid "Default group settings"
-msgstr ""
+msgstr "הגדרות ברירת מחדל לקבוצות"
 
 #: admin/partials/html-admin-page-shipping-companies.php:39
 #: admin/partials/html-admin-page-shipping-group-edit.php:137
 #: admin/partials/html-admin-page-shipping-groups.php:37
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:37
 msgid "Delete"
-msgstr ""
+msgstr "מחיקה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:758
 msgid "Deli Style Checkout"
-msgstr ""
+msgstr "קופה בסגנון מעדניה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:955
 #: admin/class-oc-woo-shipping-admin-groups.php:1799
 msgid "Delivery scheduling type"
-msgstr ""
+msgstr "סוג תזמון משלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1407
 #: admin/partials/html-admin-page-shipping-group-edit.php:68
 #: admin/partials/html-admin-page-shipping-group-edit.php:146
 msgid "Depending price"
-msgstr ""
+msgstr "תלוי מחיר"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:115
 #: includes/local-pickup/class-ocws-lp-admin.php:149
@@ -491,83 +495,87 @@ msgid ""
 "Do you wish to save your changes first? Your changed data will be discarded "
 "if you choose to cancel."
 msgstr ""
+"האם ברצונך לשמור תחילה את השינויים שלך? הנתונים שתשתנה יימחקו אם תבחר לבטל."
 
 #: includes/importers/class-ocws-cities-csv-importer-controller.php:121
 msgid "Done!"
-msgstr ""
+msgstr "טופל!"
 
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:15
 msgid ""
 "Drag and drop to re-order your branches. This is the order in which they "
 "will be displayed in a reports."
-msgstr ""
+msgstr "גרור ושחרר כדי לסדר מחדש את הסניפים שלך. זה הסדר שבו הם יוצגו בדוחות."
 
 #: admin/partials/html-admin-page-shipping-groups.php:15
 msgid ""
 "Drag and drop to re-order your custom groups. This is the order in which "
 "they will be displayed in a reports."
 msgstr ""
+"גרור ושחרר כדי לסדר מחדש הקבוצות המותאמות אישית שלך. זה הסדר שבו הם יוצגו "
+"בדוחות."
 
 #: admin/partials/html-admin-page-shipping-companies.php:34
 #: admin/partials/html-admin-page-shipping-group-edit.php:135
 #: admin/partials/html-admin-page-shipping-groups.php:37
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:37
 msgid "Edit"
-msgstr ""
+msgstr "עריכה"
 
 #: modules/deli/class-ocws-deli.php:2360
+#, fuzzy
 msgid "Edit menu"
-msgstr ""
+msgstr "עריכה"
 
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:412
 msgid "Edit pickup date"
-msgstr ""
+msgstr "עריכת תאריך איסוף"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:382
 msgid "Edit polygon"
-msgstr ""
+msgstr "עריכת הפוליגון"
 
 #: includes/class-oc-woo-shipping-info.php:350
 msgid "Edit shipping date"
-msgstr ""
+msgstr "עריכת תאריך משלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:176
 msgid "Enable add other products checkbox"
-msgstr ""
+msgstr "הפעל את תיבת הסימון \"הוסף מוצרים אחרים\""
 
 #: admin/class-oc-woo-shipping-admin-groups.php:194
 msgid "Enable greeting field"
-msgstr ""
+msgstr "לאפשר שדה ברכה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:169
 msgid "Enable leave at the door checkbox"
-msgstr ""
+msgstr "אפשר את תיבת הסימון \"השאר בפתח\""
 
 #: includes/class-oc-woo-advanced-shipping-method.php:36
 msgid "Enable OC Advanced Delivery Shipping"
-msgstr ""
+msgstr "אפשר מסירת משלוחים מתקדמת של OC"
 
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:36
 msgid "Enable OC Local Pickup"
-msgstr ""
+msgstr "אפשר OC איסוף מקומי"
 
 #: includes/class-oc-woo-advanced-shipping-method.php:34
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:34
 msgid "Enable/Disable"
-msgstr ""
+msgstr "הפעל / השבת"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:67
 #: admin/partials/html-admin-page-shipping-groups.php:17
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:17
 msgid "Enabled"
-msgstr ""
+msgstr "מופעל"
 
 #: admin/class-oc-woo-shipping-admin.php:489
 #: admin/class-oc-woo-shipping-admin.php:493
 #: public/class-oc-woo-shipping-public.php:1284
 #: public/class-oc-woo-shipping-public.php:1288
 msgid "enabled"
-msgstr ""
+msgstr "מופעל"
 
 #: includes/class-oc-woo-export-orders-report.php:172
 #: includes/class-oc-woo-export-sales-report.php:161
@@ -584,7 +592,7 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1092
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1093
 msgid "End completed date"
-msgstr ""
+msgstr "עד תאריך סגירה"
 
 #: includes/class-oc-woo-export-orders-report.php:170
 #: includes/class-oc-woo-export-sales-report.php:159
@@ -601,7 +609,7 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:979
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:980
 msgid "End order date"
-msgstr ""
+msgstr "עד תאריך הזמנה"
 
 #: includes/class-oc-woo-export-orders-report.php:174
 #: includes/class-oc-woo-shipping-admin-columns.php:869
@@ -617,73 +625,75 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:771
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:772
 msgid "End shipping date"
-msgstr ""
+msgstr "עד תאריך אספקה"
 
 #: includes/class-oc-woo-export-orders-report.php:95
 #: includes/class-oc-woo-export.php:276
 msgid "Enter code column"
-msgstr ""
+msgstr "קוד כניסה"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:92
 #: admin/partials/html-admin-page-shipping-group-edit.php:258
 msgid "Enter street name"
-msgstr ""
+msgstr "הכנס שם רחוב"
 
 #: template-parts/public/checkout-popup.php:61
 #: template-parts/public/popup-dialog.php:86
 #: template-parts/public/popup.php:127 template-parts/theme/popup.php:100
 msgid "Enter your address here"
-msgstr ""
+msgstr "הזן את כתובתך כאן"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1177
 #: admin/class-oc-woo-shipping-admin-groups.php:2199
 #: admin/class-oc-woo-shipping-admin-groups.php:2213
 msgid "Every four weeks"
-msgstr ""
+msgstr "כל ארבעה שבועות"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1176
 #: admin/class-oc-woo-shipping-admin-groups.php:2198
 #: admin/class-oc-woo-shipping-admin-groups.php:2212
 msgid "Every two weeks"
-msgstr ""
+msgstr "כל שבועיים"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1175
 #: admin/class-oc-woo-shipping-admin-groups.php:2197
 #: admin/class-oc-woo-shipping-admin-groups.php:2211
 msgid "Every week"
-msgstr ""
+msgstr "כל שבוע"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:922
 #: admin/class-oc-woo-shipping-admin-groups.php:1738
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:2145
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:2184
 msgid "Exclude dates"
-msgstr ""
+msgstr "אל תכלול תאריכים"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:109
+#, fuzzy
 msgid "Exclude dates for local pickup"
-msgstr ""
+msgstr "אל תכלול תאריכים"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:842
 #: admin/class-oc-woo-shipping-admin-groups.php:1601
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:1946
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:2022
 msgid "Exclude days of week"
-msgstr ""
+msgstr "אל תכלול את ימי השבוע"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:102
+#, fuzzy
 msgid "Exclude days of week for local pickup"
-msgstr ""
+msgstr "אל תכלול את ימי השבוע"
 
 #: modules/deli/class-ocws-admin-deli.php:348
 #: modules/deli/class-ocws-admin-deli.php:391
 msgid "Exclude product"
-msgstr ""
+msgstr "אל תכלול מוצר"
 
 #: modules/deli/class-ocws-admin-deli.php:340
 #: modules/deli/class-ocws-admin-deli.php:383
 msgid "Exclude product(s)"
-msgstr ""
+msgstr "אל תכלול מוצרים"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1035
 #: includes/class-oc-woo-shipping-admin-columns.php:1041
@@ -692,37 +702,37 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:796
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:802
 msgid "Export"
-msgstr ""
+msgstr "ייצוא"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1054
 #: includes/class-ocws-admin-columns.php:1256
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:815
 msgid "Export for packaging"
-msgstr ""
+msgstr "סיכום לאריזה"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1048
 #: includes/class-ocws-admin-columns.php:1250
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:809
 msgid "Export for production"
-msgstr ""
+msgstr "סיכום לייצור"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1040
 #: includes/class-ocws-admin-columns.php:1242
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:801
 msgid "Export orders"
-msgstr ""
+msgstr "יצוא הזמנות"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1053
 #: includes/class-ocws-admin-columns.php:1255
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:814
 msgid "Export orders for packaging"
-msgstr ""
+msgstr "יצוא לאריזה"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1047
 #: includes/class-ocws-admin-columns.php:1249
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:808
 msgid "Export orders for production"
-msgstr ""
+msgstr "יצוא ליצור"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1065
 #: includes/class-oc-woo-shipping-admin-columns.php:1066
@@ -734,13 +744,13 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:827
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1329
 msgid "Export orders report"
-msgstr ""
+msgstr "יצוא דוח הזמנות"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1539
 #: includes/class-ocws-admin-columns.php:1741
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1297
 msgid "Export orders shipping data"
-msgstr ""
+msgstr "יצוא סיכום משלוחים של הזמנות"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:300
 #: admin/class-oc-woo-shipping-admin-groups.php:315
@@ -749,18 +759,18 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:917
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:932
 msgid "Export page"
-msgstr ""
+msgstr "עמוד ייצוא"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:302
 #: admin/class-oc-woo-shipping-admin-groups.php:317
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:919
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:934
 msgid "Export page title"
-msgstr ""
+msgstr "כותרת של עמוד ייצוא"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:264
 msgid "Export product details for production"
-msgstr ""
+msgstr "סיכום מוצרים לאורז"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1059
 #: includes/class-oc-woo-shipping-admin-columns.php:1060
@@ -769,33 +779,33 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:820
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:821
 msgid "Export sales report"
-msgstr ""
+msgstr "ייצוא דוח מכירות"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1568
 #: includes/class-ocws-admin-columns.php:1770
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1326
 msgid "Export sales report by products"
-msgstr ""
+msgstr "יצוא דוח מכירות לפי מוצרים"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:348
 msgid "Export settings"
-msgstr ""
+msgstr "הגדרות ייצוא"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1545
 #: includes/class-ocws-admin-columns.php:1747
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1303
 msgid "Export shipping data for packaging"
-msgstr ""
+msgstr "יצוא סיכום משלוחים לאריזה"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1542
 #: includes/class-ocws-admin-columns.php:1744
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1300
 msgid "Export shipping data for production"
-msgstr ""
+msgstr "יצוא סיכום משלוחים ליצור"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:242
 msgid "Export summary for production"
-msgstr ""
+msgstr "סיכום לייצור"
 
 #: includes/importers/class-ocws-cities-csv-importer-controller.php:284
 msgid ""
@@ -813,32 +823,32 @@ msgstr ""
 #: includes/class-ocws-admin-columns.php:1283
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:843
 msgid "Filter by dates"
-msgstr ""
+msgstr "תאריכים"
 
 #: modules/deli/class-ocws-admin-deli.php:70
 msgid "Filter by menu"
-msgstr ""
+msgstr "תפריטים"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:1127
 #: includes/class-ocws-admin-columns.php:1328
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:886
 msgid "Filter by shipping data"
-msgstr ""
+msgstr "משלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1406
 #: admin/partials/html-admin-page-shipping-group-edit.php:145
 msgid "Fixed price"
-msgstr ""
+msgstr "מחיר קבוע"
 
 #: includes/class-oc-woo-export-orders-report.php:93
 #: includes/class-oc-woo-export.php:274
 msgid "Flat number column"
-msgstr ""
+msgstr "מספר דירה"
 
 #: includes/class-oc-woo-export-orders-report.php:94
 #: includes/class-oc-woo-export.php:275
 msgid "Floor column"
-msgstr ""
+msgstr "קומה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:869
 #: admin/class-oc-woo-shipping-admin-groups.php:1629
@@ -856,7 +866,7 @@ msgstr ""
 #: modules/deli/class-ocws-deli.php:2579 modules/deli/class-ocws-deli.php:2618
 #: modules/deli/class-ocws-deli.php:2767
 msgid "Friday"
-msgstr ""
+msgstr "שישי"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:841
 #: includes/class-oc-woo-shipping-admin-columns.php:897
@@ -865,16 +875,16 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:686
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:742
 msgid "From...To"
-msgstr "Date range"
+msgstr "תקופה"
 
 #: includes/local-pickup/class-ocws-lp-admin.php:174
 msgid "General Settings"
-msgstr ""
+msgstr "הגדרות כלליות"
 
 #: admin/class-oc-woo-shipping-admin.php:374
 #: includes/local-pickup/class-ocws-lp-admin.php:50
 msgid "General settings"
-msgstr ""
+msgstr "הגדרות כלליות"
 
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:341
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:349
@@ -886,47 +896,47 @@ msgstr ""
 #: modules/deli/class-ocws-deli-ajax.php:305
 #: modules/deli/class-ocws-deli.php:948 modules/deli/class-ocws-deli.php:985
 msgid "Go to the site."
-msgstr ""
+msgstr "כנסו לאתר."
 
 #: admin/class-oc-woo-shipping-admin-groups.php:686
 #: includes/admin/class-ocws-multisite-menu.php:95
 msgid "Google Maps API"
-msgstr ""
+msgstr "Google Maps API"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:690
 #: includes/admin/class-ocws-multisite-menu.php:98
 msgid "Google Maps API key"
-msgstr ""
+msgstr "מפתח Google Maps API"
 
 #: public/class-oc-woo-shipping-public.php:1865
 msgid "Greeting"
-msgstr ""
+msgstr "ברכה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:120
 #: admin/partials/html-admin-page-shipping-group-edit.php:14
 #: includes/class-oc-woo-shipping-group.php:411
 msgid "Group"
-msgstr ""
+msgstr "קבוצה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:85
 #: admin/class-oc-woo-shipping-admin-groups.php:1337
 msgid "Group does not exist!"
-msgstr ""
+msgstr "הקבוצה לא קיימת!"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:34
 msgid "Group locations"
-msgstr ""
+msgstr "יישובי הקבוצה"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:23
 #: admin/partials/html-admin-page-shipping-group-edit.php:28
 #: admin/partials/html-admin-page-shipping-groups.php:16
 msgid "Group name"
-msgstr ""
+msgstr "שם הקבוצה"
 
 #: includes/class-oc-woo-export-orders-report.php:78
 #: includes/class-oc-woo-export.php:260
 msgid "Group name column"
-msgstr ""
+msgstr "קבוצה"
 
 #: modules/deli/class-ocws-deli.php:818
 msgctxt "Heading in mini-cart"
@@ -947,213 +957,220 @@ msgstr ""
 
 #: admin/class-oc-woo-shipping-admin-groups.php:401
 msgid "Hide number of items column"
-msgstr ""
+msgstr "הסתר עמודת כמות פריטים"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:390
 msgid "Hide order items column"
-msgstr ""
+msgstr "הסתר עמודת פרטי הזמנה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:412
 msgid "Hide order notes column"
-msgstr ""
+msgstr "הסתר עמודת הערות להזמנה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:467
 msgid "Hide order total column"
-msgstr ""
+msgstr "הסתר את העמודה של סה\"כ ההזמנה"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:146
+#, fuzzy
 msgid "Hide pickup time slot in new order email to admin"
-msgstr ""
+msgstr "הסתר טווח שעות באימייל הזמנה חדשה למנהל"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:139
+#, fuzzy
 msgid "Hide pickup time slots on checkout"
-msgstr ""
+msgstr "הסתר משבצות זמן בקופה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:456
 msgid "Hide shipping method column"
-msgstr ""
+msgstr "הסתר את עמודת שיטת המשלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:368
 msgid "Hide summary column"
-msgstr ""
+msgstr "הסתר עמודת סיכום"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:216
 msgid "Hide time slot in new order email to admin"
-msgstr ""
+msgstr "הסתר טווח שעות באימייל הזמנה חדשה למנהל"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:379
 msgid "Hide time slots column"
-msgstr ""
+msgstr "הסתר עמודת טווח שעות"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:205
 msgid "Hide time slots on checkout"
-msgstr ""
+msgstr "הסתר משבצות זמן בקופה"
 
 #: public/class-oc-woo-shipping-public.php:1956
 #: public/class-oc-woo-shipping-public.php:1957
 msgid "House"
-msgstr ""
+msgstr "בית"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:76
 #: includes/class-ocws-admin-columns.php:87
 #: public/class-oc-woo-shipping-public.php:2011
 #: public/class-oc-woo-shipping-public.php:2012
 msgid "House number"
-msgstr ""
+msgstr "מספר בית"
 
 #: includes/class-oc-woo-export-orders-report.php:92
 #: includes/class-oc-woo-export.php:273
 msgid "House number column"
-msgstr ""
+msgstr "מספר בית"
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
 #: oc-woo-shipping.php
 msgid "https://originalconcepts.co.il/"
-msgstr ""
+msgstr "https://originalconcepts.co.il/"
 
 #: includes/importers/class-ocws-cities-csv-importer-controller.php:116
 msgid "Import"
-msgstr ""
+msgstr "ייבוא"
 
 #: includes/importers/views/html-csv-import-header.php:12
 msgid "Import Cities"
-msgstr ""
+msgstr "ייבוא ​​ערים"
 
 #: includes/importers/views/html-cities-csv-import-form.php:13
 msgid "Import cities from a CSV file"
-msgstr ""
+msgstr "ייבוא ​​ערים מקובץ CSV"
 
 #. translators: %d: import results
 #: includes/importers/views/html-csv-import-done.php:44
 msgid "Import complete!"
-msgstr ""
+msgstr "הייבוא ​​הושלם!"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:59
 msgid "Import from CSV file"
-msgstr ""
+msgstr "ייבא מקובץ CSV"
 
 #: includes/importers/views/html-csv-import-progress.php:14
 msgid "Importing"
-msgstr ""
+msgstr "מייבא"
 
 #: public/class-oc-woo-shipping-public.php:165
 msgid "Input too long"
-msgstr ""
+msgstr "קלט ארוך מדי"
 
 #: public/class-oc-woo-shipping-public.php:166
 msgid "Input too short"
-msgstr ""
+msgstr "קלט קצר מדי"
 
 #: includes/class-oc-woo-ajax.php:1234
 msgid "Insufficient privileges to import products."
-msgstr ""
+msgstr "אין מספיק הרשאות לייבוא ​​מוצרים."
 
 #: includes/importers/class-ocws-cities-csv-importer-controller.php:289
 #: includes/importers/class-ocws-cities-csv-importer-controller.php:336
 #: includes/importers/class-ocws-cities-csv-importer.php:193
 msgid "Invalid file type. The importer supports CSV and TXT file formats."
-msgstr ""
+msgstr "סוג קובץ לא תקין. היבואן תומך בפורמטים של קבצי CSV ו-TXT."
 
 #: modules/deli/class-ocws-admin-deli.php:122
 #: modules/deli/class-ocws-admin-deli.php:249
 msgid "Irrelevant"
-msgstr ""
+msgstr "לא רלוונטי"
 
 #: includes/class-oc-woo-export-orders-report.php:85
 #: includes/class-oc-woo-export.php:267
 msgid "Items quantity column"
-msgstr ""
+msgstr "כמות הפריטים"
 
 #: includes/class-oc-woo-export-for-production-opensea.php:31
 msgid "Kalkar column"
-msgstr ""
+msgstr "קלקרים"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:505
 msgid "Kalkar L Capacity"
-msgstr ""
+msgstr "קיבולת של קלקר L"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:500
 msgid "Kalkar M Capacity"
-msgstr ""
+msgstr "קיבולת של קלקר M"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:495
 msgid "Kalkar S Capacity"
-msgstr ""
+msgstr "קיבולת של קלקר S"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:826
 #: admin/class-oc-woo-shipping-admin-groups.php:1378
 msgid "Latest hour to order today"
-msgstr ""
+msgstr "שעה אחרונה להזמנה היום"
 
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:27
 msgid "Loading"
-msgstr ""
+msgstr "טעינה"
 
 #: public/class-oc-woo-shipping-public.php:167
 msgid "Loading more results…"
-msgstr ""
+msgstr "טוען תוצאות נוספות..."
 
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:43
 msgid "Local Pickup"
-msgstr ""
+msgstr "איסוף עצמי"
 
 #: includes/local-pickup/class-ocws-lp-admin.php:44
 msgid "Local Pickup Branches"
-msgstr ""
+msgstr "סניפים לאיסוף"
 
 #: admin/partials/local-pickup/html-admin-page-lp-affiliate-edit.php:13
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:8
 msgid "Local pickup branches"
-msgstr ""
+msgstr "סניפים לאיסוף"
 
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:340
 msgid "Local pickup is available from %s only."
-msgstr ""
+msgstr "איסוף מקומי זמין מ-%s בלבד."
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:50
+#, fuzzy
 msgid "Local pickup price"
-msgstr ""
+msgstr "סניפים לאיסוף"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:175
+#, fuzzy
 msgid "Local pickup time slots description on checkout"
-msgstr ""
+msgstr "תת כותרת של בלוק בחירת תאריכים למשלוח"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:191
+#, fuzzy
 msgid "Local pickup time slots description on popup"
-msgstr ""
+msgstr "תת כותרת של בלוק בחירת תאריכים למשלוח"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:167
+#, fuzzy
 msgid "Local pickup time slots title on checkout"
-msgstr ""
+msgstr "כותרת של בלוק בחירת תאריכים למשלוח"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:183
+#, fuzzy
 msgid "Local pickup time slots title on popup"
-msgstr ""
+msgstr "כותרת של בלוק בחירת תאריכים למשלוח"
 
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:42
 msgid "Local Pickup."
-msgstr ""
+msgstr "איסוף עצמי"
 
 #: public/class-oc-woo-shipping-public.php:814
 msgid "Locality"
-msgstr ""
+msgstr "מיקום"
 
 #: admin/partials/html-admin-page-shipping-groups.php:18
 msgid "Location(s)"
-msgstr ""
+msgstr "יישובים"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:490
 msgid "Maaraz L Capacity"
-msgstr ""
+msgstr "קיבולת של מארז L"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:485
 msgid "Maaraz M Capacity"
-msgstr ""
+msgstr "קיבולת של מארז M"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:480
 msgid "Maaraz S Capacity"
-msgstr ""
+msgstr "קיבולת של מארז S"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:290
 #: admin/class-oc-woo-shipping-admin.php:1061
@@ -1163,12 +1180,12 @@ msgstr ""
 #: includes/class-oc-woo-export-sales-report.php:56
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:907
 msgid "Main"
-msgstr ""
+msgstr "ראשי"
 
 #. translators: %s: maximum upload size
 #: includes/importers/views/html-cities-csv-import-form.php:44
 msgid "Maximum size: %s"
-msgstr ""
+msgstr "גודל מקסימלי: %s"
 
 #: modules/deli/class-ocws-deli.php:2351
 msgid "Menus"
@@ -1177,40 +1194,43 @@ msgstr ""
 #: includes/class-oc-woo-advanced-shipping-method.php:40
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:40
 msgid "Method Title"
-msgstr ""
+msgstr "כותרת השיטה"
 
 #: modules/deli/class-ocws-deli.php:631 modules/deli/class-ocws-deli.php:717
 #: public/class-oc-woo-shipping-public.php:3192
 #: public/class-oc-woo-shipping-public.php:3229
 msgctxt "Mini Cart Chosen Shipping Text"
 msgid "pickup"
-msgstr ""
+msgstr "איסוף"
 
 #: modules/deli/class-ocws-deli.php:622 modules/deli/class-ocws-deli.php:683
 #: public/class-oc-woo-shipping-public.php:3179
 msgctxt "Mini Cart Chosen Shipping Text"
 msgid "shipping"
-msgstr ""
+msgstr "משלוח"
 
 #: modules/deli/class-ocws-deli.php:2652
 msgctxt "Mini-cart delivery settings notice"
 msgid "The product %s is not available on the chosen date."
-msgstr ""
+msgstr "המוצר %s לא זמין בתאריך הנבחר"
 
 #: modules/deli/class-ocws-deli.php:166
+#, fuzzy
 msgctxt "Mini-cart delivery settings popup"
 msgid "Back to cart"
-msgstr ""
+msgstr "חזרה לאתר"
 
 #: modules/deli/class-ocws-deli.php:167
+#, fuzzy
 msgctxt "Mini-cart delivery settings popup"
 msgid "Back to checkout"
-msgstr ""
+msgstr "בטל"
 
 #: modules/deli/class-ocws-deli.php:168
+#, fuzzy
 msgctxt "Mini-cart delivery settings popup"
 msgid "Continue to change"
-msgstr ""
+msgstr "אישור"
 
 #: modules/deli/class-ocws-deli.php:747
 msgctxt "Mini-cart dialog sub title"
@@ -1220,9 +1240,10 @@ msgid ""
 msgstr ""
 
 #: modules/deli/class-ocws-deli.php:748
+#, fuzzy
 msgctxt "Mini-cart dialog text"
 msgid "Are you sure you want to continue?"
-msgstr ""
+msgstr "האם אתה בטוח שברצונך למחוק את החברה הזו? לא ניתן לבטל פעולה זו."
 
 #: modules/deli/class-ocws-deli.php:746
 msgctxt "Mini-cart dialog title"
@@ -1238,20 +1259,20 @@ msgstr ""
 #, fuzzy
 msgctxt "Mini-cart shipping address label"
 msgid "Shipping address"
-msgstr "For today"
+msgstr "תאריך אספקה"
 
 #: modules/deli/class-ocws-deli.php:1541
 #, fuzzy
 msgctxt "Mini-cart shipping date label"
 msgid "Shipping date"
-msgstr "For today"
+msgstr "תאריך אספקה"
 
 #: modules/deli/class-ocws-deli.php:2600 modules/deli/class-ocws-deli.php:2679
 #: modules/deli/class-ocws-deli.php:2692
 #: public/class-oc-woo-shipping-public.php:2953
 msgctxt "Mini-cart shipping settings summary"
 msgid "Change"
-msgstr ""
+msgstr "לשינוי"
 
 #: modules/deli/class-ocws-deli.php:1149
 msgctxt "Mini-cart shipping summary"
@@ -1259,9 +1280,10 @@ msgid "%s"
 msgstr ""
 
 #: modules/deli/class-ocws-deli.php:1147
+#, fuzzy
 msgctxt "Mini-cart shipping summary"
 msgid "%s %s, %s"
-msgstr ""
+msgstr "משלוח ל%s, %s %s"
 
 #: modules/deli/class-ocws-deli.php:1166
 #: public/class-oc-woo-shipping-public.php:3078
@@ -1269,48 +1291,49 @@ msgstr ""
 #: public/class-oc-woo-shipping-public.php:3233
 msgctxt "Mini-cart shipping summary"
 msgid "Local pickup at %s"
-msgstr ""
+msgstr "איסוף מ%s"
 
 #: public/class-oc-woo-shipping-public.php:3060
 #: public/class-oc-woo-shipping-public.php:3185
 msgctxt "Mini-cart shipping summary"
 msgid "Shipping to %s"
-msgstr ""
+msgstr "משלוח ל%s"
 
 #: public/class-oc-woo-shipping-public.php:3058
 msgctxt "Mini-cart shipping summary"
 msgid "Shipping to %s %s, %s"
-msgstr ""
+msgstr "משלוח ל%s, %s %s"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:791
 #: admin/class-oc-woo-shipping-admin-groups.php:1353
 #: admin/partials/html-admin-page-shipping-group-edit.php:70
 msgid "Minimum total"
-msgstr ""
+msgstr "סכום קנייה מינימלי למשלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:821
 #: admin/class-oc-woo-shipping-admin-groups.php:1348
 msgid "Minimum total for free shipping"
-msgstr ""
+msgstr "סכום קנייה מינימלי למשלוח חינם"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:796
 #: admin/class-oc-woo-shipping-admin-groups.php:1358
 msgid "Minimum total message in case it is applicable"
-msgstr ""
+msgstr "מינימום סה\"כ הודעה למקרה שהיא רלוונטית"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:801
 #: admin/class-oc-woo-shipping-admin-groups.php:1363
 msgid "Minimum total message in case it is not applicable"
-msgstr ""
+msgstr "הודעה בקופה אם סכום הקנייה נמוך מהסכום המינימלי למשלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:811
 #: admin/class-oc-woo-shipping-admin-groups.php:1373
 msgid "Minimum wait times (in minutes)"
-msgstr ""
+msgstr "לא להציג את טווח השעות הקרוב בקופה אם נשאר פחות מ-X דקות  "
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:43
+#, fuzzy
 msgid "Minimum wait times (in minutes) for local pickup"
-msgstr ""
+msgstr "לא להציג את טווח השעות הקרוב בקופה אם נשאר פחות מ-X דקות  "
 
 #: admin/class-oc-woo-shipping-admin-groups.php:853
 #: admin/class-oc-woo-shipping-admin-groups.php:1613
@@ -1328,11 +1351,11 @@ msgstr ""
 #: modules/deli/class-ocws-deli.php:2575 modules/deli/class-ocws-deli.php:2614
 #: modules/deli/class-ocws-deli.php:2763
 msgid "Monday"
-msgstr ""
+msgstr "שני"
 
 #: includes/local-pickup/class-ocws-lp-affiliate.php:209
 msgid "New branch"
-msgstr ""
+msgstr "סניף חדש"
 
 #: modules/deli/class-ocws-deli.php:2363
 msgid "New menu name"
@@ -1341,7 +1364,7 @@ msgstr ""
 #: admin/class-oc-woo-shipping-admin-groups.php:119
 #: includes/local-pickup/class-ocws-lp-admin.php:152
 msgid "No"
-msgstr ""
+msgstr "לא"
 
 #: includes/class-oc-woo-export-for-packaging.php:58
 #: includes/class-oc-woo-export-for-production-adv.php:111
@@ -1350,23 +1373,24 @@ msgstr ""
 #: includes/class-oc-woo-export-sales-report.php:114
 #: includes/class-oc-woo-export.php:121
 msgid "No data found for export."
-msgstr ""
+msgstr "לא נמצאו נתונים לייצוא."
 
 #: includes/class-oc-woo-shipping-group.php:306
 msgid "No locations"
-msgstr ""
+msgstr "אין יישובים"
 
 #: modules/deli/class-ocws-deli.php:2364
+#, fuzzy
 msgid "No menus found"
-msgstr ""
+msgstr "רחוב לא נמצא באזור השילוח"
 
 #: public/class-oc-woo-shipping-public.php:168
 msgid "No results found"
-msgstr ""
+msgstr "רחוב לא נמצא באזור השילוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:66
 msgid "No shipping locations offered to this group."
-msgstr ""
+msgstr "אין יישובים מוגדרים בקבוצה."
 
 #: oc-woo-shipping.php:342
 msgid "Not allowed."
@@ -1376,17 +1400,17 @@ msgstr ""
 #: includes/class-ocws-admin-columns.php:88
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:73
 msgid "Notes"
-msgstr ""
+msgstr "הערות"
 
 #: includes/class-oc-woo-export-for-packaging.php:78
 #: includes/class-oc-woo-export-for-production-adv.php:131
 #: includes/class-oc-woo-export-for-production.php:78
 msgid "Notes column"
-msgstr ""
+msgstr "הערות"
 
 #: admin/class-oc-woo-shipping-admin.php:359
 msgid "OC Advanced Shipping"
-msgstr ""
+msgstr "משלוח מתקדם OC"
 
 #: oc-woo-shipping.php:384
 msgid "OC Advanced Shipping - בדיקת עדכונים מ-GitHub"
@@ -1394,7 +1418,7 @@ msgstr ""
 
 #: includes/class-oc-woo-advanced-shipping-method.php:13
 msgid "OC Advanced Shipping Method"
-msgstr ""
+msgstr "שיטת משלוח מתקדמת OC"
 
 #: includes/local-pickup/class-ocws-lp-admin.php:33
 #: includes/local-pickup/class-ocws-lp-admin.php:34
@@ -1408,61 +1432,63 @@ msgstr ""
 
 #: admin/class-oc-woo-shipping-admin.php:358
 msgid "OC Shipping"
-msgstr ""
+msgstr "משלוח OC"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:83
 msgid "OR"
-msgstr ""
+msgstr "או "
 
 #: includes/class-oc-woo-shipping-admin-columns.php:85
 #: includes/class-ocws-admin-columns.php:96
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:77
 msgid "Order completion date"
-msgstr ""
+msgstr "תאריך סיום הזמנה"
 
 #: includes/class-oc-woo-export-orders-report.php:100
 #: includes/class-oc-woo-export.php:281
 msgid "Order completion date column"
-msgstr ""
+msgstr "תאריך סיום הזמנה"
 
 #: includes/class-oc-woo-export-orders-report.php:99
 #: includes/class-oc-woo-export.php:280
 msgid "Order creation date column"
-msgstr ""
+msgstr "תאריך יצירת הזמנה"
 
 #: includes/class-oc-woo-export-orders-report.php:84
 #: includes/class-oc-woo-export.php:266
 msgid "Order items column"
-msgstr ""
+msgstr "פריטי ההזמנה"
 
 #: includes/class-oc-woo-export-orders-report.php:96
 #: includes/class-oc-woo-export.php:277
 msgid "Order notes column"
-msgstr ""
+msgstr "הערות"
 
 #: includes/class-oc-woo-export-orders-report.php:83
 #: includes/class-oc-woo-export.php:265
 msgid "Order number column"
-msgstr ""
+msgstr "מספר הזמנה"
 
 #: includes/class-oc-woo-export-orders-report.php:81
 #: includes/class-oc-woo-export.php:263
 msgid "Order total column"
-msgstr ""
+msgstr "סה\"כ הזמנה"
 
 #. Author of the plugin
 #: oc-woo-shipping.php
+#, fuzzy
 msgid "Original Concepts"
-msgstr ""
+msgstr "הגדרות רשת של Original Concepts"
 
 #: includes/admin/class-ocws-multisite-menu.php:34
 #: includes/admin/class-ocws-multisite-menu.php:92
 msgid "Original Concepts Network Settings"
-msgstr ""
+msgstr "הגדרות רשת של Original Concepts"
 
 #: includes/admin/class-ocws-multisite-menu.php:45
+#, fuzzy
 msgid "Original Concepts Settings"
-msgstr ""
+msgstr "הגדרות רשת של Original Concepts"
 
 #. Plugin Name of the plugin
 #: oc-woo-shipping.php
@@ -1471,12 +1497,12 @@ msgstr ""
 
 #: admin/class-oc-woo-shipping-admin-groups.php:657
 msgid "Out of service area message"
-msgstr ""
+msgstr "הודעת מחוץ לאזור שירות"
 
 #: includes/class-oc-woo-export.php:784 includes/class-oc-woo-export.php:847
 #: includes/class-oc-woo-export.php:850
 msgid "packages"
-msgstr ""
+msgstr "חבילות"
 
 #: modules/deli/class-ocws-deli.php:2358
 msgid "Parent menu"
@@ -1489,18 +1515,18 @@ msgstr ""
 #: admin/class-oc-woo-shipping-admin.php:475
 #: admin/class-oc-woo-shipping-admin.php:903
 msgid "Personal greeting"
-msgstr ""
+msgstr "ברכה אישית"
 
 #: admin/class-oc-woo-shipping-admin.php:453
 #: includes/class-oc-woo-shipping-admin-columns.php:74
 #: includes/class-ocws-admin-columns.php:85
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:72
 msgid "Phone"
-msgstr ""
+msgstr "טלפון"
 
 #: includes/class-ocws-admin-columns.php:835
 msgid "Pickup"
-msgstr ""
+msgstr "איסוף"
 
 #: includes/class-ocws-admin-columns.php:1157
 #: includes/class-ocws-admin-columns.php:1159
@@ -1510,67 +1536,73 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:364
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:460
 msgid "Pickup branch"
-msgstr ""
+msgstr "סניף איסוף"
 
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:69
 msgid "Pickup Date"
-msgstr ""
+msgstr "תאריך איסוף"
 
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:684
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:365
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:470
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:478
 msgid "Pickup date"
-msgstr ""
+msgstr "תאריך איסוף"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:122
 #, fuzzy
 msgid "Pickup dates style"
-msgstr "For today"
+msgstr "תאריך איסוף"
 
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:371
 msgid "Pickup hour"
-msgstr ""
+msgstr "שעת איסוף"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:164
 msgid "Pickup only products in a cart message"
-msgstr ""
+msgstr "הודעה בקופה אם סל הקניות מכיל מוצרים לאיסוף בלבד"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:74
+#, fuzzy
 msgid "Pickup schedule"
-msgstr ""
+msgstr "תאריך איסוף"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:57
+#, fuzzy
 msgid "Pickup scheduling type"
-msgstr ""
+msgstr "סוג תזמון משלוח"
 
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:70
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:421
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:490
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:498
 msgid "Pickup time slot"
-msgstr ""
+msgstr "שעת איסוף"
 
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:685
 msgid "Pickup today"
-msgstr "For today"
+msgstr "של היום"
 
 #: includes/class-ocws-shipping-methods-helper.php:144
 msgid ""
 "Please add and activate Original Concepts WooCommerce Advanced Pickup method,"
 " otherwise the pickup would not work on frontend."
 msgstr ""
+"אנא הוסף והפעל את שיטת האיסוף המתקדמת של WooCommerce Original Concepts, אחרת "
+"האיסוף לא יעבוד בפרונטאנד."
 
 #: includes/class-ocws-shipping-methods-helper.php:137
 msgid ""
 "Please add and activate Original Concepts WooCommerce Advanced Shipping "
 "method, otherwise the plugin would not work on frontend."
 msgstr ""
+"אנא הוסף והפעל את שיטת המשלוח המתקדמת של WooCommerce Original Concepts, אחרת "
+"התוסף לא יעבוד בפרונטאנד."
 
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:725
 #: public/class-oc-woo-shipping-public.php:1328
 msgid "Please choose time slot"
-msgstr ""
+msgstr "נא לבחור תאריך אספקה"
 
 #: includes/class-ocws-shipping-methods-helper.php:158
 msgid ""
@@ -1578,6 +1610,8 @@ msgid ""
 "WooCommerce Advanced Pickup method, otherwise the pickup would not work on "
 "frontend."
 msgstr ""
+"אנא שקול להוסיף ולהפעיל מיקומי איסוף לשיטת האיסוף המתקדם של WooCommerce "
+"Original Concepts, אחרת האיסוף לא יעבוד בפרונטאנד."
 
 #: includes/class-ocws-shipping-methods-helper.php:151
 msgid ""
@@ -1585,40 +1619,43 @@ msgid ""
 "Original Concepts WooCommerce Advanced Shipping method, otherwise the plugin "
 "would not work on frontend."
 msgstr ""
+"אנא שקול להוסיף ולהפעיל קבוצות ומיקומי משלוחים לשיטת המשלוח המתקדם של "
+"WooCommerce Original Concepts, אחרת התוסף לא יעבוד בפרונטאנד."
 
 #: includes/class-oc-woo-shipping-info.php:473
 msgid "Please enter a city to continue."
-msgstr ""
+msgstr "אנא הזן עיר כדי להמשיך."
 
 #: includes/class-oc-woo-advanced-shipping-method.php:547
 #: includes/class-oc-woo-advanced-shipping-method.php:678
+#, fuzzy
 msgid "Please select a location to calculate shipping cost"
-msgstr ""
+msgstr "אנא בחר יישוב לחישוב עלות המשלוח"
 
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:577
 msgid "Please select a pickup date."
-msgstr ""
+msgstr "אנא בחר תאריך איסוף."
 
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:198
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:214
 msgid "Please select a pickup location to calculate shipping cost"
-msgstr ""
+msgstr "אנא בחר מיקום איסוף כדי לחשב את עלות המשלוח"
 
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:570
 msgid "Please select a pickup location."
-msgstr ""
+msgstr "אנא בחר מיקום איסוף."
 
 #: includes/class-oc-woo-shipping-info.php:481
 msgid "Please select a shipping date."
-msgstr ""
+msgstr "אנא בחר תאריך משלוח."
 
 #: includes/local-pickup/class-ocws-lp-pickup-info.php:593
 msgid "Please select valid pickup date and time."
-msgstr ""
+msgstr "אנא בחר תאריך ושעה תקפים לאיסוף."
 
 #: includes/class-oc-woo-shipping-info.php:498
 msgid "Please select valid shipping date and time."
-msgstr ""
+msgstr "אנא בחר תאריך ושעה תקפים למשלוח."
 
 #: modules/deli/class-ocws-deli.php:376
 msgid "Please, choose delivery date you prefer"
@@ -1626,27 +1663,29 @@ msgstr ""
 
 #: template-parts/public/checkout-popup.php:22
 msgid "Please, choose your location"
-msgstr ""
+msgstr "נא לבחור יישוב/עיר למשלוח"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:264
 msgid "Please, consider adding Google Maps API key in common settings page"
-msgstr ""
+msgstr "אנא, שקול להוסיף מפתח Google Maps API בדף ההגדרות הכלליות"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:390
 msgid "Polygon name"
-msgstr ""
+msgstr "שם הפוליגון"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:593
 msgid "Popup button text"
-msgstr ""
+msgstr "טקסט בכפתור הראשי של פופאפ"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:194
+#, fuzzy
 msgid "Popup local pickup text"
-msgstr ""
+msgstr "אבוא לאסוף "
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:186
+#, fuzzy
 msgid "Popup local pickup title"
-msgstr ""
+msgstr "כותרת של בחירת עיר / ישוב בפופאפ"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:718
 msgid "Popup settings:"
@@ -1654,37 +1693,41 @@ msgstr ""
 
 #: admin/class-oc-woo-shipping-admin-groups.php:578
 msgid "Popup shipping method button text"
-msgstr ""
+msgstr "טקטס עבור שיטת המשלוח בפופאפ"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:551
 msgid "Popup title"
-msgstr ""
+msgstr "כותרת של פופאפ"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:806
 #: admin/class-oc-woo-shipping-admin-groups.php:1368
 msgid "Preorder days"
-msgstr ""
+msgstr "כמה ימים קדימה להציג לוח זמנים של משלוחים בקופה?"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:36
+#, fuzzy
 msgid "Preorder days for local pickup"
-msgstr ""
+msgstr "אבוא לאסוף "
 
 #: modules/deli/class-ocws-admin-deli.php:120
 #: modules/deli/class-ocws-admin-deli.php:246
 msgid "Preparation time in days"
-msgstr ""
+msgstr "זמן הכנה בימים"
 
 #: modules/deli/class-ocws-deli.php:2354
+#, fuzzy
 msgid "Product menu"
-msgstr ""
+msgstr "סוג מוצר"
 
 #: modules/deli/class-ocws-deli.php:2365
+#, fuzzy
 msgid "Product Menu Link"
-msgstr ""
+msgstr "סוג מוצר"
 
 #: modules/deli/class-ocws-deli.php:2353
+#, fuzzy
 msgid "Product menus"
-msgstr ""
+msgstr "סוג מוצר"
 
 #: includes/class-oc-woo-export-for-packaging.php:76
 #: includes/class-oc-woo-export-for-production-adv.php:129
@@ -1692,17 +1735,17 @@ msgstr ""
 #: includes/class-oc-woo-export-for-production.php:76
 #: includes/class-oc-woo-export-sales-report.php:132
 msgid "Product name column"
-msgstr ""
+msgstr "סוג מוצר"
 
 #: includes/class-oc-woo-export-sales-report.php:131
 msgid "Product SKU column"
-msgstr ""
+msgstr "קוד פריט"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:73
 #: includes/class-ocws-admin-columns.php:84
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:71
 msgid "Products quantity"
-msgstr ""
+msgstr "כמות המוצרים"
 
 #: includes/class-oc-woo-export-for-packaging.php:77
 #: includes/class-oc-woo-export-for-production-adv.php:130
@@ -1710,7 +1753,7 @@ msgstr ""
 #: includes/class-oc-woo-export-for-production.php:77
 #: includes/class-oc-woo-export-sales-report.php:133
 msgid "Quantity column"
-msgstr ""
+msgstr "כמות"
 
 #: includes/importers/views/html-csv-import-done.php:52
 msgid "Reason for failure"
@@ -1720,19 +1763,19 @@ msgstr ""
 #: public/class-oc-woo-shipping-public.php:1760
 #: public/class-oc-woo-shipping-public.php:1762
 msgid "Recipient first name"
-msgstr ""
+msgstr "שם מקבל המשלוח"
 
 #: admin/class-oc-woo-shipping-admin.php:893
 #: public/class-oc-woo-shipping-public.php:1776
 #: public/class-oc-woo-shipping-public.php:1778
 msgid "Recipient last name"
-msgstr ""
+msgstr "שם משפחה של מקבל המשלוח"
 
 #: admin/class-oc-woo-shipping-admin.php:898
 #: public/class-oc-woo-shipping-public.php:1792
 #: public/class-oc-woo-shipping-public.php:1794
 msgid "Recipient phone"
-msgstr ""
+msgstr "טלפון מקבל המשלוח"
 
 #: public/class-oc-woo-shipping-public.php:1499
 msgctxt "Redirect dialog sub title"
@@ -1749,17 +1792,17 @@ msgstr ""
 #: public/class-oc-woo-shipping-public.php:161
 msgctxt "Redirect shipping popup"
 msgid "Back to checkout"
-msgstr ""
+msgstr "בטל"
 
 #: public/class-oc-woo-shipping-public.php:160
 msgctxt "Redirect shipping popup"
 msgid "Back to site"
-msgstr ""
+msgstr "חזרה לאתר"
 
 #: public/class-oc-woo-shipping-public.php:162
 msgctxt "Redirect shipping popup"
 msgid "Continue to change"
-msgstr ""
+msgstr "אישור"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1173
 #: admin/class-oc-woo-shipping-admin-groups.php:2195
@@ -1774,7 +1817,7 @@ msgstr ""
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:136
 msgid "Restrict"
-msgstr ""
+msgstr "הגבל רחובות"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:512
 #: includes/class-oc-woo-export-orders-report.php:668
@@ -1782,7 +1825,7 @@ msgstr ""
 #: includes/class-oc-woo-export-sales-report.php:853
 #: includes/class-oc-woo-export-sales-report.php:854
 msgid "Sales report"
-msgstr ""
+msgstr "דוח מכירות"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:873
 #: admin/class-oc-woo-shipping-admin-groups.php:1633
@@ -1800,21 +1843,21 @@ msgstr ""
 #: modules/deli/class-ocws-deli.php:2580 modules/deli/class-ocws-deli.php:2619
 #: modules/deli/class-ocws-deli.php:2768
 msgid "Saturday"
-msgstr ""
+msgstr "שבת"
 
 #: admin/partials/html-admin-page-shipping-companies.php:35
 msgid "Save"
-msgstr ""
+msgstr "שמירה"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:115
 #: admin/partials/html-admin-page-shipping-group-edit.php:301
 #: admin/partials/local-pickup/html-admin-page-lp-affiliate-edit.php:59
 msgid "Save changes"
-msgstr ""
+msgstr "שמור שינויים"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:270
 msgid "Save street list changes"
-msgstr ""
+msgstr "שמור שינויים ברשימת הרחובות"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1059
 #: admin/class-oc-woo-shipping-admin-groups.php:1168
@@ -1825,27 +1868,29 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:1550
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:1762
 msgid "Schedule"
-msgstr ""
+msgstr "לוח זמנים"
 
 #: modules/deli/class-ocws-deli.php:2356
+#, fuzzy
 msgid "Search menus"
-msgstr ""
+msgstr "בחר תפריט"
 
 #: public/class-oc-woo-shipping-public.php:169
 msgid "Searching…"
-msgstr ""
+msgstr "חיפוש..."
 
 #: modules/deli/class-ocws-deli.php:910
+#, fuzzy
 msgid "Select a branch"
-msgstr ""
+msgstr "בחר תפריט"
 
 #: modules/deli/class-ocws-admin-deli.php:93
 msgid "Select a menu"
-msgstr ""
+msgstr "בחר תפריט"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:39
 msgid "Select locations within this group"
-msgstr ""
+msgstr "בחר יישובים בקבוצה"
 
 #: modules/deli/class-ocws-deli.php:835
 #: template-parts/public/checkout-popup.php:47
@@ -1853,19 +1898,19 @@ msgstr ""
 #: template-parts/theme/popup-copy-2023-03-04.php:78
 #: template-parts/theme/popup.php:89
 msgid "Select your distribution area"
-msgstr ""
+msgstr "עיר/יישוב"
 
 #: public/class-oc-woo-shipping-public.php:1737
 msgid "Send to other person"
-msgstr ""
+msgstr "לשלוח שמישהו אחר"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:598
 msgid "Send to other person checkbox label on checkout"
-msgstr ""
+msgstr "טקסט ליד הצ'קבוקס לשינוי כתובת ושם של מקבל המשלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:183
 msgid "Send to other person checked by default"
-msgstr ""
+msgstr "\"אני שולח למישהו אחר\" מסומן מראש"
 
 #: includes/admin/class-ocws-multisite-menu.php:34
 #: includes/admin/class-ocws-multisite-menu.php:45
@@ -1874,43 +1919,43 @@ msgstr ""
 
 #: includes/class-ocws-admin-columns.php:831
 msgid "Shipping"
-msgstr ""
+msgstr "משלוח"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:955
 #: includes/class-oc-woo-shipping-admin-columns.php:957
 #: includes/class-ocws-admin-columns.php:1143
 #: includes/class-ocws-admin-columns.php:1145
 msgid "Shipping city"
-msgstr ""
+msgstr "יישוב משלוח"
 
 #: admin/class-oc-woo-shipping-admin.php:386
 #: admin/partials/html-admin-page-shipping-companies.php:8
 msgid "Shipping companies"
-msgstr ""
+msgstr "חברות שילוח"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:81
 #: includes/class-oc-woo-shipping-admin-columns.php:821
 #: includes/class-ocws-admin-columns.php:92
 #: includes/class-ocws-admin-columns.php:1008
 msgid "Shipping company"
-msgstr ""
+msgstr "חברת שילוח"
 
 #: includes/class-oc-woo-export-orders-report.php:97
 #: includes/class-oc-woo-export.php:278
 msgid "Shipping company column"
-msgstr ""
+msgstr "חברת שילוח"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:71
 #: includes/class-ocws-admin-columns.php:82
 msgid "Shipping Date"
-msgstr ""
+msgstr "תאריך אספקה"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:839
 #: includes/class-oc-woo-shipping-info.php:317
 #: includes/class-oc-woo-shipping-info.php:391
 #: includes/class-oc-woo-shipping-info.php:399
 msgid "Shipping date"
-msgstr ""
+msgstr "תאריך אספקה"
 
 #: includes/class-oc-woo-export-for-packaging.php:75
 #: includes/class-oc-woo-export-for-production-adv.php:128
@@ -1919,35 +1964,35 @@ msgstr ""
 #: includes/class-oc-woo-export-orders-report.php:79
 #: includes/class-oc-woo-export.php:261
 msgid "Shipping date column"
-msgstr ""
+msgstr "תאריך אספקה"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:941
 #: includes/class-oc-woo-shipping-admin-columns.php:943
 #: includes/class-ocws-admin-columns.php:1129
 #: includes/class-ocws-admin-columns.php:1131
 msgid "Shipping group"
-msgstr ""
+msgstr "קבוצת משלוח"
 
 #: admin/class-oc-woo-shipping-admin.php:368
 #: admin/partials/html-admin-page-shipping-group-edit.php:13
 #: admin/partials/html-admin-page-shipping-groups.php:8
 msgid "Shipping groups"
-msgstr ""
+msgstr "קבוצות משלוח"
 
 #: includes/oc-woo-shipping-core-functions.php:397
 #: modules/deli/class-ocws-deli-ajax.php:123
 #: modules/deli/class-ocws-deli-ajax.php:258
 #: modules/deli/class-ocws-deli.php:947
 msgid "Shipping is available from %s only."
-msgstr ""
+msgstr "המשלוח זמין מ-%s בלבד."
 
 #: admin/class-oc-woo-shipping-admin-groups.php:117
 msgid "Shipping location could not be added. Please retry."
-msgstr ""
+msgstr "לא ניתן להוסיף יישוב. אנא נסה שוב."
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:53
 msgid "Shipping locations"
-msgstr ""
+msgstr "יישובים"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:994
 #: includes/class-oc-woo-shipping-admin-columns.php:1405
@@ -1959,16 +2004,16 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1163
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1237
 msgid "Shipping method"
-msgstr ""
+msgstr "שיטת משלוח"
 
 #: includes/class-oc-woo-export-orders-report.php:80
 #: includes/class-oc-woo-export.php:262
 msgid "Shipping method column"
-msgstr ""
+msgstr "סוג משלוח"
 
 #: public/class-oc-woo-shipping-public.php:1427
 msgid "Shipping methods"
-msgstr ""
+msgstr "שיטות משלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:731
 msgid "Shipping popup description"
@@ -1978,7 +2023,7 @@ msgstr ""
 #: admin/class-oc-woo-shipping-admin-groups.php:1343
 #: admin/partials/html-admin-page-shipping-group-edit.php:69
 msgid "Shipping price"
-msgstr ""
+msgstr "מחיר משלוח"
 
 #: public/class-oc-woo-shipping-public.php:1521
 #: public/class-oc-woo-shipping-public.php:1543
@@ -1997,7 +2042,7 @@ msgstr ""
 #: includes/class-oc-woo-shipping-admin-columns.php:72
 #: includes/class-ocws-admin-columns.php:83
 msgid "Shipping time slot"
-msgstr ""
+msgstr "טוות שעות למשלוח"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:840
 #: includes/class-oc-woo-shipping-admin-columns.php:896
@@ -2005,28 +2050,28 @@ msgstr ""
 #: includes/class-ocws-admin-columns.php:1084
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:741
 msgid "Shipping today"
-msgstr "For today"
+msgstr "של היום"
 
 #: includes/oc-woo-shipping-core-functions.php:766
 msgid "Show all"
-msgstr ""
+msgstr "הצג הכל"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:434
 msgid "Show B2B column"
-msgstr ""
+msgstr "להציג עמודת B2B"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:445
 msgid "Show customer email column"
-msgstr ""
+msgstr "להציג אימיילים של הלקוחות"
 
 #: includes/oc-woo-shipping-core-functions.php:768
 msgid "Show less"
-msgstr ""
+msgstr "הצג פחות"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:423
 #: admin/class-oc-woo-shipping-admin-groups.php:536
 msgid "Show order completion date column"
-msgstr ""
+msgstr "להציג תאריך סיום הזמנה"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:153
 msgid "Show time slot start time only"
@@ -2034,18 +2079,18 @@ msgstr ""
 
 #: admin/class-oc-woo-shipping-admin-groups.php:153
 msgid "Slider style"
-msgstr ""
+msgstr "סליידר"
 
 #: includes/class-oc-woo-advanced-shipping-method.php:417
 msgid "Sorry, there are no available shipping dates for %s"
-msgstr ""
+msgstr "מצטערים, אין תאריכי משלוח ל%s"
 
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:96
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:100
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:164
 #: includes/local-pickup/class-oc-woo-local-pickup-method.php:168
 msgid "Sorry, this branch is not available"
-msgstr ""
+msgstr "מצטערים, סניף זה אינו זמין"
 
 #: includes/class-oc-woo-advanced-shipping-method.php:80
 #: includes/class-oc-woo-advanced-shipping-method.php:106
@@ -2053,24 +2098,27 @@ msgstr ""
 #: includes/class-oc-woo-advanced-shipping-method.php:466
 #: includes/class-oc-woo-advanced-shipping-method.php:494
 msgid "Sorry, this shipping method is not available at your location"
-msgstr ""
+msgstr "הכתובת שהזנת אינה באזור החלוקה שלנו, נא לנסות שוב או לצור עימנו קשר"
 
 #: includes/class-oc-woo-advanced-shipping-method.php:307
 #: includes/class-oc-woo-advanced-shipping-method.php:312
 #: public/class-oc-woo-shipping-public.php:1412
 msgid "Sorry, your cart contains pickup only products"
 msgstr ""
+"קיימים בסל מוצרים שהינם באיסוף עצמי בלבד, לכן לא ניתן לבחור שיטת משלוח עד "
+"הבית."
 
 #: modules/deli/class-ocws-admin-deli.php:116
 #: modules/deli/class-ocws-admin-deli.php:167
 #: modules/deli/class-ocws-admin-deli.php:241
 #: modules/deli/class-ocws-admin-deli.php:297
 msgid "Specific dates"
-msgstr ""
+msgstr "תאריכים ספציפיים"
 
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:81
+#, fuzzy
 msgid "Specific dates for pickup"
-msgstr ""
+msgstr "תאריכים ספציפיים"
 
 #: includes/class-oc-woo-export-orders-report.php:171
 #: includes/class-oc-woo-export-sales-report.php:160
@@ -2087,13 +2135,13 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1088
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:1089
 msgid "Start completed date"
-msgstr ""
+msgstr "מתאריך סגירה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1180
 #: admin/class-oc-woo-shipping-admin-groups.php:2202
 #: admin/class-oc-woo-shipping-admin-groups.php:2216
 msgid "Start from date"
-msgstr ""
+msgstr "החל מתאריך"
 
 #: includes/class-oc-woo-export-orders-report.php:169
 #: includes/class-oc-woo-export-sales-report.php:158
@@ -2110,7 +2158,7 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:975
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:976
 msgid "Start order date"
-msgstr ""
+msgstr "מתאריך הזמנה"
 
 #: includes/class-oc-woo-export-orders-report.php:173
 #: includes/class-oc-woo-shipping-admin-columns.php:865
@@ -2126,20 +2174,20 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:767
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:768
 msgid "Start shipping date"
-msgstr ""
+msgstr "מתאריך אספקה"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:87
 msgid "Start typing a city name"
-msgstr ""
+msgstr "התחל להקליד שם עיר"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:99
 msgid "Start typing a place or city name"
-msgstr ""
+msgstr "התחל להקליד שם של מקום או עיר"
 
 #: public/class-oc-woo-shipping-public.php:666
 #: public/class-oc-woo-shipping-public.php:677
 msgid "Start typing a street name"
-msgstr ""
+msgstr "הקלד/י רחוב"
 
 #: admin/class-oc-woo-shipping-admin.php:1133
 #: includes/class-oc-woo-shipping-admin-columns.php:75
@@ -2149,27 +2197,27 @@ msgstr ""
 #: public/class-oc-woo-shipping-public.php:1983
 #: public/class-oc-woo-shipping-public.php:1984
 msgid "Street"
-msgstr ""
+msgstr "רחוב"
 
 #: includes/class-oc-woo-export-orders-report.php:91
 #: includes/class-oc-woo-export.php:272
 msgid "Street column"
-msgstr ""
+msgstr "רחוב"
 
 #: includes/class-oc-woo-export.php:781 includes/class-oc-woo-export.php:844
 msgid "summary"
-msgstr ""
+msgstr "סה\"כ"
 
 #: includes/class-oc-woo-export-orders-report.php:77
 #: includes/class-oc-woo-export.php:259
 msgid "Summary column"
-msgstr ""
+msgstr "סיכום"
 
 #: includes/class-oc-woo-export-for-production-adv.php:751
 #: includes/class-oc-woo-export-for-production-adv.php:752
 #: includes/class-oc-woo-export.php:182 includes/class-oc-woo-export.php:183
 msgid "Summary for production"
-msgstr ""
+msgstr "סיכום לייצור"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:849
 #: admin/class-oc-woo-shipping-admin-groups.php:1609
@@ -2187,7 +2235,7 @@ msgstr ""
 #: modules/deli/class-ocws-deli.php:2574 modules/deli/class-ocws-deli.php:2613
 #: modules/deli/class-ocws-deli.php:2762
 msgid "Sunday"
-msgstr ""
+msgstr "ראשון"
 
 #: includes/class-oc-woo-shipping-admin-columns.php:837
 #: includes/class-oc-woo-shipping-admin-columns.php:893
@@ -2200,7 +2248,7 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:738
 #: includes/local-pickup/class-ocws-lp-pickup-admin-columns.php:740
 msgid "Supply date"
-msgstr ""
+msgstr "תאריך אספקה"
 
 #: modules/deli/class-ocws-deli.php:819
 msgctxt "Text in mini-cart"
@@ -2211,7 +2259,7 @@ msgstr ""
 
 #: admin/class-oc-woo-shipping-admin-groups.php:547
 msgid "Texts and captions"
-msgstr ""
+msgstr "טקסטים וכותרות"
 
 #: includes/importers/class-ocws-cities-csv-importer.php:363
 msgid "The city is already associated with another group"
@@ -2236,24 +2284,24 @@ msgstr ""
 
 #: public/class-oc-woo-shipping-public.php:164
 msgid "The results could not be loaded"
-msgstr ""
+msgstr "לא ניתן היה לטעון את התוצאות"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:54
 msgid ""
 "These are locations inside this group. Customers will be matched against "
 "these locations."
-msgstr ""
+msgstr "אלה היישובים בתוך הקבוצה הזו. לקוחות יתאימו ליישובים אלה."
 
 #: includes/class-oc-woo-advanced-shipping-method.php:42
 msgid "This controls the title which the user sees during checkout."
-msgstr ""
+msgstr "זה מגדיר את הכותרת שהמשתמש רואה הקופה."
 
 #. Description of the plugin
 #: oc-woo-shipping.php
 msgid ""
 "This is a short description of what the plugin does. It's displayed in the "
 "WordPress admin area."
-msgstr ""
+msgstr "זהו תיאור קצר של מה התוסף עושה. הוא מוצג באזור הניהול של וורדפרס."
 
 #: modules/deli/class-ocws-deli.php:2487
 msgid "This product requires %s preparation day"
@@ -2282,34 +2330,34 @@ msgstr ""
 #: modules/deli/class-ocws-deli.php:2578 modules/deli/class-ocws-deli.php:2617
 #: modules/deli/class-ocws-deli.php:2766
 msgid "Thursday"
-msgstr ""
+msgstr "חמישי"
 
 #: includes/class-oc-woo-shipping-info.php:322
 #: includes/class-oc-woo-shipping-info.php:357
 #: includes/class-oc-woo-shipping-info.php:409
 msgid "Time slot"
-msgstr ""
+msgstr "שעת אספקה"
 
 #: includes/class-oc-woo-export-orders-report.php:82
 #: includes/class-oc-woo-export.php:264
 msgid "Time slot column"
-msgstr ""
+msgstr "שעת אספקה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:630
 msgid "Time slots description on checkout"
-msgstr ""
+msgstr "תת כותרת של בלוק בחירת תאריכים למשלוח"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:603
 msgid "Time slots title on checkout"
-msgstr ""
+msgstr "כותרת של בלוק בחירת תאריכים למשלוח"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:66
 msgid "Title"
-msgstr ""
+msgstr "כותרת"
 
 #: includes/class-oc-woo-export-sales-report.php:134
 msgid "Total column"
-msgstr ""
+msgstr "סה\"כ"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:857
 #: admin/class-oc-woo-shipping-admin-groups.php:1617
@@ -2327,42 +2375,43 @@ msgstr ""
 #: modules/deli/class-ocws-deli.php:2576 modules/deli/class-ocws-deli.php:2615
 #: modules/deli/class-ocws-deli.php:2764
 msgid "Tuesday"
-msgstr ""
+msgstr "שלישי"
 
 #: includes/admin/class-ocws-admin-profile.php:42
 #: includes/admin/class-ocws-admin-profile.php:61
 msgid "Type a city name"
-msgstr ""
+msgstr "הקלד שם עיר"
 
 #: admin/partials/local-pickup/html-admin-page-lp-affiliates.php:60
 msgid "Type branch name here"
-msgstr ""
+msgstr "הקלד כאן את שם הסניף"
 
 #: admin/partials/html-admin-page-shipping-companies.php:58
 msgid "Type company name here"
-msgstr ""
+msgstr "הקלד כאן שם חברה"
 
 #: admin/partials/html-admin-page-shipping-groups.php:60
 msgid "Type group name here"
-msgstr ""
+msgstr "הקלד כאן שם קבוצה"
 
 #: public/class-oc-woo-shipping-public.php:324
 #: public/class-oc-woo-shipping-public.php:335
 #: public/class-oc-woo-shipping-public.php:700
 msgid "Type your address here"
-msgstr ""
+msgstr "הקלד את כתובתך כאן"
 
 #: public/class-oc-woo-shipping-public.php:1867
 msgid "Type your greeting here"
-msgstr ""
+msgstr "הקלד את הברכה כאן"
 
 #: modules/deli/class-ocws-deli.php:2361
+#, fuzzy
 msgid "Update menu"
-msgstr ""
+msgstr "עדכן פוליגון"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:401
 msgid "Update polygon"
-msgstr ""
+msgstr "עדכן פוליגון"
 
 #: includes/importers/class-ocws-cities-csv-importer-controller.php:111
 msgid "Upload CSV file"
@@ -2373,7 +2422,7 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:1267
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:1709
 msgid "Use default schedule"
-msgstr ""
+msgstr "השתמש בלוח הזמנים המוגדר כברירת מחדל"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:1572
 #: admin/class-oc-woo-shipping-admin-groups.php:1671
@@ -2384,7 +2433,7 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:2092
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:2200
 msgid "Use default value"
-msgstr ""
+msgstr "השתמש בערך ברירת מחדל"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:749
 msgid "Use Deli For Regular Products"
@@ -2392,33 +2441,33 @@ msgstr ""
 
 #: admin/class-oc-woo-shipping-admin-groups.php:740
 msgid "Use Deli Style"
-msgstr ""
+msgstr "סגנון מעדנייה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:697
 #: includes/admin/class-ocws-multisite-menu.php:105
 msgid "Use Google Cities"
-msgstr ""
+msgstr "השתמש ב-Google Cities"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:208
 msgid "Use group minimum"
-msgstr ""
+msgstr "השתמש במינימום שהוגדר בקבוצה"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:194
 msgid "Use group price"
-msgstr ""
+msgstr "השתמש במחיר שהוגדר בקבוצה"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:706
 #: includes/admin/class-ocws-multisite-menu.php:114
 msgid "Use Polygon Feature"
-msgstr ""
+msgstr "השתמש בתכונת פוליגון"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:722
 msgid "Use popup or hide it ?"
-msgstr ""
+msgstr "להשתמש בפופאפ או להסתיר אותו?"
 
 #: includes/class-oc-woo-ajax.php:1017
 msgid "We ship to your location. Press Continue to proceed."
-msgstr ""
+msgstr "מעולה! אנחנו מגיעים אליך."
 
 #: admin/class-oc-woo-shipping-admin-groups.php:861
 #: admin/class-oc-woo-shipping-admin-groups.php:1621
@@ -2436,46 +2485,46 @@ msgstr ""
 #: modules/deli/class-ocws-deli.php:2577 modules/deli/class-ocws-deli.php:2616
 #: modules/deli/class-ocws-deli.php:2765
 msgid "Wednesday"
-msgstr ""
+msgstr "רביעי"
 
 #: modules/deli/class-ocws-admin-deli.php:115
 #: modules/deli/class-ocws-admin-deli.php:131
 #: modules/deli/class-ocws-admin-deli.php:240
 #: modules/deli/class-ocws-admin-deli.php:259
 msgid "Week days"
-msgstr ""
+msgstr "ימי השבוע"
 
 #: admin/class-oc-woo-shipping-admin-groups.php:960
 #: admin/class-oc-woo-shipping-admin-groups.php:1804
 #: includes/local-pickup/class-ocws-lp-affiliate-option.php:63
 msgid "Weekly"
-msgstr ""
+msgstr "שבועי"
 
 #: oc-woo-shipping.php:444
 msgid ""
 "WooCommerce Advanced Shipping requires WooCommerce to be installed and "
 "active."
-msgstr ""
+msgstr "משלוח מתקדם לווקומרס דורש תוסף ווקומרס מותקן ופעיל."
 
 #: admin/class-oc-woo-shipping-admin-groups.php:118
 #: includes/local-pickup/class-ocws-lp-admin.php:151
 msgid "Yes"
-msgstr ""
+msgstr "כן"
 
 #: admin/partials/html-admin-page-shipping-group-edit.php:121
 msgid "You can add multiple shipping locations within this group."
-msgstr ""
+msgstr "אתה יכול להוסיף מספר יישובים בקבוצה זו."
 
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:348
 msgid "You have chosen the branch %s for local pickup."
-msgstr ""
+msgstr "בחרת בסניף %s לאיסוף מקומי."
 
 #: includes/oc-woo-shipping-core-functions.php:456
 #: modules/deli/class-ocws-deli-ajax.php:168
 #: modules/deli/class-ocws-deli-ajax.php:304
 #: modules/deli/class-ocws-deli.php:984
 msgid "You have chosen the branch %s for shipping."
-msgstr ""
+msgstr "בחרת בסניף %s למשלוח."
 
 #: admin/class-oc-woo-shipping-admin-companies.php:42
 #: admin/class-oc-woo-shipping-admin-groups.php:63
@@ -2483,7 +2532,7 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-admin.php:113
 #: includes/local-pickup/class-ocws-lp-admin.php:148
 msgid "Your changed data will be lost if you leave this page without saving."
-msgstr ""
+msgstr "הנתונים שהשתנו יאבדו אם תצא מדף זה מבלי לשמור."
 
 #: admin/class-oc-woo-shipping-admin-companies.php:44
 #: admin/class-oc-woo-shipping-admin-groups.php:65
@@ -2491,7 +2540,7 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-admin.php:115
 #: includes/local-pickup/class-ocws-lp-admin.php:150
 msgid "Your changes were not saved. Please retry."
-msgstr ""
+msgstr "השינויים שלך לא נשמרו. אנא נסה שוב."
 
 #: includes/importers/views/html-csv-import-progress.php:15
 msgid "Your cities are now being imported..."
@@ -2506,11 +2555,11 @@ msgstr ""
 
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:456
 msgid "Your pickup date"
-msgstr ""
+msgstr "תאריך איסוף הנבחר"
 
 #: template-parts/public/popup.php:195
 msgid "אבחר בהמשך"
-msgstr "Choose later"
+msgstr ""
 
 #: template-parts/theme/popup-copy-2023-03-04.php:98
 msgid "אישור"
@@ -2532,7 +2581,7 @@ msgstr ""
 
 #: includes/class-oc-woo-shipping-group-option.php:16
 msgid "אני שולח למישהו אחר"
-msgstr "Deliver to a different address"
+msgstr ""
 
 #: modules/deli/class-ocws-deli.php:1697 modules/deli/class-ocws-deli.php:1930
 msgid "באיזה שעה?"
@@ -2614,7 +2663,7 @@ msgstr ""
 #: template-parts/public/popup-dialog.php:115
 #: template-parts/public/popup.php:190 template-parts/theme/popup.php:129
 msgid "המשך"
-msgstr "Confirm"
+msgstr ""
 
 #: public/class-oc-woo-shipping-public.php:1503
 #: public/class-oc-woo-shipping-public.php:1525
@@ -2635,7 +2684,7 @@ msgstr ""
 
 #: public/class-oc-woo-shipping-public.php:2908
 msgid "יש לבחור אספקה כדי לבדוק עלות ומינימום למשלוח"
-msgstr "Select delivery method to check costs and order minimum "
+msgstr ""
 
 #: public/class-oc-woo-shipping-public.php:214
 msgid "לא מצאת את העיר שלך?"

@@ -169,8 +169,8 @@ class Oc_Woo_Shipping_Public {
 						'searching' => __('Searching…', 'ocws')
 					),
 					'messages' => array(
-						'noHouseNumberInAddress' => __( 'נא להזין כתובת מלאה הכוללת רחוב ומספר בית.', 'ocws' ),
-						'addMoreProductsContinue' => __( 'הוסף עוד מוצרים', 'ocws' ),
+						'noHouseNumberInAddress' => 'נא להזין כתובת מלאה הכוללת רחוב ומספר בית.',
+						'addMoreProductsContinue' =>  'הוסף עוד מוצרים', 'ocws' ,
 					),
 				),
 				'polygons' => $polygons
@@ -2875,12 +2875,12 @@ class Oc_Woo_Shipping_Public {
 			return '';
 		}
 		$short = max( 0, $min_total - $cart_total );
-		$line  = sprintf(
-			/* translators: 1: formatted minimum order amount HTML, 2: formatted amount still needed HTML */
-			__( 'המינימום למשלוח הוא %1$s. חסר לך עוד %2$s.', 'ocws' ),
-			wc_price( $min_total ),
-			wc_price( $short )
-		);
+        $line = sprintf(
+        /* translators: 1: formatted minimum order amount HTML, 2: formatted amount still needed HTML */
+            __( 'המינימום למשלוח הוא %1$s. חסר לך עוד %2$s.' ),
+            wc_price( $min_total ),
+            wc_price( $short )
+        );
 		return '<div class="cds-min-order-notice">' . wp_kses_post( $line ) . '</div>';
 	}
 

@@ -335,11 +335,8 @@ class Oc_Woo_Shipping {
 	 * @access   private
 	 */
 	private function set_locale() {
-
-//		$plugin_i18n = new Oc_Woo_Shipping_i18n();
-//
-//		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
+		$plugin_i18n = new Oc_Woo_Shipping_i18n();
+		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain', 0 );
 	}
 
 	public function define_common_hooks() {

@@ -483,9 +483,35 @@ class OCWS_LP_Local_Pickup {
                                         <?php } ?>
                                     <?php } ?>
                                 </div>
-                            <?php } else { ?>
+							<?php } else { ?>
 
-                                <div class="ocws-days-with-slots-list-label"><?php echo esc_html(__('Choose pickup time', 'ocws')) ?></div>
+								<?php
+								if ( isset( $_GET['ocws_i18n_debug'] ) && '1' === (string) $_GET['ocws_i18n_debug'] && current_user_can( 'manage_options' ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+									$locale   = function_exists( 'determine_locale' ) ? determine_locale() : get_locale();
+									$lang_dir = dirname( __DIR__, 2 ) . '/languages';
+									$php      = $lang_dir . '/ocws-' . $locale . '.l10n.php';
+									$mo       = $lang_dir . '/ocws-' . $locale . '.mo';
+									$msgid    = 'Choose pickup time';
+									$out      = __( $msgid, 'ocws' );
+									echo '<pre class="ocws-i18n-debug" style="margin:0 0 8px;padding:10px;background:#1a1a1a;color:#cfc;font:12px/1.45 monospace;overflow:auto;max-width:100%;">';
+									var_dump( // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+										array(
+											'determine_locale'      => $locale,
+											'is_domain_loaded_ocws' => is_textdomain_loaded( 'ocws' ),
+											'msgid'                 => $msgid,
+											'__result'              => $out,
+											'matches_msgid'         => ( $out === $msgid ),
+											'paths_readable'        => array(
+												'l10n' => is_readable( $php ) ? $php : false,
+												'mo'   => is_readable( $mo ) ? $mo : false,
+											),
+											'note'                  => 'WP loads ocws via load_plugin_textdomain + l10n.php then .mo (see class-oc-woo-shipping-i18n.php). Hebrew usually means he_IL catalog translates this msgid, or fallback to another loaded file.',
+										)
+									);
+									echo '</pre>';
+								}
+								?>
+								<div class="ocws-days-with-slots-list-label"><?php echo esc_html( __( 'Choose pickup time', 'ocws' ) ); ?></div>
 
                                 <div class="ocws-days-with-slots-list">
                                     <div class="ocws-day-cards-slider owl-carousel">

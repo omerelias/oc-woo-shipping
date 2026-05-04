@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Advanced Shipping\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oc-woo-shipping\n"
 "POT-Creation-Date: 2026-05-04T11:51:07+02:00\n"
-"PO-Revision-Date: 2026-05-04 10:24+0000\n"
+"PO-Revision-Date: 2026-05-04 10:17+0000\n"
 "Last-Translator: ערן גרינוולד\n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -350,7 +350,7 @@ msgstr ""
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:488
 #: includes/local-pickup/class-ocws-lp-local-pickup.php:635
 msgid "Choose pickup time"
-msgstr " Choose pickup time"
+msgstr ""
 
 #: template-parts/public/popup-dialog.php:71 template-parts/public/popup.php:85
 #: template-parts/theme/popup.php:85

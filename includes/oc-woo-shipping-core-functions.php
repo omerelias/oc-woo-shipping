@@ -700,7 +700,7 @@ function ocws_render_shipping_additional_fields()
                 // show_dates_only no longer switches to ocws-dates-onl y-list-slider — same day-card + Owl structure as pickup (one owl-item per day).
                 if ($show_as_slider) { ?>
 
-                    <div class="ocws-days-with-slots-list-label"><?php echo esc_html(__('Choose an arrival time', 'ocws')) ?></div>
+                    <div class="ocws-days-with-slots-list-label">בחר זמן הגעה</div>
 
                     <div class="ocws-days-with-slots-list">
                         <div class="ocws-day-cards-slider owl-carousel">
