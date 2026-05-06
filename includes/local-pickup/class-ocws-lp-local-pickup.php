@@ -119,7 +119,7 @@ class OCWS_LP_Local_Pickup {
                 // add affiliates dropdown
                 $aff_args = wp_parse_args( array(
                     'type' => 'select',
-                    'options' => count($affiliates_dropdown) == 1 ? $affiliates_dropdown : (['' => __('בחירת סניף', 'ocws')] + $affiliates_dropdown) ,
+                    'options' => count($affiliates_dropdown) == 1 ? $affiliates_dropdown : (['' => __('Select a branch', 'ocws')] + $affiliates_dropdown) ,
                     'input_class' => array(
                         'ocws-lp-enhanced-select',
                     ),

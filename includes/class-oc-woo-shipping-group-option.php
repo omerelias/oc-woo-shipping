@@ -8,15 +8,15 @@ class OC_Woo_Shipping_Group_Option {
     public static function get_general_options_defaults() {
 
         return array(
-                'popup_title' => __('בחרו סוג משלוח', 'ocws'),
-                'popup_shipping_method_button_text' => __('שליח עד הבית', 'ocws'),
-                'popup_choose_location_title' => __('בחרו עיר / יישוב למשלוח', 'ocws'),
+                'popup_title' => __('Choose a shipping method', 'ocws'),
+                'popup_shipping_method_button_text' => __('Courier to your door', 'ocws'),
+                'popup_choose_location_title' => __('Choose a city / town for shipping', 'ocws'),
                 'popup_choose_location_sub_title' => '',
-                'popup_button_text' => __('המשך', 'ocws'),
-                'checkout_send_to_other_checkbox_label' => __('אני שולח למישהו אחר', 'ocws'),
-                'checkout_slots_title' => __('מתי נוח לך שנגיע?', 'ocws'),
+                'popup_button_text' => __('Continue', 'ocws'),
+                'checkout_send_to_other_checkbox_label' => __('Deliver to a different address', 'ocws'),
+                'checkout_slots_title' => __('When is convenient for us to arrive?', 'ocws'),
                 'checkout_slots_description' => __('', 'ocws'),
-                'out_of_service_area_message' => __('מצטערים, הכתובת שלך אינה באזור החלוקה שלנו', 'ocws'),
+                'out_of_service_area_message' => __('Sorry, your address is outside our delivery area', 'ocws'),
 
             );
     }

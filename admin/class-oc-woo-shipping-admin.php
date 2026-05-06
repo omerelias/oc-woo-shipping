@@ -933,43 +933,43 @@ class Oc_Woo_Shipping_Admin {
 		);
 
 		$fields['phone'] = array(
-			'label' => __('טלפון', 'ocws'),
+			'label' => __('Phone', 'ocws'),
 			'show' => true,
 			'value' => $wc_order->get_meta('_billing_phone')
 		);
 
 		$fields['city'] = array(
-			'label' => __('עיר', 'ocws'),
+			'label' => __('City', 'ocws'),
 			'show' => true,
 			'value' => ocws_get_order_billing_city_name($wc_order)
 		);
 
 		$fields['street'] = array(
-			'label' => __('רחוב', 'ocws'),
+			'label' => __('Street', 'ocws'),
 			'show' => true,
 			'value' => $wc_order->get_meta('_billing_street')
 		);
 
 		$fields['house_num'] = array(
-			'label' => __('בית', 'ocws'),
+			'label' => __('House', 'ocws'),
 			'show' => true,
 			'value' => $wc_order->get_meta('_billing_house_num')
 		);
 
 		$fields['apartment'] = array(
-			'label' => __('דירה', 'ocws'),
+			'label' => __('Apartment', 'ocws'),
 			'show' => true,
 			'value' => $wc_order->get_meta('_billing_apartment')
 		);
 
 		$fields['floor'] = array(
-			'label' => __('קומה', 'ocws'),
+			'label' => __('Floor', 'ocws'),
 			'show' => true,
 			'value' => $wc_order->get_meta('_billing_floor')
 		);
 
 		$fields['enter_code'] = array(
-			'label' => __('קוד כניסה', 'ocws'),
+			'label' => __('Entry code', 'ocws'),
 			'show' => true,
 			'value' => $wc_order->get_meta('_billing_enter_code')
 		);
@@ -1004,49 +1004,49 @@ class Oc_Woo_Shipping_Admin {
 
 		$phone = $wc_order->get_meta('_shipping_phone');
 		$fields['phone'] = array(
-			'label' => __('טלפון', 'ocws'),
+			'label' => __('Phone', 'ocws'),
 			'show' => true,
 			'value' => ($phone? $phone : $wc_order->get_meta('_billing_phone'))
 		);
 
 		$city = ocws_get_order_billing_city_name($wc_order);
 		$fields['city'] = array(
-			'label' => __('עיר', 'ocws'),
+			'label' => __('City', 'ocws'),
 			'show' => true,
 			'value' => ($city? $city : ocws_get_order_billing_city_name($wc_order))
 		);
 
 		$street = $wc_order->get_meta('_shipping_street');
 		$fields['street'] = array(
-			'label' => __('רחוב', 'ocws'),
+			'label' => __('Street', 'ocws'),
 			'show' => true,
 			'value' => ($street? $street : $wc_order->get_meta('_billing_street'))
 		);
 
 		$house_num = $wc_order->get_meta('_shipping_house_num');
 		$fields['house_num'] = array(
-			'label' => __('בית', 'ocws'),
+			'label' => __('House', 'ocws'),
 			'show' => true,
 			'value' => ($house_num? $house_num : $wc_order->get_meta('_billing_house_num'))
 		);
 
 		$apartment = $wc_order->get_meta('_shipping_apartment');
 		$fields['apartment'] = array(
-			'label' => __('דירה', 'ocws'),
+			'label' => __('Apartment', 'ocws'),
 			'show' => true,
 			'value' => ($apartment? $apartment : $wc_order->get_meta('_billing_apartment'))
 		);
 
 		$floor = $wc_order->get_meta('_shipping_floor');
 		$fields['floor'] = array(
-			'label' => __('קומה', 'ocws'),
+			'label' => __('Floor', 'ocws'),
 			'show' => true,
 			'value' => ($floor? $floor : $wc_order->get_meta('_billing_floor'))
 		);
 
 		$enter_code = $wc_order->get_meta('_shipping_enter_code');
 		$fields['enter_code'] = array(
-			'label' => __('קוד כניסה', 'ocws'),
+			'label' => __('Entry code', 'ocws'),
 			'show' => true,
 			'value' => ($enter_code? $enter_code : $wc_order->get_meta('_billing_enter_code'))
 		);

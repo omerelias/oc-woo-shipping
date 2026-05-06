@@ -120,14 +120,14 @@ class OC_Woo_Local_Pickup_Method extends WC_Shipping_Method {
                 }
                 $redirect_url = esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()]));
                 $message = '<div class="show-shipping-block ocws-go-to-blog" style="display: none;"><span class="important-notice">'.
-                    esc_html(sprintf(__('לאיסוף מסניף %s.', 'ocws'), $blog_name)).
-                    '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a></div>';
+                    esc_html(sprintf(__('For pickup from branch %s.', 'ocws'), $blog_name)).
+                    '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a></div>';
                 $this->add_notice( $message, 'permanent-notice' );
                 $this->add_notice( 'no_blog_branch_available', 'permanent-hidden');
                 if ($add_validate_order_errors) {
                     $errors->add('shipping', '<span class="important-notice">'.
-                        esc_html(sprintf(__('להזמנת משלוח ל%s.', 'ocws'), $blog_name)).
-                        '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a>');
+                        esc_html(sprintf(__('To order shipping to %s.', 'ocws'), $blog_name)).
+                        '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a>');
                 }
                 //error_log('no blog branch available');
             }
@@ -142,14 +142,14 @@ class OC_Woo_Local_Pickup_Method extends WC_Shipping_Method {
 
                     $redirect_url = esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()]));
                     $message = '<div class="show-shipping-block ocws-go-to-blog" style="display: none;"><span class="important-notice">'.
-                        esc_html(sprintf(__('לאיסוף מסניף %s.', 'ocws'), $blog_name)).
-                        '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a></div>';
+                        esc_html(sprintf(__('For pickup from branch %s.', 'ocws'), $blog_name)).
+                        '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a></div>';
                     $this->add_notice( $message, 'permanent-notice' );
                     $this->add_notice( 'no_blog_branch_available', 'permanent-hidden');
                     if ($add_validate_order_errors) {
                         $errors->add('shipping', '<span class="important-notice">'.
-                            esc_html(sprintf(__('להזמנת משלוח ל%s.', 'ocws'), $blog_name)).
-                            '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a>');
+                            esc_html(sprintf(__('To order shipping to %s.', 'ocws'), $blog_name)).
+                            '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a>');
                     }
                     //error_log('no blog branch available');
                 }

@@ -187,12 +187,12 @@ foreach ($methods as $method) {
 
                 <div class="ocws-popup-continue-row">
                     <div class="ocws-popup-min-total-notice" id="ocws-popup-min-total-notice" hidden></div>
-                    <input type="submit" id="ocws-popup-continue-submit" class="button green ocws-popup-continue-submit" value="<?php _e('המשך' , 'ocws')?>" disabled="disabled" aria-disabled="true">
+                    <input type="submit" id="ocws-popup-continue-submit" class="button green ocws-popup-continue-submit" value="<?php _e('Continue' , 'ocws')?>" disabled="disabled" aria-disabled="true">
                 </div>
             </form>
             <div class="ocws-popup-dismiss">
                 <hr class="ocws-popup-dismiss__rule" />
-                <button type="button" class="ocws-popup-dismiss__later"><?php esc_html_e( 'אבחר בהמשך', 'ocws' ); ?></button>
+                <button type="button" class="ocws-popup-dismiss__later"><?php esc_html_e( 'I will choose later', 'ocws' ); ?></button>
             </div>
         </div><!--inner-wrapper-->
     </div><!--inner-->

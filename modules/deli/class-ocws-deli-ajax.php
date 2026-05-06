@@ -56,7 +56,7 @@ class OCWS_Deli_Ajax extends OC_Woo_Ajax {
         if (empty($date) || empty($product_id)) {
             wp_send_json_success(
                 array(
-                    'resp' => __('מוצר זה לא זמין ביום שבחרת', 'ocws')
+                    'resp' => __('This product is not available on the selected day', 'ocws')
                 )
             );
         }
@@ -71,7 +71,7 @@ class OCWS_Deli_Ajax extends OC_Woo_Ajax {
         }
         wp_send_json_success(
             array(
-                'resp' => __('מוצר זה לא זמין ביום שבחרת', 'ocws'),
+                'resp' => __('This product is not available on the selected day', 'ocws'),
             )
         );
     }
@@ -173,7 +173,7 @@ class OCWS_Deli_Ajax extends OC_Woo_Ajax {
                         ?>
                         <div id="oc-woo-shipping-additional">
                             <!--<div class="slot-message"><?php /*echo $oos_message; */?></div>-->
-                            <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($go_to_blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('אישור והמשך קנייה' , 'ocws')?>"></div>
+                            <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($go_to_blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('Confirm and continue shopping' , 'ocws')?>"></div>
                         </div>
                         <?php
                         $resp = ob_get_clean();
@@ -309,7 +309,7 @@ class OCWS_Deli_Ajax extends OC_Woo_Ajax {
                         ?>
                         <div id="oc-woo-shipping-additional">
                             <!--<div class="slot-message"><?php /*echo $oos_message; */?></div>-->
-                            <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($go_to_blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('אישור והמשך קנייה' , 'ocws')?>"></div>
+                            <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($go_to_blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('Confirm and continue shopping' , 'ocws')?>"></div>
                         </div>
                         <?php
                         $resp = ob_get_clean();
@@ -402,7 +402,7 @@ class OCWS_Deli_Ajax extends OC_Woo_Ajax {
                                 <a class="ocws-site-link" href="<?php /*echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); */?>"><?php /*echo esc_html(__('Go to the site.', 'ocws')); */?></a>
                             </span></div>-->
 
-                        <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('אישור והמשך קנייה' , 'ocws')?>"></div>
+                        <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('Confirm and continue shopping' , 'ocws')?>"></div>
 
                         <?php
                     }
@@ -413,7 +413,7 @@ class OCWS_Deli_Ajax extends OC_Woo_Ajax {
                                 <a class="ocws-site-link" href="<?php /*echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); */?>"><?php /*echo esc_html(__('Go to the site.', 'ocws')); */?></a>
                             </span></div>-->
 
-                        <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('אישור והמשך קנייה' , 'ocws')?>"></div>
+                        <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('Confirm and continue shopping' , 'ocws')?>"></div>
 
                         <?php
                     }

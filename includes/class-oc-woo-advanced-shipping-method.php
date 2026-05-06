@@ -142,14 +142,14 @@ class OC_Woo_Advanced_Shipping_Method extends WC_Shipping_Method{
                     $loc_name = isset($package['destination']['city_name'])? $package['destination']['city_name'] : $package['destination']['city'];
                     $redirect_url = esc_url(ocws_convert_current_page_url($go_to_blog_id, ['ocws_from_store' => get_current_blog_id()]));
                     $message = '<div class="show-shipping-block ocws-go-to-blog" style="display: none;"><span class="important-notice">'.
-                        esc_html(sprintf(__('להזמנת משלוח ל%s', 'ocws'), $loc_name)).
-                        '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a></div>';
+                        esc_html(sprintf(__('To order shipping to %s', 'ocws'), $loc_name)).
+                        '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a></div>';
                     $this->add_notice( $message, 'permanent-notice' );
                     $this->add_notice( 'no_blog_location_available', 'permanent-hidden');
                     if ($add_validate_order_errors) {
                         $errors->add('shipping', '<span class="important-notice">'.
-                            esc_html(sprintf(__('להזמנת משלוח ל%s', 'ocws'), $loc_name)).
-                            '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a>');
+                            esc_html(sprintf(__('To order shipping to %s', 'ocws'), $loc_name)).
+                            '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a>');
                     }
                     //error_log('no blog location available');
                     return true;
@@ -172,14 +172,14 @@ class OC_Woo_Advanced_Shipping_Method extends WC_Shipping_Method{
                             $loc_name = isset($package['destination']['city_name'])? $package['destination']['city_name'] : $package['destination']['city'];
                             $redirect_url = esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()]));
                             $message = '<div class="show-shipping-block ocws-go-to-blog" style="display: none;"><span class="important-notice">'.
-                                esc_html(sprintf(__('להזמנת משלוח ל%s', 'ocws'), $loc_name)).
-                                '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a></div>';
+                                esc_html(sprintf(__('To order shipping to %s', 'ocws'), $loc_name)).
+                                '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a></div>';
                             $this->add_notice( $message, 'permanent-notice' );
                             $this->add_notice( 'other_blog_location_available', 'permanent-hidden');
                             if ($add_validate_order_errors) {
                                 $errors->add('shipping', '<span class="important-notice">'.
-                                    esc_html(sprintf(__('להזמנת משלוח ל%s', 'ocws'), $loc_name)).
-                                    '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a>');
+                                    esc_html(sprintf(__('To order shipping to %s', 'ocws'), $loc_name)).
+                                    '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a>');
                             }
                             //error_log('other blog location is available');
                             return true;
@@ -235,14 +235,14 @@ class OC_Woo_Advanced_Shipping_Method extends WC_Shipping_Method{
                     $loc_name = isset($package['destination']['city_name'])? $package['destination']['city_name'] : $package['destination']['city'];
                     $redirect_url = esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()]));
                     $message = '<div class="show-shipping-block ocws-go-to-blog" style="display: none;"><span class="important-notice">'.
-                        esc_html(sprintf(__('להזמנת משלוח ל%s', 'ocws'), $loc_name)).
-                        '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a></div>';
+                        esc_html(sprintf(__('To order shipping to %s', 'ocws'), $loc_name)).
+                        '</span><br><a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a></div>';
                     $this->add_notice( $message, 'permanent-notice' );
                     $this->add_notice( 'other_blog_location_available', 'permanent-hidden');
                     if ($add_validate_order_errors) {
                         $errors->add('shipping', '<span class="important-notice">'.
-                            esc_html(sprintf(__('להזמנת משלוח ל%s', 'ocws'), $loc_name)).
-                            '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('לחץ כאן >', 'ocws')).'</a>');
+                            esc_html(sprintf(__('To order shipping to %s', 'ocws'), $loc_name)).
+                            '</span> <a class="ocws-site-link" href="'.esc_url($redirect_url).'">'.esc_html(__('Click here >', 'ocws')).'</a>');
                     }
                     //error_log('other blog location is available');
                     return true;
@@ -353,7 +353,7 @@ class OC_Woo_Advanced_Shipping_Method extends WC_Shipping_Method{
                     $message = OC_Woo_Shipping_Group_Option::get_option($group_id, 'min_total_message_no', '');
                     $message = $message['option_value'];
                     if (empty($message)) {
-                        $message = sprintf(__('המינימום למשלוח %s ש"ח, נותר לך %s ש"ח', 'ocws'), $min_total_to_enable, ($min_total_to_enable - $total));
+                        $message = sprintf(__('Minimum order for shipping is %s NIS, you need %s NIS more', 'ocws'), $min_total_to_enable, ($min_total_to_enable - $total));
                     }
                     if (!empty($message)) {
                         if (strstr( $message, '[X]')) {
@@ -792,7 +792,7 @@ class OC_Woo_Advanced_Shipping_Method extends WC_Shipping_Method{
                 $errors->remove('billing_city_name_required');
                 $errors->remove('billing_street_required');
                 $errors->remove('billing_house_num_required');
-                $errors->add('shipping', __('נא למלא כתובת משלוח', 'ocws'));
+                $errors->add('shipping', __('Please enter a shipping address', 'ocws'));
                 return;
             }
         }

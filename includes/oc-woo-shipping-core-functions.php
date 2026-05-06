@@ -1371,10 +1371,10 @@ function ocws_slot_weekday_display( $formatted_date, $weekday_fallback, $date_fo
         $today  = Carbon::now( $tz )->startOfDay();
         $tomorrow = $today->copy()->addDay();
         if ( $day_dt->equalTo( $today ) ) {
-            return __( 'היום', 'ocws' );
+            return __( 'Today', 'ocws' );
         }
         if ( $day_dt->equalTo( $tomorrow ) ) {
-            return __( 'מחר', 'ocws' );
+            return __( 'Tomorrow', 'ocws' );
         }
     } catch ( InvalidArgumentException $e ) {
         return $weekday_fallback;

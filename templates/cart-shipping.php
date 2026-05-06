@@ -27,7 +27,7 @@ $calculator_text          = '';
 $our_shipping_available 	= false;
 $count 						= 0;
 $our_shipping_option_name 	= 'woocommerce_oc_woo_advanced_shipping_method_settings';
-$our_shipping_method_title 	= __('שליח עד הבית', 'ocws');
+$our_shipping_method_title 	= __('Courier to your door', 'ocws');
 // show( $available_methods, 'available_methods' );
 // show( WC()->cart->get_cart(), 'WC()->cart->get_cart();' );
 ?>

@@ -17,7 +17,7 @@
             ?>
             <div>
                 <select name="selected-city" class="ocws-enhanced-select">
-                    <option val=""><?php echo esc_html(__('עיר/יישוב', 'ocws')) ?></option>
+                    <option val=""><?php echo esc_html(__('City/Town', 'ocws')) ?></option>
                 <?php foreach ($city_options as $code => $name) { ?>
                     <?php
                     $redirect = '';

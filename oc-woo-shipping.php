@@ -371,7 +371,7 @@ class OC_Woo_Shipping_Updater {
 		$cached        = get_site_transient( self::CACHE_KEY );
 		$remote_ver    = ( is_array( $cached ) && ! empty( $cached['tag'] ) )
 			? ltrim( $cached['tag'], 'vV' )
-			: __( 'לא נבדק עדיין', 'ocws' );
+			: __( 'Not checked yet', 'ocws' );
 
 		$url = wp_nonce_url(
 			admin_url( 'admin-post.php?action=oc_woo_shipping_force_check' ),
@@ -381,18 +381,18 @@ class OC_Woo_Shipping_Updater {
 		$just_checked = ! empty( $_GET['oc_woo_shipping_checked'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		?>
 		<div class="notice notice-info" style="padding:14px 18px;">
-			<h3 style="margin:0 0 6px;"><?php esc_html_e( 'OC Advanced Shipping - בדיקת עדכונים מ-GitHub', 'ocws' ); ?></h3>
+			<h3 style="margin:0 0 6px;"><?php esc_html_e( 'OC Advanced Shipping - Check updates from GitHub', 'ocws' ); ?></h3>
 			<p style="margin:4px 0;">
-				<strong><?php esc_html_e( 'גרסה מותקנת:', 'ocws' ); ?></strong> <?php echo esc_html( $installed_ver ); ?>
+				<strong><?php esc_html_e( 'Installed version:', 'ocws' ); ?></strong> <?php echo esc_html( $installed_ver ); ?>
 				&nbsp;|&nbsp;
-				<strong><?php esc_html_e( 'גרסה אחרונה ב-GitHub (מה-cache):', 'ocws' ); ?></strong> <?php echo esc_html( $remote_ver ); ?>
+				<strong><?php esc_html_e( 'Latest version on GitHub (from cache):', 'ocws' ); ?></strong> <?php echo esc_html( $remote_ver ); ?>
 			</p>
 			<p style="margin:10px 0 0;">
 				<a href="<?php echo esc_url( $url ); ?>" class="button button-primary">
-					<?php esc_html_e( 'בדוק עדכונים עכשיו', 'ocws' ); ?>
+					<?php esc_html_e( 'Check for updates now', 'ocws' ); ?>
 				</a>
 				<?php if ( $just_checked ) : ?>
-					<span style="color:#1d7c2a;margin-inline-start:10px;"><?php esc_html_e( '✓ נבדק ונוקה cache. אם יש גרסה חדשה היא תופיע מתחת.', 'ocws' ); ?></span>
+					<span style="color:#1d7c2a;margin-inline-start:10px;"><?php esc_html_e( '✓ Checked and cache cleared. A newer version, if any, will appear below.', 'ocws' ); ?></span>
 				<?php endif; ?>
 			</p>
 		</div>

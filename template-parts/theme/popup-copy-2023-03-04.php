@@ -95,7 +95,7 @@
                 <div id="popup-pickup-form-messages" style="<?php echo $show_pickup_options? '' : 'display: none;' ?>"></div>
 
                 <div id="popup-form-messages" style=""></div>
-                <input type="submit" class="button green" value="<?php _e('אישור' , 'ocws')?>">
+                <input type="submit" class="button green" value="<?php _e('Confirm' , 'ocws')?>">
             </form>
         </div><!--inner-wrapper-->
     </div><!--inner-->

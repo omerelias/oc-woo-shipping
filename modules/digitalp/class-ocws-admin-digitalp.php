@@ -42,10 +42,10 @@ class OCWS_Admin_Digitalp {
 
         ?>
             <tr valign="top">
-                <th scope="row"><?php echo __('מוצרים שאינם מחייבים בחירת שיטת משלוח', 'ocws') ?></th>
+                <th scope="row"><?php echo __('Products that do not require a shipping method', 'ocws') ?></th>
                 <td>
-                    <div><input placeholder="<?php echo __('לדוגמא: 123,456,789', 'ocws') ?>" type="text" name="ocws_common_digital_products_ids" value="<?php echo esc_attr( implode(',', $list) ); ?>" /></div>
-                    <div><?php echo __('הכנס מספר מזהה של כל מוצר, הפרד בפסיק', 'ocws') ?></div>
+                    <div><input placeholder="<?php echo __('For example: 123,456,789', 'ocws') ?>" type="text" name="ocws_common_digital_products_ids" value="<?php echo esc_attr( implode(',', $list) ); ?>" /></div>
+                    <div><?php echo __('Enter the product IDs separated by commas', 'ocws') ?></div>
                 </td>
             </tr>
         <?php

@@ -94,7 +94,7 @@ class OCWS_Deli {
             $product_menus_message = '';
             $class = '';
             if ( !$product->is_purchasable() ) {
-                $product_menus_message = __('מוצר אינו זמין', 'ocws');
+                $product_menus_message = __('Product not available', 'ocws');
                 $class = 'ocws-not-available';
             }
             else if ( ! self::calculate_product_availability( $product->is_purchasable(), $product) ) {
@@ -550,8 +550,8 @@ class OCWS_Deli {
         ?>
         <div class="ocws-removed-items-chip">
         <div class="buttons-here"><div class="buttons"></div></div>
-        <div class="title"><?php echo  esc_html(__('מוצרים שהוסרו מהסל', 'ocws')); ?></div>
-        <div class="sub-title"><?php echo  esc_html(__('מוצרים אלו לא זמינים למשלוח בתאריך שבחרת.', 'ocws')); ?></div>
+        <div class="title"><?php echo  esc_html(__('Products removed from the cart', 'ocws')); ?></div>
+        <div class="sub-title"><?php echo  esc_html(__('These products are not available for delivery on the selected date.', 'ocws')); ?></div>
         <ul class="ocws-minicart-removed-items">
         <?php
         foreach ( $removed_items as $cart_item_key => $item ) {
@@ -880,7 +880,7 @@ class OCWS_Deli {
                         ?>
 
                         <input type="text" class="ocws-input-text ocws-checkout-pac-input pac-target-input"
-                               name="billing_google_autocomplete" id="billing_google_autocomplete_deli" placeholder="<?php echo esc_html(__('הכנס כתובת ומספר בית', 'ocws')) ?>" value="<?php echo esc_attr($autocomplete_text) ?>" autocomplete="off">
+                               name="billing_google_autocomplete" id="billing_google_autocomplete_deli" placeholder="<?php echo esc_html(__('Enter address and house number', 'ocws')) ?>" value="<?php echo esc_attr($autocomplete_text) ?>" autocomplete="off">
 
                         <input type="hidden" name="billing_city" id="billing_city_pp" value="<?php echo esc_attr($billing_city) ?>">
 
@@ -987,7 +987,7 @@ class OCWS_Deli {
                                 ?>
                                 <div id="oc-woo-shipping-additional">
                                     <!--<div class="slot-message"><?php /*echo $oos_message; */?></div>-->
-                                    <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($go_to_blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('אישור והמשך קנייה' , 'ocws')?>"></div>
+                                    <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($go_to_blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('Confirm and continue shopping' , 'ocws')?>"></div>
                                 </div>
                                 <?php
                                 $shipping_location_code = 0;
@@ -1041,7 +1041,7 @@ class OCWS_Deli {
                                 <a class="ocws-site-link" href="<?php /*echo esc_url(get_blogaddress_by_id(intval($blog_id))).'?ocws_from_store='.get_current_blog_id(); */?>"><?php /*echo esc_html(__('Go to the site.', 'ocws')); */?></a>
                             </span></div>-->
 
-                                <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('אישור והמשך קנייה' , 'ocws')?>"></div>
+                                <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('Confirm and continue shopping' , 'ocws')?>"></div>
 
                                 <?php
                             }
@@ -1052,7 +1052,7 @@ class OCWS_Deli {
                                 <a class="ocws-site-link" href="<?php /*echo esc_url(is_checkout()? $blog_checkout_url : get_blogaddress_by_id($blog_id)).'?ocws_from_store='.get_current_blog_id(); */?>"><?php /*echo esc_html(__('Go to the site.', 'ocws')); */?></a>
                             </span></div>-->
 
-                                <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('אישור והמשך קנייה' , 'ocws')?>"></div>
+                                <div class="slot-message"><input type="button" class="ocws-redirect-button cds-button-submit" data-href="<?php echo esc_url(ocws_convert_current_page_url($blog_id, ['ocws_from_store' => get_current_blog_id()])); ?>" value="<?php _e('Confirm and continue shopping' , 'ocws')?>"></div>
 
                                 <?php
                             }
@@ -1074,7 +1074,7 @@ class OCWS_Deli {
 
         <div id="minicart-form-messages" style=""></div>
         <div class="cart-delivery-settings-actions <?php echo (empty($delivery_data['delivery_date'])? 'cds-hidden' : '') ?>">
-            <input type="submit" class="cds-button-submit" value="<?php _e('אישור והמשך קנייה' , 'ocws')?>">
+            <input type="submit" class="cds-button-submit" value="<?php _e('Confirm and continue shopping' , 'ocws')?>">
         </div>
         </form>
         </div>
@@ -1116,7 +1116,7 @@ class OCWS_Deli {
 
             <div class="dropdown-menu">
                 <div class="delivery-settings-screen-1">
-                    <div class="ds-heading"><b><span><?php echo esc_html(__('בחר מועד הזמנה לקבלת תפריט מעודכן', 'ocws')); ?></span></b><br>
+                    <div class="ds-heading"><b><span><?php echo esc_html(__('Choose an order time to view the updated menu', 'ocws')); ?></span></b><br>
                         <span>
                         המנות שלנו טריות ומתחלפות יום-יום
                         </span>
@@ -1556,7 +1556,7 @@ class OCWS_Deli {
                 const VALIDATE_DATES = <?php echo $available_dates; ?>;
                 const HOLIDAYS = <?php echo $holidays; ?>;
                 var checkingProductAvailability = null;
-                var submitButtonInitVal = "<?php _e('אישור והמשך קנייה' , 'ocws')?>";
+                var submitButtonInitVal = "<?php _e('Confirm and continue shopping' , 'ocws')?>";
 
                 function hide_submit_button() {
                     $('.cart-delivery-settings-actions').addClass('cds-hidden');
@@ -1658,7 +1658,7 @@ class OCWS_Deli {
                                 success: function(response) {
                                     if (response.data.resp != '') {
                                         $('#ocws-pending-product-chip').html(response.data.resp).show();
-                                        $('#cart-delivery-settings-form input[type=submit]').val('<?php echo esc_html(__('אישור והמשך ללא הוספת מוצר', 'ocws')); ?>');
+                                        $('#cart-delivery-settings-form input[type=submit]').val('<?php echo esc_html(__('Confirm and continue without adding a product', 'ocws')); ?>');
                                     }
                                     else {
                                         $('#cart-delivery-settings-form input[type=submit]').val(submitButtonInitVal);
@@ -1694,7 +1694,7 @@ class OCWS_Deli {
                             $slots.find('.ocws-days-with-slots-list').html('');
                             $slots.show();
                             let $dayDataLabel = $(`<div class="minicart-shipping-slots-label form-label"><span>
-                                <?php echo esc_html(__('באיזה שעה?', 'ocws')) ?></span>
+                                <?php echo esc_html(__('At what time?', 'ocws')) ?></span>
                                 </div>`);
                             let $dayData = $(`<div class="minicart-shipping-slots"></div>`);
 
@@ -1769,7 +1769,7 @@ class OCWS_Deli {
         $delivery_data = self::get_current_delivery_data();
         $default_date = ( !empty($delivery_data['delivery_date'])? $delivery_data['delivery_date'] : $begin_range['formatted_date'] );
         ?>
-        <div class="minicart-pickup-slots-label form-label"><span><?php echo esc_html(_x('מתי נפגש?', 'Mini-cart pickup date label', 'ocws')) ?></span></div>
+        <div class="minicart-pickup-slots-label form-label"><span><?php echo esc_html(_x('When shall we meet?', 'Mini-cart pickup date label', 'ocws')) ?></span></div>
         <div class="datepicker" id="<?php echo $datepickerId; ?>"></div>
         <?php
         self::show_pending_product_chip();
@@ -1788,7 +1788,7 @@ class OCWS_Deli {
                 const VALIDATE_DATES = <?php echo $available_dates; ?>;
                 const HOLIDAYS = <?php echo $holidays; ?>;
                 var checkingProductAvailability = null;
-                var submitButtonInitVal = "<?php _e('אישור והמשך קנייה' , 'ocws')?>";
+                var submitButtonInitVal = "<?php _e('Confirm and continue shopping' , 'ocws')?>";
 
                 function dateFormat(date) {
                     return date.getDate().toString().padStart(2, '0') + '/' +
@@ -1890,7 +1890,7 @@ class OCWS_Deli {
                                 success: function(response) {
                                     if (response.data.resp != '') {
                                         $('#ocws-pending-product-chip').html(response.data.resp).show();
-                                        $('#cart-delivery-settings-form input[type=submit]').val('<?php echo esc_html(__('אישור והמשך ללא הוספת מוצר', 'ocws')); ?>');
+                                        $('#cart-delivery-settings-form input[type=submit]').val('<?php echo esc_html(__('Confirm and continue without adding a product', 'ocws')); ?>');
                                     }
                                     else {
                                         $('#cart-delivery-settings-form input[type=submit]').val(submitButtonInitVal);
@@ -1927,7 +1927,7 @@ class OCWS_Deli {
                             $slots.find('.ocws-days-with-slots-list').html('');
                             $slots.show();
                             let $dayDataLabel = $(`<div class="minicart-pickup-slots-label form-label"><span>
-                                <?php echo esc_html(__('באיזה שעה?', 'ocws')) ?></span>
+                                <?php echo esc_html(__('At what time?', 'ocws')) ?></span>
                                 </div>`);
                             let $dayData = $(`<div class="minicart-pickup-slots"></div>`);
 
@@ -2425,7 +2425,7 @@ class OCWS_Deli {
         $product_menus_message = '';
         $class = '';
         if ( !$product->is_purchasable() ) {
-            $product_menus_message = __('מוצר אינו זמין', 'ocws');
+            $product_menus_message = __('Product not available', 'ocws');
             $class = 'ocws-not-available';
         }
         else if ( ! self::calculate_product_availability( $product->is_purchasable(), $product) ) {
@@ -2737,7 +2737,7 @@ class OCWS_Deli {
                 $total = round( $total, wc_get_price_decimals() );
 
                 if ( $total < $min_total_to_enable ) {
-                    $message = sprintf(__('המינימום למשלוח %s ש"ח, נותר לך %s ש"ח', 'ocws'), $min_total_to_enable, ($min_total_to_enable - $total));
+                    $message = sprintf(__('Minimum order for shipping is %s NIS, you need %s NIS more', 'ocws'), $min_total_to_enable, ($min_total_to_enable - $total));
                     ?>
                     <div class="ocws-cart-shipping-notes">
 		                <div class="ocws-notice-notice">

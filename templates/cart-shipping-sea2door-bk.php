@@ -26,7 +26,7 @@ $calculator_text          = '';
 $our_shipping_available = false;
 $count = 0;
 $our_shipping_option_name = 'woocommerce_oc_woo_advanced_shipping_method_settings';
-$our_shipping_method_title = __('שליח עד הבית', 'ocws');//get_option( $our_shipping_option_name, true )['title'];
+$our_shipping_method_title = __('Courier to your door', 'ocws');//get_option( $our_shipping_option_name, true )['title'];
 ?>
 <tr class="woocommerce-shipping-totals shipping">
 	<th><?php //echo wp_kses_post( $package_name ); ?></th><!-- of plugin -->

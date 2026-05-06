@@ -228,7 +228,7 @@ class OCWS_Cart_Syncronizer {
                 add_action( 'wp_footer', function(){
                     ?>
                     <div id="shipping-redirect-result-dialog" title="" style="display: none;">
-                        <p class="cds-dialog-title"><?php echo (__('המוצרים הבאים לא התווספו לסל', 'ocws')); ?></p>
+                        <p class="cds-dialog-title"><?php echo (__('The following products were not added to the cart', 'ocws')); ?></p>
                         <p class="cds-dialog-text"></p>
                     </div>
                     <?php

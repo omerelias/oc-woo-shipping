@@ -336,7 +336,10 @@ class Oc_Woo_Shipping {
 	 */
 	private function set_locale() {
 		$plugin_i18n = new Oc_Woo_Shipping_i18n();
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain', 0 );
+		// Run after TranslatePress (plugins_loaded:3) and similar plugins that filter the
+		// `locale` filter so determine_locale() returns the user-facing language, not the
+		// site default. Priority 10 is the WP convention for textdomain loading.
+		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain', 10 );
 	}
 
 	public function define_common_hooks() {

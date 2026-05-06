@@ -156,7 +156,7 @@ class Oc_Woo_Shipping_Public {
 				'cart_is_empty' => (WC()->cart->is_empty()? 'yes' : 'no'),
 				'localize' => array(
 					'loading' => '', //__('Loading', 'ocws'),
-					'understood' => __('הבנתי, תודה', 'ocws'),
+					'understood' => __('Got it, thanks', 'ocws'),
 					'back_to_site' => _x('Back to site', 'Redirect shipping popup', 'ocws'),
 					'back_to_checkout' => _x('Back to checkout', 'Redirect shipping popup', 'ocws'),
 					'continue_to_change' => _x('Continue to change', 'Redirect shipping popup', 'ocws'),
@@ -211,7 +211,7 @@ class Oc_Woo_Shipping_Public {
 		}
 		else {
 			$city_options = OCWS_Advanced_Shipping::get_all_locations_blog(true);
-			$description = __('לא מצאת את העיר שלך?', 'ocws').' <a class="ocws-all-cities-link">'.__('לרשימה המלאה', 'ocws').' &gt;</a>';
+			$description = __('Didn\'t find your city?', 'ocws').' <a class="ocws-all-cities-link">'.__('Full list', 'ocws').' &gt;</a>';
 		}
 
 
@@ -1495,13 +1495,13 @@ class Oc_Woo_Shipping_Public {
 			<div class="inner">
 				<div class="inner-wrapper ui-dialog">
 					<div class="ui-dialog-content ui-widget-content" title="" style="">
-						<p class="cds-dialog-title"><?php echo esc_html(_x('ביקשת לשנות את יעד האספקה', 'Redirect dialog title', 'ocws')) ?></p>
-						<p class="cds-dialog-text"><?php echo esc_html(_x('הנך מועבר לסניף המספק ליעד המבוקש, סל הקניות שלך יתעדכן לפי זמינות המוצרים בסניף שתועבר אליו.', 'Redirect dialog sub title', 'ocws')) ?></p>
+						<p class="cds-dialog-title"><?php echo esc_html(_x('You requested to change the delivery destination', 'Redirect dialog title', 'ocws')) ?></p>
+						<p class="cds-dialog-text"><?php echo esc_html(_x('You are being redirected to the branch that serves the requested destination. Your cart will be updated according to product availability at the new branch.', 'Redirect dialog sub title', 'ocws')) ?></p>
 					</div>
 					<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
 						<div class="ui-dialog-buttonset">
-							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('המשך לשינוי', 'ocws')) ?></button>
-							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('חזרה לקופה', 'ocws')) ?></button>
+							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('Continue to change', 'ocws')) ?></button>
+							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('Back to checkout', 'ocws')) ?></button>
 						</div>
 					</div>
 				</div>
@@ -1517,13 +1517,13 @@ class Oc_Woo_Shipping_Public {
 			<div class="inner">
 				<div class="inner-wrapper ui-dialog">
 					<div class="ui-dialog-content ui-widget-content" title="" style="">
-						<p data-template="<?php echo esc_html(_x('ביקשת לשנות את יעד האספקה ל', 'Shipping redirect dialog title', 'ocws').'[CITYNAME]'.'.') ?>" class="cds-dialog-title"></p>
-						<p class="cds-dialog-text"><?php echo esc_html(_x('הנך מועבר לסניף המספק ליעד המבוקש, סל הקניות שלך יתעדכן לפי זמינות המוצרים בסניף שתועבר אליו.', 'Shipping redirect dialog sub title', 'ocws')) ?></p>
+						<p data-template="<?php echo esc_html(_x('You requested to change the delivery destination to', 'Shipping redirect dialog title', 'ocws').'[CITYNAME]'.'.') ?>" class="cds-dialog-title"></p>
+						<p class="cds-dialog-text"><?php echo esc_html(_x('You are being redirected to the branch that serves the requested destination. Your cart will be updated according to product availability at the new branch.', 'Shipping redirect dialog sub title', 'ocws')) ?></p>
 					</div>
 					<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
 						<div class="ui-dialog-buttonset">
-							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('המשך לשינוי', 'ocws')) ?></button>
-							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('חזרה לקופה', 'ocws')) ?></button>
+							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('Continue to change', 'ocws')) ?></button>
+							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('Back to checkout', 'ocws')) ?></button>
 						</div>
 					</div>
 				</div>
@@ -1539,13 +1539,13 @@ class Oc_Woo_Shipping_Public {
 			<div class="inner">
 				<div class="inner-wrapper ui-dialog">
 					<div class="ui-dialog-content ui-widget-content" title="" style="">
-						<p data-template="<?php echo esc_html(_x('ביקשת לשנות את יעד האספקה ל', 'Shipping redirect dialog title', 'ocws').'[CITYNAME]'.'.') ?>" class="cds-dialog-title"></p>
-						<p class="cds-dialog-text"><?php echo esc_html(_x('הנך מועבר לסניף המספק ליעד המבוקש, סל הקניות שלך יתעדכן לפי זמינות המוצרים בסניף שתועבר אליו.', 'Shipping redirect dialog sub title', 'ocws')) ?></p>
+						<p data-template="<?php echo esc_html(_x('You requested to change the delivery destination to', 'Shipping redirect dialog title', 'ocws').'[CITYNAME]'.'.') ?>" class="cds-dialog-title"></p>
+						<p class="cds-dialog-text"><?php echo esc_html(_x('You are being redirected to the branch that serves the requested destination. Your cart will be updated according to product availability at the new branch.', 'Shipping redirect dialog sub title', 'ocws')) ?></p>
 					</div>
 					<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
 						<div class="ui-dialog-buttonset">
-							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('המשך לשינוי', 'ocws')) ?></button>
-							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('חזרה לקופה', 'ocws')) ?></button>
+							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('Continue to change', 'ocws')) ?></button>
+							<button type="button" class="ui-button ui-corner-all ui-widget"><?php echo esc_html(__('Back to checkout', 'ocws')) ?></button>
 						</div>
 					</div>
 				</div>
@@ -1746,7 +1746,7 @@ class Oc_Woo_Shipping_Public {
 
 		if (!$send_to_other_person) return;
 
-		echo '<h4 class="checkout-recipient-details-heading">' . esc_html__( 'פרטי המקבל', 'ocws' ) . '</h4>';
+		echo '<h4 class="checkout-recipient-details-heading">' . esc_html__( 'Recipient details', 'ocws' ) . '</h4>';
 
 		//echo '<p class="form-row form-row-first other-recipient-field" style="'.($send_to_other_person? '' : 'display: none;').'">';
 
@@ -2036,8 +2036,8 @@ class Oc_Woo_Shipping_Public {
 
 		if ( !isset( $fields['enter_code'] ) ) {
 			$enter_code_args = array(
-				'label' => __('קוד כניסה', 'ocws'),
-				'placeholder' => esc_attr__('קוד כניסה', 'ocws'),
+				'label' => __('Entry code', 'ocws'),
+				'placeholder' => esc_attr__('Entry code', 'ocws'),
 				'required' => false,
 				'class' => array(
 					'form-row-first',
@@ -2905,7 +2905,7 @@ class Oc_Woo_Shipping_Public {
 			?>
 			<div id="ocws-delivery-data-chip" class="delivery-data-chip">
 				<button type="button" class="cds-button-change cds-chip-supply-prompt regular-products <?php echo esc_attr( WC()->cart->is_empty() ? 'empty-cart' : 'not-empty-cart' ); ?>">
-					<?php echo esc_html( __( 'יש לבחור אספקה כדי לבדוק עלות ומינימום למשלוח', 'ocws' ) ); ?>
+					<?php echo esc_html( __( 'Select delivery method to check costs and order minimum', 'ocws' ) ); ?>
 				</button>
 			</div>
 			<?php
