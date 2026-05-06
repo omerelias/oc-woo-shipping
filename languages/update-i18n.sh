@@ -7,9 +7,9 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 # Paths relative to plugin root. "languages" = skip .po/.pot/.mo/.l10n.php noise in catalog.
-EXCLUDE=".git,node_modules,vendor,languages,admin/class-oc-woo-shipping-admin-bkup.php,includes/class-oc-woo-shipping-slots-copy.php,includes/class-oc-woo-shipping-slots-copy-2.php,includes/class-ocws-admin-columns1.php,public/class-oc-woo-shipping-public-ariel.php,templates/cart-shipping-ariel.php"
+EXCLUDE=".git,node_modules,vendor,languages,languages-2,languages-copy,admin/class-oc-woo-shipping-admin-bkup.php,includes/class-oc-woo-shipping-slots-copy.php,includes/class-oc-woo-shipping-slots-copy-2.php,includes/class-ocws-admin-columns1.php,public/class-oc-woo-shipping-public-ariel.php,templates/cart-shipping-ariel.php"
 
-wp i18n make-pot . languages/ocws.pot --domain=ocws --exclude="$EXCLUDE"
+wp i18n make-pot . languages/ocws.pot --slug=oc-woo-shipping --domain=ocws --package-name="Original Concepts WooCommerce Advanced Shipping" --exclude="$EXCLUDE"
 
 msgmerge --update --backup=none languages/ocws-he_IL.po languages/ocws.pot
 msgmerge --update --backup=none languages/ocws-en_US.po languages/ocws.pot
