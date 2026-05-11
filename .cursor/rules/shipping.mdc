@@ -1,10 +1,26 @@
 ---
-description: OC Advanced Shipping (oc-woo-shipping) — choose-shipping popup, session checkout_data, AJAX handlers, and Woo hooks.
+  Use when working on shipping, delivery, pickup, or checkout flow 
+  in this WordPress site. Covers the oc-woo-shipping plugin (OCWS): 
+  delivery method selection, pickup branches, the choose-shipping popup, 
+  shipping rates, delivery fields, mini-cart delivery chip, and checkout 
+  session data. Trigger phrases: "המשלוח לא נשמר", "לא רואה את העיר", 
+  "פופאפ המשלוחים נפתח אוטומטית", "shipping not saving", "delivery popup", 
+  "pickup branch", "OCWS", "choose-shipping", "checkout_data session", 
+  "ocws_shipping_popup_confirmed".
 globs:
   - "wp-content/plugins/oc-woo-shipping/**/*.php"
   - "wp-content/plugins/oc-woo-shipping/public/**/*.js"
 alwaysApply: false
 ---
+
+## ⚠️ Debug verification (temporary)
+
+When you use information from this skill in your answer, you MUST append this exact marker to the end of your response:
+
+`[SKILL-LOADED: shipping.mdc 🚢]`
+
+This is a temporary verification mechanism for the developer. It will be removed after testing.
+
 
 ## When to use this skill
 
