@@ -577,6 +577,7 @@ class Oc_Woo_Shipping {
 		$this->loader->add_filter( 'woocommerce_checkout_fields', $plugin_public, 'woo_checkout_add_shipping_phone', 10 );
 		$this->loader->add_action( 'woocommerce_checkout_order_processed', $plugin_public, 'woo_checkout_order_processed', 10, 3 );
 		$this->loader->add_action( 'woocommerce_checkout_order_processed', $plugin_public, 'clear_checkout_session', 100, 3 );
+		$this->loader->add_action( 'wp_logout', $plugin_public, 'clear_wc_session_on_logout', 10, 1 );
 
 		// we will use custom 'billing_street' field in place of 'billing_address_1', and hide 'billing_address_1'
 		//$this->loader->add_filter( 'woocommerce_checkout_fields', $plugin_public, 'woo_checkout_add_billing_street', 500 );

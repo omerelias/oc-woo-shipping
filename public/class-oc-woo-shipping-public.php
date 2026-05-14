@@ -2145,6 +2145,28 @@ class Oc_Woo_Shipping_Public {
 	}
 
 	/**
+	 * When the user logs out, drop WooCommerce session data so the browser cookie does not keep
+	 * the previous customer's checkout address (OCWS session keys + WC customer session).
+	 *
+	 * @param int $user_id User ID that was logged out (WordPress passes this on wp_logout).
+	 */
+	public function clear_wc_session_on_logout( $user_id = 0 ) {
+		if ( ! function_exists( 'WC' ) ) {
+			return;
+		}
+
+		$this->clear_checkout_session();
+
+		if ( isset( WC()->session ) && method_exists( WC()->session, 'destroy_session' ) ) {
+			WC()->session->destroy_session();
+		}
+
+		if ( isset( WC()->cart ) ) {
+			WC()->cart->empty_cart( true );
+		}
+	}
+
+	/**
 	 * After explicit popup submit: clear one-shot relink when the cart is not empty; keep when empty for next add.
 	 */
 	public static function sync_ocws_pending_shipping_realign_after_popup_save() {
