@@ -725,6 +725,14 @@ form.checkout span.optional {
 .delivery-data-chip .cds-min-order-notice .woocommerce-Price-amount,
 .checkout-delivery-data-chip .cds-min-order-notice .woocommerce-Price-amount {
     font-weight: 600;
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+.delivery-data-chip .cds-shipping-price,
+.checkout-delivery-data-chip .cds-shipping-price {
+    direction: ltr;
+    unicode-bidi: isolate;
 }
 .delivery-data-chip .cds-data, .checkout-delivery-data-chip .cds-data {
     display: flex;

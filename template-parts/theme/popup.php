@@ -94,10 +94,25 @@ $show_pickup_options = false;
                         </div>
                     <?php } ?>
                 <?php } else { ?>
+                    <?php
+                    $street_value    = function_exists( 'ocws_popup_get_billing_field_value' ) ? ocws_popup_get_billing_field_value( 'billing_street' ) : WC()->checkout()->get_value( 'billing_street' );
+                    $city_value      = function_exists( 'ocws_popup_get_billing_field_value' ) ? ocws_popup_get_billing_field_value( 'billing_city_name' ) : WC()->checkout()->get_value( 'billing_city_name' );
+                    $house_num_value = function_exists( 'ocws_popup_get_billing_field_value' ) ? ocws_popup_get_billing_field_value( 'billing_house_num' ) : WC()->checkout()->get_value( 'billing_house_num' );
+                    $autocomplete    = '';
+                    if ( $street_value && $city_value && $house_num_value ) {
+                        $autocomplete = $street_value . ' ' . $house_num_value . ', ' . $city_value;
+                    }
+                    $pp_city        = function_exists( 'ocws_popup_get_billing_field_value' ) ? ocws_popup_get_billing_field_value( 'billing_city' ) : WC()->checkout()->get_value( 'billing_city' );
+                    $pp_city_code   = function_exists( 'ocws_popup_get_billing_field_value' ) ? ocws_popup_get_billing_field_value( 'billing_city_code' ) : WC()->checkout()->get_value( 'billing_city_code' );
+                    $pp_city_name   = function_exists( 'ocws_popup_get_billing_field_value' ) ? ocws_popup_get_billing_field_value( 'billing_city_name' ) : WC()->checkout()->get_value( 'billing_city_name' );
+                    $pp_street      = function_exists( 'ocws_popup_get_billing_field_value' ) ? ocws_popup_get_billing_field_value( 'billing_street' ) : WC()->checkout()->get_value( 'billing_street' );
+                    $pp_house       = function_exists( 'ocws_popup_get_billing_field_value' ) ? ocws_popup_get_billing_field_value( 'billing_house_num' ) : WC()->checkout()->get_value( 'billing_house_num' );
+                    $pp_coords      = function_exists( 'ocws_popup_get_billing_field_value' ) ? ocws_popup_get_billing_field_value( 'billing_address_coords' ) : WC()->checkout()->get_value( 'billing_address_coords' );
+                    ?>
                     <div class="ocws-checkout-inputs-pp">
 
                         <input type="text" class="input-text ocws-checkout-pac-input pac-target-input"
-                               name="billing_google_autocomplete" id="billing_google_autocomplete_p" placeholder="<?php echo esc_html(__('Enter your address here', 'ocws')) ?>" value="" autocomplete="off">
+                               name="billing_google_autocomplete" id="billing_google_autocomplete_p" placeholder="<?php echo esc_html(__('Enter your address here', 'ocws')) ?>" value="<?php echo esc_attr($autocomplete) ?>" autocomplete="off">
 
                         <input type="hidden" name="billing_city" id="billing_city_pp" value="">
 
