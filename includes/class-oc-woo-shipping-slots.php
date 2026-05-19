@@ -151,7 +151,9 @@ class OC_Woo_Shipping_Slots {
             $dates = $this->schedule->get_dates();
             foreach ($dates as $date) {
                 $dt = Carbon::createFromFormat($this->date_format, $date, $this->tz);
-                if ($dt->greaterThanOrEqualTo($today)) {
+                $todayStart = $today->copy()->startOfDay();
+
+                if ($dt->greaterThanOrEqualTo($todayStart)) {
 
                     $filter_picker = $this->schedule->get_filter_picker_by_date( $date );
                     if ($filter_picker == 'before_day') {
